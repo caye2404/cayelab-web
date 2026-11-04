@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#192739"><title>Acceso privado | TODO VUELVE</title>
+<style>
+:root{color-scheme:dark;--bg:#0e1a29;--panel:#1a2b3d;--line:#586675;--gold:#d6b67b;--fg:#f7f3e9;--muted:#b8c9d5;--error:#ffb1b1}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:var(--bg);padding:22px;color:var(--fg);font:15px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+main{max-width:510px;margin:clamp(12px,7vh,70px) auto;background:var(--panel);padding:clamp(22px,4vw,38px);border:1px solid var(--line);border-radius:16px}
+small{letter-spacing:.19em;text-transform:uppercase;color:var(--gold);font-size:11px;font-weight:700}
+h1{font-size:clamp(27px,5vw,36px);line-height:1.15;letter-spacing:-.03em;margin:13px 0 12px}
+p{color:var(--muted);margin:10px 0 17px}
+label{display:block;font-weight:650;margin:17px 0 7px}
+input{display:block;width:100%;background:#0d1c2d;color:white;border:1px solid #798895;padding:13px 15px;min-height:48px;border-radius:8px;font:inherit}
+button,.link{background:var(--gold);color:#142131;font:700 15px system-ui;display:block;width:100%;min-height:49px;border:0;border-radius:9px;padding:14px 16px;margin-top:20px;text-decoration:none;text-align:center;cursor:pointer}
+button:disabled{opacity:.65;cursor:wait}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid white;outline-offset:3px}
+[hidden]{display:none!important}.status{min-height:24px;font-size:13px;color:var(--gold);margin-top:15px}.status.error{color:var(--error)}
+.note{font-size:12px;line-height:1.7;color:var(--muted);border-top:1px solid #ffffff25;padding-top:16px;margin-top:24px}
+a{color:var(--gold)}
+</style></head>
+<body><main>
+<small>TODO VUELVE · Acceso seguro</small>
+<section id="request">
+<h1>Recuperá tu acceso</h1>
+<p>No necesitás la contraseña anterior. Recibirás un correo para establecer una nueva contraseña del panel privado.</p>
+<form id="requestForm">
+<label for="email">Tu correo registrado</label><input type="email" id="email" autocomplete="email" required placeholder="tu@email.com">
+<button type="submit" id="requestButton">Enviarme el correo de recuperación</button>
+</form>
+<div id="requestMessage" class="status" role="status" aria-live="polite"></div>
+</section>
+<section id="reset" hidden>
+<h1>Creá tu nueva contraseña</h1>
+<p>Tu identidad quedó verificada mediante el enlace del correo. Esta contraseña será para el usuario del panel de TODO VUELVE.</p>
+<form id="resetForm">
+<label for="newPassword">Nueva contraseña</label><input type="password" id="newPassword" minlength="12" autocomplete="new-password" required placeholder="12 caracteres como mínimo">
+<label for="repeatPassword">Repetí la contraseña</label><input type="password" id="repeatPassword" minlength="12" autocomplete="new-password" required>
+<button type="submit" id="resetButton">Guardar y continuar</button>
+</form>
+<div id="resetMessage" class="status" role="status" aria-live="polite"></div>
+</section>
+<section id="success" hidden>
+<h1>¡Contraseña guardada!</h1>
+<p>Tu contraseña fue actualizada en Supabase. Ahora podés ingresar al panel de números.</p>
+<a class="link" href="https://caye2404.github.io/todo-vuelve/admin.html">Abrir panel de administración</a>
+<p>Usá tu correo y la contraseña que acabás de establecer.</p>
+</section>
+<div class="note">Nunca compartas por WhatsApp ni por chat los enlaces de recuperación o los códigos de acceso. Los números y los datos de participantes no se muestran aquí.</div>
+</main>
+<script>
+(()=>{"use strict";
+const base="https://kytneqghybtvkgsitkbm.supabase.co";
+const key="sb_publishable_k6IdQGtHMZxvGn_beWu8Rg_zm4CFy1R";
+const el=id=>document.getElementById(id);
+let sessionToken=null;
+function message(id,value,isError=false){const node=el(id);node.textContent=value;node.classList.toggle("error",isError)}
+const fragment=new URLSearchParams(window.location.hash.slice(1));
+if(fragment.has("access_token")&&fragment.get("type")==="recovery"){
+ sessionToken=fragment.get("access_token");
+ history.replaceState(null,"",window.location.pathname);
+ el("request").hidden=true;el("reset").hidden=false;
+}else if(fragment.has("error")){
+ const err=fragment.get("error_description")||"Este enlace venció. Solicitá uno nuevo.";
+ history.replaceState(null,"",window.location.pathname);
+ message("requestMessage",err,true);
+}else if(fragment.has("access_token")){
+ history.replaceState(null,"",window.location.pathname);
+ message("requestMessage","El enlace recibido no es de recuperación. Solicitá un correo nuevo.",true);
+}
+el("requestForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const button=el("requestButton");button.disabled=true;
+ message("requestMessage","Solicitando el correo…");
+ try{
+  const r=await fetch(base+"/auth/v1/recover",{
+   method:"POST",
+   headers:{"apikey":key,"Content-Type":"application/json"},
+   body:JSON.stringify({email:el("email").value.trim()})
+  });
+  const data=await r.json().catch(()=>({}));
+  if(!r.ok)throw Error(data.msg||data.message||data.error_description||"No se pudo solicitar el correo");
+  message("requestMessage","Si la cuenta está registrada, recibirás un correo. Revisá también la carpeta Spam.");
+ }catch(err){message("requestMessage",err.message||"No se pudo solicitar el correo.",true)}
+ finally{button.disabled=false}
+});
+el("resetForm").addEventListener("submit",async event=>{
+ event.preventDefault();
+ const password=el("newPassword").value,repeat=el("repeatPassword").value;
+ if(password!==repeat){message("resetMessage","Las contraseñas no coinciden.",true);return}
+ if(password.length<12){message("resetMessage","La contraseña debe tener al menos 12 caracteres.",true);return}
+ const button=el("resetButton");button.disabled=true;message("resetMessage","Guardando tu nueva contraseña…");
+ try{
+  if(!sessionToken)throw Error("Tu enlace expiró. Solicitá uno nuevo.");
+  const r=await fetch(base+"/auth/v1/user",{
+   method:"PUT",headers:{"apikey":key,"Content-Type":"application/json","Authorization":"Bearer "+sessionToken},
+   body:JSON.stringify({password})
+  });
+  const data=await r.json().catch(()=>({}));
+  if(!r.ok)throw Error(data.msg||data.message||data.error_description||"No se pudo actualizar la contraseña");
+  sessionToken=null;el("newPassword").value="";el("repeatPassword").value="";
+  el("reset").hidden=true;el("success").hidden=false;
+ }catch(err){message("resetMessage",err.message||"No se pudo actualizar la contraseña.",true)}
+ finally{button.disabled=false}
+});
+})();
+</script></body></html>
