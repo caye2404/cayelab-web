@@ -234,3 +234,65 @@ html,body{width:100%;max-width:100%;overflow-x:clip}
 .quick button small{font-size:12px;line-height:1.55}
 @media(max-width:900px){.quick button{min-height:124px;padding:15px}.quick .quick-icon{width:36px;height:36px;font-size:21px}.quick button b{font-size:13px}.quick button small{font-size:11px}}
 @media(max-width:560px){.quick button{min-height:0}.quick button small{font-size:12px}}
+
+
+/* Donaciones visibles y verificables — NÚCLEO DEMO */
+.donation-card{margin:19px 0 22px;padding:25px 27px;border-radius:18px;background:linear-gradient(145deg,#fafdff 0%,#e9f7fb 100%);border:1px solid #a9d5e8;box-shadow:0 12px 25px #18577d14;color:#1b3449;min-width:0}
+.donation-head{max-width:830px;margin-bottom:17px}
+.donation-eyebrow{font:900 11px/1.3 Inter,system-ui,sans-serif;letter-spacing:.11em;color:#187094}
+.donation-head h2{font-size:clamp(21px,2.4vw,29px);line-height:1.24;margin:8px 0;color:#173d57}
+.donation-head p{font-size:14px;line-height:1.73;color:#48687d;max-width:780px;margin:0}
+.donation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.donation-paypal,.donation-galicia{display:flex;align-items:center;gap:12px;width:100%;min-width:0;min-height:79px;padding:16px 18px;border-radius:13px;border:2px solid transparent;font:800 15px/1.4 Inter,system-ui,sans-serif;text-align:left;cursor:pointer;text-decoration:none;transition:filter .18s,transform .18s,box-shadow .18s}
+.donation-paypal{color:#fff;background:linear-gradient(115deg,#087bc7 0%,#00549a 100%);border-color:#63bbee;box-shadow:0 8px 23px #0469b42c}
+.donation-galicia{color:#142b20;background:linear-gradient(120deg,#c8f7a2,#abeb7a);border-color:#7ac65e;box-shadow:0 8px 23px #4c9a4821}
+.donation-paypal:hover,.donation-galicia:hover{transform:translateY(-2px);filter:brightness(1.04)}
+.donation-paypal .donation-icon,.donation-galicia .donation-icon{display:grid;place-items:center;flex-shrink:0;width:39px;height:39px;border-radius:10px;font-size:24px;font-weight:900}
+.donation-paypal .donation-icon{background:#fff;color:#006cb9;font-style:italic}
+.donation-galicia .donation-icon{background:#173e29;color:#d2ffc3}
+.donation-paypal>span:nth-child(2),.donation-galicia>span:nth-child(2){display:flex;flex-direction:column;min-width:0;gap:2px;flex:1}
+.donation-paypal strong,.donation-galicia strong{font-size:15px;line-height:1.3;letter-spacing:.005em}
+.donation-paypal small,.donation-galicia small{font-size:12px;font-weight:700;line-height:1.3;opacity:.9}
+.donation-paypal>b,.donation-galicia>b{font-size:20px;line-height:1}
+.donation-bank{margin-top:13px;background:#fff;border:1px solid #cedde6;border-radius:11px;padding:13px 17px;display:grid;grid-template-columns:1.2fr 1fr .7fr;gap:13px}
+.donation-bank>div{min-width:0}.donation-bank small{display:block;font-size:10px;letter-spacing:.08em;font-weight:900;color:#5b7587}.donation-bank strong{display:block;font-size:13px;color:#213f51;line-height:1.4;overflow-wrap:anywhere}
+.donation-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:15px;padding-top:13px;border-top:1px solid #c6dce7}
+.donation-bottom span{max-width:720px;font-size:11px;color:#5a7080;line-height:1.7}
+.donation-bottom a{font-weight:900;color:#126696;font-size:12px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.top-support{border:1px solid #a6d39a;background:#dcf7d4;color:#236337;padding:8px 12px;border-radius:100px;font-size:12px;font-weight:900;white-space:nowrap}
+.top-support:hover{background:#bff1b2}
+.support-nav{color:#c4f9ba!important;border:1px solid #497959!important;background:#203d39!important}
+.mobile-donation{padding:17px;margin-top:20px;background:#eaf5ff;border:1px solid #bbd5e6;border-radius:16px}
+.mobile-donation-heading{display:flex;flex-direction:column;gap:3px;margin-bottom:12px}
+.mobile-donation-heading strong{font-size:14px;color:#174e72;letter-spacing:.04em}
+.mobile-donation-heading small{font-size:11px;color:#60788b}
+.mobile-paypal,.mobile-galicia{display:flex;align-items:center;gap:10px;width:100%;min-height:55px;border-radius:11px;border:2px solid transparent;padding:12px;text-decoration:none;font-size:13px;line-height:1.2;letter-spacing:.01em;margin-top:9px}
+.mobile-paypal{background:linear-gradient(115deg,#067bce,#00539a);border-color:#8ed7ff;color:#fff;font-weight:900}
+.mobile-galicia{background:#c2f49b;border-color:#81c95e;color:#173b25;font-weight:900}
+.mobile-paypal b{display:grid;place-items:center;background:#fff;color:#0065b2;width:28px;height:28px;border-radius:7px;font-size:19px;font-style:italic}
+.mobile-paypal span:nth-child(2),.mobile-galicia strong{flex:1;text-align:left;font-size:13px}
+.mobile-galicia>span:first-child{display:grid;place-items:center;background:#245837;color:#e0ffd0;width:28px;height:28px;border-radius:7px;font-size:21px}
+.mobile-bank-name{padding:11px 1px 3px;color:#294e62;font-size:11px;font-weight:800;line-height:1.6;overflow-wrap:anywhere}
+.mobile-donation-note{margin:6px 0 0;font-size:11px;color:#5c7284;line-height:1.5}
+.mobile-donation-more{margin-top:12px;width:100%;border:1px solid #77b2c9;border-radius:9px;padding:10px;background:#fff;color:#17618a;text-align:center;font-size:12px;font-weight:900}
+@media(max-width:900px){
+ .top-support{font-size:11px;padding:7px 9px}
+ .donation-card{padding:20px 18px;margin:15px 0 19px}
+ .donation-head h2{font-size:24px}
+ .donation-head p{font-size:13px}
+ .donation-bank{grid-template-columns:1fr 1fr;gap:11px}
+ .donation-bank>div:last-child{grid-column:1/-1}
+}
+@media(max-width:560px){
+ .donation-grid{grid-template-columns:1fr;gap:10px}
+ .donation-paypal,.donation-galicia{min-height:70px;padding:12px 14px}
+ .donation-paypal strong,.donation-galicia strong{font-size:14px}
+ .donation-paypal .donation-icon,.donation-galicia .donation-icon{width:34px;height:34px;font-size:21px}
+ .donation-bank{grid-template-columns:1fr;gap:8px}
+ .donation-bank>div:last-child{grid-column:auto}
+ .donation-head h2{font-size:22px}
+ .topbar .crumb{display:none}
+ .top-actions{margin-left:auto}
+ .top-actions .tiny-pill{font-size:9px;padding:4px 5px}
+ .mobile-sheet-content .mobile-donation{margin-top:17px}
+}
