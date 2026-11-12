@@ -14,8 +14,8 @@
 <meta property="og:url" content="https://cayelab-web.pages.dev/nucleo-demo/">
 <link rel="canonical" href="https://cayelab-web.pages.dev/nucleo-demo/">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./styles.css?v=mobile-bottom-20261112-3">
-<script src="./app.js?v=mobile-bottom-20261112-3" defer></script>
+<link rel="stylesheet" href="./styles.css?v=demo-donaciones-20261112-1">
+<script src="./app.js?v=demo-donaciones-20261112-1" defer></script>
 <title>NÚCLEO DEMO · Plataforma administrativa interactiva</title>
 </head>
 <body>
@@ -36,6 +36,7 @@
    <button type="button" class="navbtn" data-page="caja"><span class="ico" aria-hidden="true">▢</span> Control de caja</button>
    <button type="button" class="navbtn" data-page="reportes"><span class="ico" aria-hidden="true">▥</span> Indicadores</button>
    <button type="button" class="navbtn" data-page="futuro"><span class="ico" aria-hidden="true">✳</span> Próximas funciones <i>Visión</i></button>
+   <button type="button" class="navbtn support-nav" data-page="apoyar"><span class="ico" aria-hidden="true">♥</span> Apoyar NÚCLEO</button>
   </nav>
  </div>
  <div class="sidefoot">
@@ -48,7 +49,7 @@
  <header class="topbar">
   <div class="mobile-top-brand" aria-label="NÚCLEO DEMO"><b>N.</b><strong>NÚCLEO</strong></div>
   <div class="crumb"><span>Panel /</span><span id="crumb">Inicio</span></div>
-  <div class="top-actions"><span class="tiny-pill">● Modo demostración</span><div class="userchip"><span class="avatar">D</span><span>Visitante</span></div></div>
+  <div class="top-actions"><button class="top-support" type="button" data-page="apoyar">♥ Apoyar</button><span class="tiny-pill">● Modo demostración</span><div class="userchip"><span class="avatar">D</span><span>Visitante</span></div></div>
  </header>
  <div class="content">
   <div id="view" aria-live="polite"></div>
@@ -87,7 +88,15 @@
    <button type="button" data-page="futuro"><b>✦</b><span>Asistente con IA</span><small>Futuro</small></button>
   </div>
   <button type="button" class="sheet-all-future" data-page="futuro">Ver todas las funciones planeadas <span>→</span></button>
-  <div class="sheet-links"><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">♡ Apoyar NÚCLEO</a><a href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">↗ CayeLab</a></div>
+  <section class="mobile-donation" aria-label="Colaborar con el desarrollo de NÚCLEO">
+   <div class="mobile-donation-heading"><strong>♥ APOYÁ NÚCLEO</strong><small>Para emprendedores, PyMEs y empresas</small></div>
+   <a class="mobile-paypal" href="https://paypal.me/caye2404" target="_blank" rel="noopener noreferrer"><b>P</b><span>DONAR CON PAYPAL</span><span>↗</span></a>
+   <button type="button" class="mobile-galicia" data-action="copy-alias"><span>⧉</span><strong>GALICIA · COPIAR ALIAS</strong><span>↗</span></button>
+   <div class="mobile-bank-name">Cayetano Raúl Benítez · CUIT 20-33083610-6 · Alias caye2000</div>
+   <p class="mobile-donation-note">La donación es real y voluntaria; los datos de la demo son ficticios.</p>
+   <button type="button" class="mobile-donation-more" data-page="apoyar">Ver opciones para colaborar →</button>
+  </section>
+  <div class="sheet-links"><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">♡ TODO VUELVE</a><a href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">↗ CayeLab</a></div>
  </div>
 </section>
 <nav class="mobile-tabbar" aria-label="Navegación inferior de NÚCLEO">
