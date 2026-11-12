@@ -225,6 +225,38 @@ body{font-size:17px;line-height:1.65}
 .section-services .service-icon-text{font:850 29px/1 "Manrope",sans-serif;color:#e46b32}
 @media(max-width:1100px){.section-services .service-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.section-services .service-grid{grid-template-columns:1fr}.section-services .service-card{min-height:0}.section-services .service-card>p{font-size:17px}}
+
+/* Contacto que pregunta por el problema + NÚCLEO con enlaces de apoyo visibles */
+.nucleo-quick-links{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 28px}
+.nucleo-quick-links>a{padding:13px 17px;border:1px solid #ff996b;border-radius:10px;color:#ffe0cf;font-size:15px;font-weight:800}
+.nucleo-quick-links>a:hover{background:#36251e}
+.nucleo-donate-button,.nucleo-copy-button{min-height:82px;box-shadow:0 9px 25px #00000016}
+.nucleo-donate-button{background:linear-gradient(120deg,#0085d4,#054f98);border:2px solid #7bd1ff;color:white}
+.nucleo-donate-button:hover{background:linear-gradient(120deg,#0298ed,#0061b4)}
+.nucleo-copy-button{background:#baf28c;border:2px solid #6c9a50;color:#142218}
+.nucleo-copy-button:hover{background:#d1ffb2}
+.nucleo-payment-label strong{font-size:16px}
+.nucleo-copy-button .nucleo-payment-label small{color:#263f30;opacity:1}
+.intake-section{background:#efebe4;color:#1b1e20;padding:98px 0}
+.intake-layout{display:grid;grid-template-columns:.89fr 1.11fr;align-items:start;gap:65px}
+.intake-copy .eyebrow{color:#b84d26}
+.intake-copy h2{font:850 clamp(39px,4.2vw,60px)/1.13 "Manrope",sans-serif;letter-spacing:-.055em;margin:18px 0 23px}
+.intake-copy p:not(.eyebrow){font-size:18px;line-height:1.75;color:#444a4c;margin-bottom:18px}
+.intake-copy ul{list-style:none;padding:0;margin:28px 0;display:grid;gap:11px}
+.intake-copy li{font-size:16px;color:#333a3d;border-bottom:1px solid #cfccc5;padding-bottom:11px}
+.intake-copy li:before{content:"✓";color:#bd5328;margin-right:10px;font-weight:900}
+.intake-other{font-size:16px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
+.intake-form{background:#fff;border:1px solid #c8c6c0;border-radius:18px;padding:31px;box-shadow:0 21px 48px #15151512;display:flex;flex-direction:column;gap:9px}
+.intake-form h3{font:850 25px "Manrope",sans-serif;letter-spacing:-.04em;margin:0}
+.intake-form>p{font-size:15px;color:#4c5354;margin:0 0 13px;line-height:1.65}
+.intake-form label{font-size:14px;font-weight:800;color:#262d2e;margin-top:7px}
+.intake-form input,.intake-form select,.intake-form textarea{width:100%;padding:13px 14px;border:1px solid #939d9f;border-radius:9px;background:#f9f8f5;color:#181c1e;font-size:16px;line-height:1.5}
+.intake-form input:focus,.intake-form select:focus,.intake-form textarea:focus{outline:2px solid #f68c5b;outline-offset:1px}
+.intake-form textarea{resize:vertical}
+.intake-form button{width:100%;margin-top:12px;font-size:15px}
+.intake-form .privacy-note{font-size:13px;color:#596065;margin:5px 0 0}
+@media(max-width:860px){.intake-layout{grid-template-columns:1fr;gap:32px}}
+@media(max-width:620px){.intake-section{padding:72px 0}.intake-copy h2{font-size:clamp(36px,9vw,49px)}.intake-copy p:not(.eyebrow){font-size:17px}.intake-form{padding:25px 19px}.nucleo-quick-links>a{width:100%;text-align:center}}
 </style>
   
   <script type="application/ld+json">
@@ -335,30 +367,31 @@ body{font-size:17px;line-height:1.65}
         </div>
         <div class="nucleo-intro reveal">
           <h2 id="nucleo-title">Construimos NÚCLEO.<br><em>Queremos abrirlo al mundo.</em></h2>
-          <p>Estamos creando una plataforma para que pequeños negocios y emprendedores puedan organizar proveedores, facturas, comprobantes y pagos sin perderse entre carpetas y planillas. Nace de problemas administrativos reales y crece con tecnología, automatización e inteligencia artificial.</p>
+          <p>Estoy desarrollando NÚCLEO a partir de problemas administrativos reales: proveedores, facturas, remitos, cuentas corrientes, vencimientos, pagos y documentación dispersa. Ya hay un prototipo privado con pantallas y módulos en prueba. Falta completar validaciones, conciliaciones y funciones antes de lanzarlo públicamente.</p>
           <p class="nucleo-highlight"><strong>Nuestra meta a largo plazo es publicar una versión de código abierto, documentada y accesible a una comunidad.</strong> Todavía no está lista para ese lanzamiento: primero tenemos que completar el desarrollo, separar los datos privados, probar la seguridad y preparar su infraestructura.</p>
         </div>
         <div class="nucleo-aim-grid">
           <article class="nucleo-aim reveal">
             <span class="nucleo-aim-number">01 / PRESENTE</span>
             <h3>Un prototipo real</h3>
-            <p>Ya estamos trabajando en módulos de administración, documentos, proveedores y controles. Continuamos probando y mejorando.</p>
+            <p>Ya existen vistas de proveedores, facturas, pagos, historial y controles en desarrollo, con pruebas técnicas y mejoras pendientes.</p>
           </article>
           <article class="nucleo-aim reveal">
             <span class="nucleo-aim-number">02 / PRÓXIMA ETAPA</span>
             <h3>Automatizar con criterio</h3>
-            <p>Reducir trabajo manual, detectar inconsistencias y construir una experiencia clara, segura y útil desde el celular.</p>
+            <p>Completar cuentas corrientes y pagos parciales, comprobar conciliaciones reales y mejorar la experiencia en PC y celular.</p>
           </article>
           <article class="nucleo-aim reveal">
             <span class="nucleo-aim-number">03 / VISIÓN</span>
             <h3>Una comunidad abierta</h3>
-            <p>Preparar una versión independiente y traducible, con licencia libre a definir y posibilidad de colaborar en el código.</p>
+            <p>Mi objetivo es preparar una futura versión de código abierto, con documentación y privacidad desde el diseño. Aún no hay fecha de lanzamiento.</p>
           </article>
         </div>
+<div class="nucleo-quick-links"><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">Ver avances completos en TODO VUELVE ↗</a><a href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20quiero%20aportar%20una%20idea%20para%20N%C3%9ACLEO." target="_blank" rel="noopener noreferrer">Quiero aportar una idea ↗</a></div>
         <div class="nucleo-support reveal" id="donar-nucleo">
           <div class="nucleo-support-copy">
-            <h3>Ayudanos a seguir construyendo.</h3>
-            <p>NÚCLEO necesita recursos para crecer. Cada aporte voluntario ayuda a sostener el desarrollo independiente y a acercarnos a una versión que podamos compartir con más personas.</p>
+            <h3>Ayudame a llevar NÚCLEO más lejos.</h3>
+            <p>Quiero que esta herramienta llegue a emprendedores, PyMEs y empresas. Cada donación voluntaria ayuda a sostener desarrollo, seguridad, pruebas e infraestructura para preparar una futura versión abierta.</p>
             <ul class="nucleo-use" aria-label="Destino previsto de los aportes">
               <li>Herramientas y suscripciones de desarrollo e IA.</li>
               <li>Alojamiento, base de datos y almacenamiento seguro.</li>
@@ -368,11 +401,11 @@ body{font-size:17px;line-height:1.65}
           </div>
           <div class="nucleo-support-actions" aria-label="Formas de colaborar">
             <a class="nucleo-donate-button" href="https://paypal.me/caye2404" target="_blank" rel="noopener noreferrer">
-              <span class="nucleo-payment-label"><strong>Apoyar por PayPal</strong><small>Aporte voluntario · desde el exterior o donde esté disponible</small></span>
+              <span class="nucleo-payment-label"><strong>DONAR CON PAYPAL</strong><small>Aporte voluntario · desde el exterior o donde esté disponible</small></span>
               <span class="nucleo-payment-arrow" aria-hidden="true">↗</span>
             </a>
             <button class="nucleo-copy-button" type="button" id="nucleo-copy-alias" aria-describedby="nucleo-alias-label">
-              <span class="nucleo-payment-label"><strong>Transferencia en Argentina</strong><small id="nucleo-alias-label">Banco Galicia · Alias: caye2000</small></span>
+              <span class="nucleo-payment-label"><strong>APOYAR POR TRANSFERENCIA · GALICIA</strong><small id="nucleo-alias-label">Banco Galicia · Alias: caye2000</small></span>
               <span class="nucleo-payment-arrow" aria-hidden="true">⧉</span>
             </button>
             <div class="nucleo-bank-holder"><strong>Titular: Cayetano Raúl Benítez</strong><span>CUIT: 20-33083610-6</span></div>
@@ -387,9 +420,22 @@ body{font-size:17px;line-height:1.65}
         <p class="nucleo-legal"><strong>Transparencia:</strong> los aportes son voluntarios; no son una inversión financiera, no conceden acciones, propiedad del software ni prometen ganancias o devoluciones. NÚCLEO está en desarrollo y el lanzamiento futuro como código abierto es un objetivo, no una fecha o resultado garantizado. No se publicarán documentos ni datos privados de los negocios utilizados durante las pruebas.</p>
       </div>
     </section>
-    <section class="section cta-section" id="contacto" aria-labelledby="contact-title"><div class="container cta-box"><div class="cta-bg" aria-hidden="true">✳</div><p class="eyebrow">05 / PRÓXIMOS PROYECTOS</p><h2 id="contact-title">¿Y si tu próxima<br><span>gran idea empieza acá?</span></h2><p>Contanos qué necesitás. Una web, una automatización o una solución tecnológica: podemos empezar por entender el problema.</p><div class="cta-actions"><a class="btn btn-dark" href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Escribinos por Instagram <span aria-hidden="true">↗</span></a><a class="cta-text-link" href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Encontranos en Google <span aria-hidden="true">↗</span></a></div><div class="cta-bottom"><span>CAYELAB / DISEÑAMOS OPORTUNIDADES.</span><span>ARGENTINA · SERVICIOS DIGITALES</span></div></div></section>
+    <section class="section intake-section" id="diagnostico" aria-labelledby="intake-title"><div class="container intake-layout">
+<div class="intake-copy"><p class="eyebrow orange">CONVERSACIONES QUE SE CONVIERTEN EN SOLUCIONES</p><h2 id="intake-title">¿Qué problema querés resolver en tu negocio?</h2>
+<p>Puede ser una cuenta corriente difícil de controlar, un sistema de reservas que te complica, una web que necesita mejorar o tareas administrativas que consumen horas.</p>
+<p>Explicame la situación con tus palabras. Primero evaluamos el problema y las posibilidades; después podemos definir etapas y presupuesto.</p>
+<ul><li>No necesitás saber de tecnología.</li><li>Podés consultar por un problema pequeño o un desarrollo completo.</li><li>En esta primera consulta no envíes contraseñas ni datos sensibles.</li></ul>
+<a class="intake-other" href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">También podés escribir por Instagram ↗</a></div>
+<form class="intake-form" id="intake-form"><h3>Contame qué necesitás.</h3><p>Se prepara un mensaje y se abre WhatsApp para que decidas enviarlo.</p>
+<label for="contact-name">Tu nombre *</label><input id="contact-name" autocomplete="name" maxlength="70" placeholder="¿Cómo te llamás?" required>
+<label for="contact-business">Negocio o emprendimiento</label><input id="contact-business" maxlength="90" placeholder="Opcional">
+<label for="contact-issue">¿En qué necesitás ayuda? *</label><select id="contact-issue" required>
+<option value="">Elegí una opción</option><option value="Páginas web">Páginas web y presencia digital</option><option value="Sistemas a medida">Sistemas y paneles a medida</option><option value="Reservas y turnos">Reservas y turnos</option><option value="Facturas y proveedores">Facturas y proveedores</option><option value="Pagos y cuentas corrientes">Pagos y cuentas corrientes</option><option value="Automatización">Automatización</option><option value="Informes y tableros">Informes y tableros</option><option value="Integraciones">Integraciones entre herramientas</option><option value="Soporte IT">Soporte IT</option><option value="Procesos e IA">Procesos e IA supervisada</option><option value="NÚCLEO">Conocer o aportar a NÚCLEO</option><option value="Otro">Otro problema</option></select>
+<label for="contact-detail">Contame qué pasa y qué te gustaría lograr *</label><textarea id="contact-detail" rows="5" maxlength="1800" placeholder="Por ejemplo: tenemos facturas dispersas en Drive y queremos ver lo pendiente por proveedor..." required></textarea>
+<button class="btn btn-primary" type="submit">ENVIAR CONSULTA POR WHATSAPP ↗</button><p class="privacy-note">Este formulario no almacena tus datos en esta web. Solo prepara un mensaje para WhatsApp.</p></form></div></section>
+    <section class="section cta-section" id="contacto" aria-labelledby="contact-title"><div class="container cta-box"><div class="cta-bg" aria-hidden="true">✳</div><p class="eyebrow">05 / PRÓXIMOS PROYECTOS</p><h2 id="contact-title">¿Y si encontramos<br><span>una solución concreta?</span></h2><p>Contame tu desafío. Puede ser tecnología, administración o una idea digital. Empezamos por entender qué necesitás y cómo hacerlo realidad.</p><div class="cta-actions"><a class="btn btn-dark" href="#diagnostico">Contame tu problema <span aria-hidden="true">↗</span></a><a class="cta-text-link" href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Encontranos en Google <span aria-hidden="true">↗</span></a></div><div class="cta-bottom"><span>CAYELAB / DISEÑAMOS OPORTUNIDADES.</span><span>ARGENTINA · SERVICIOS DIGITALES</span></div></div></section>
   </main>
-  <footer class="site-footer"><div class="container"><div class="footer-top"><a class="footer-brand" href="#top" aria-label="CayeLab, volver arriba">Caye<span>Lab</span><small>DISEÑAMOS OPORTUNIDADES.</small></a><div class="footer-links"><a href="#servicios">Servicios</a><a href="#soluciones">Enfoque</a><a href="#apoyar-nucleo">Apoyar NÚCLEO</a><a href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></div></div><div class="footer-line"><p>© <span id="year">2026</span> CayeLab. Todos los derechos reservados.</p><p>Diseño y tecnología con propósito. <a href="#top">Volver arriba ↑</a></p></div></div></footer>
+  <footer class="site-footer"><div class="container"><div class="footer-top"><a class="footer-brand" href="#top" aria-label="CayeLab, volver arriba">Caye<span>Lab</span><small>DISEÑAMOS OPORTUNIDADES.</small></a><div class="footer-links"><a href="#problemas">Problemas</a><a href="#servicios">Servicios</a><a href="#soluciones">Enfoque</a><a href="#diagnostico">Consulta</a><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">TODO VUELVE ↗</a><a href="https://paypal.me/caye2404" target="_blank" rel="noopener noreferrer">Donaciones PayPal ↗</a><a href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20quiero%20hacer%20una%20consulta%20sobre%20CayeLab." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#apoyar-nucleo">Apoyar NÚCLEO</a><a href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></div></div><div class="footer-line"><p>© <span id="year">2026</span> CayeLab. Todos los derechos reservados.</p><p>Diseño y tecnología con propósito. <a href="#top">Volver arriba ↑</a></p></div></div></footer>
 <script>
 (() => {
   'use strict';
@@ -465,6 +511,30 @@ body{font-size:17px;line-height:1.65}
   } else { nodes.forEach(el => el.classList.add('visible')); }
 })();
 
+</script>
+<script>
+(function(){
+ "use strict";
+ var issue=document.getElementById("contact-issue");
+ document.querySelectorAll("[data-issue]").forEach(function(el){el.addEventListener("click",function(){
+  if(issue)issue.value=el.getAttribute("data-issue");
+  var target=document.getElementById("diagnostico");
+  if(target)target.scrollIntoView({behavior:"smooth",block:"start"});
+ })});
+ var form=document.getElementById("intake-form");
+ if(!form)return;
+ form.addEventListener("submit",function(e){
+  e.preventDefault();
+  if(!form.reportValidity())return;
+  var name=document.getElementById("contact-name").value.trim();
+  var business=document.getElementById("contact-business").value.trim();
+  var type=document.getElementById("contact-issue").value;
+  var detail=document.getElementById("contact-detail").value.trim();
+  if(!name||!type||!detail)return;
+  var message="Hola Caye, escribo desde CayeLab.\n\nNombre: "+name+"\nNegocio: "+(business||"No especificado")+"\nNecesidad: "+type+"\n\nProblema y objetivo:\n"+detail+"\n\n¿Podemos conversar sobre una posible solución?";
+  window.location.href="https://wa.me/5491126830194?text="+encodeURIComponent(message);
+ });
+})();
 </script>
 </body>
 </html>
