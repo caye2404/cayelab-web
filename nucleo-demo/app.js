@@ -4,7 +4,7 @@
    No se conecta a NÚCLEO productivo, Supabase, Google Drive ni sistemas de pago. */
 (function(){
 const $=s=>document.querySelector(s);
-const navNames={inicio:"Inicio",facturas:"Facturas y pagos",proveedores:"Proveedores",cuentas:"Cuentas corrientes",tesoreria:"Tesorería",caja:"Control de caja",reportes:"Indicadores",documentos:"Documentos ficticios",futuro:"Próximas funciones"};
+const navNames={inicio:"Inicio",facturas:"Facturas y pagos",proveedores:"Proveedores",cuentas:"Cuentas corrientes",tesoreria:"Tesorería",caja:"Control de caja",reportes:"Indicadores",documentos:"Documentos ficticios",futuro:"Próximas funciones",apoyar:"Apoyar NÚCLEO"};
 const sampleSuppliers=[
  {id:"S01",name:"Patagonia Mayorista",category:"Almacén y secos",city:"Villa del Lago",contact:"Compras"},
  {id:"S02",name:"Frutihue Distribuciones",category:"Frutas y verduras",city:"Lago Azul",contact:"Logística"},
@@ -86,6 +86,39 @@ function navUpdate(){
  const more=$("#mobile-more");if(more)more.classList.toggle("section-active",!["inicio","facturas","documentos"].includes(active));
 }
 
+
+const donationLinks={paypal:"https://paypal.me/caye2404",project:"https://caye2404.github.io/todo-vuelve/"};
+/* IMPORTANTE: sólo la donación es real; todos los movimientos del panel siguen siendo simulados. */
+function donationCard(compact=false){
+ return '<section class="donation-card" id="apoyar-proyecto" aria-label="Apoyar el desarrollo de NÚCLEO">'+
+ '<div class="donation-head"><span class="donation-eyebrow">♥ AYUDANOS A CREAR NÚCLEO</span><h2>Un proyecto para emprendedores, PyMEs y empresas.</h2>'+
+ '<p>Estoy construyendo una herramienta para ordenar proveedores, documentos, pagos y procesos de negocios reales. Si querés impulsar su desarrollo, podés colaborar de forma voluntaria.</p></div>'+
+ '<div class="donation-grid"><a class="donation-paypal" href="'+donationLinks.paypal+'" target="_blank" rel="noopener noreferrer" aria-label="Realizar una donación voluntaria por PayPal">'+
+ '<span class="donation-icon">P</span><span><strong>DONAR CON PAYPAL</strong><small>Apoyá el desarrollo ↗</small></span><b aria-hidden="true">↗</b></a>'+
+ '<button type="button" class="donation-galicia" data-action="copy-alias" aria-label="Copiar alias de Galicia para apoyar NÚCLEO">'+
+ '<span class="donation-icon">⧉</span><span><strong>TRANSFERENCIA GALICIA</strong><small>Copiar alias: caye2000</small></span><b aria-hidden="true">↗</b></button></div>'+
+ '<div class="donation-bank"><div><small>TITULAR</small><strong>Cayetano Raúl Benítez</strong></div><div><small>CUIT</small><strong>20-33083610-6</strong></div><div><small>ALIAS GALICIA</small><strong>caye2000</strong></div></div>'+
+ '<div class="donation-bottom"><span>Las donaciones son reales, opcionales y externas a esta demo. Las facturas, pagos y demás operaciones mostradas son 100% ficticias.</span>'+
+ '<a href="'+donationLinks.project+'" target="_blank" rel="noopener noreferrer">Conocer TODO VUELVE ↗</a></div></section>';
+}
+function viewFunding(){
+ return head("Apoyá NÚCLEO","Si te gustaría que esta herramienta llegue a más negocios, podés colaborar con el desarrollo o enviar ideas para hacerla mejor.")+
+ '<div class="alert blue"><strong>Transparencia:</strong> esta página solo muestra operaciones ficticias del software; las donaciones desde PayPal o Galicia son voluntarias y reales.</div>'+
+ donationCard()+
+ panel("También podés aportar sin donar","Tu experiencia puede orientar el proyecto",'<div class="panel-body"><p>Contame qué problema administrativo necesitás resolver, cuál es tu rubro o qué función debería desarrollar primero.</p><div class="actions"><a class="btn primary" href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20prob%C3%A9%20N%C3%9ACLEO%20DEMO%20y%20quiero%20aportar%20una%20idea." target="_blank" rel="noopener noreferrer">Enviar mi idea ↗</a><a class="btn" href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">Conocer CayeLab ↗</a></div></div>');
+}
+async function copyDonationAlias(){
+ const alias="caye2000";let copied=false;
+ try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(alias);copied=true}}catch(e){}
+ if(!copied){
+  const input=document.createElement("textarea");input.value=alias;input.setAttribute("readonly","");input.style.position="fixed";input.style.left="-9999px";document.body.appendChild(input);input.select();
+  try{copied=document.execCommand("copy")}catch(e){}
+  input.remove();
+ }
+ if(copied)toast("Alias Galicia copiado: caye2000");
+ else toast("Copiá manualmente el alias: caye2000");
+}
+
 function viewHome(){
  const due=sum(invoices,balance),pending=invoices.filter(x=>balance(x)>0).length,partial=invoices.filter(x=>statusOf(x)==="partial").length;
  const intro='<div class="alert blue"><strong>Estás recorriendo una simulación pública.</strong> TODOS los proveedores, comercios, remitos, facturas, importes, fechas, pagos y movimientos son INVENTADOS. No se modifica ningún sistema real. Las funciones pendientes se identifican como futuras.</div>';
@@ -103,7 +136,7 @@ function viewHome(){
  const quick='<div class="quick">'+[['Ver facturas','Revisá saldos, registrá pagos ficticios y agregá una factura.','facturas'],['Abrir remitos de muestra','Consultá documentos inventados imprimibles, sin Drive privado.','documentos'],['Cuentas corrientes','Explorá movimientos y saldos por proveedor.','cuentas'],['Proyectar el futuro','Conocé funciones que todavía están planificadas.','futuro']].map((x,i)=>'<button type="button" data-goto="'+x[2]+'"><span class="quick-icon" aria-hidden="true">'+["▤","▧","≋","✦"][i]+'</span><b>'+x[0]+' →</b><small>'+x[1]+'</small></button>').join("")+'</div>';
  const alerts='<div class="list">'+invoices.filter(x=>balance(x)>0).slice(0,4).map(x=>'<div class="listrow"><div><strong>'+esc(nameOf(x.supplier))+'</strong><small>'+esc(x.number)+' · '+esc(x.due)+'</small></div><span class="detail">'+money(balance(x))+'</span></div>').join("")+'</div>';
  const steps='<div class="steps">'+[['1','Ingresá a Facturas','Buscá una factura y simulá un pago total o parcial.'],['2','Revisá Cuentas corrientes','Mirá cómo cambian los saldos por proveedor.'],['3','Abrí un documento ficticio','Entrá a Documentos ficticios y abrí una recepción inventada.'],['4','Probá un alta','Agregá una factura inventada y consultá el panel de Inicio.']].map(x=>'<div class="step"><span class="step-num">'+x[0]+'</span><div><strong>'+x[1]+'</strong><p>'+x[2]+'</p></div></div>').join("")+'</div>';
- return head("Bienvenido a NÚCLEO","Un recorrido interactivo por una herramienta administrativa pensada para negocios, PyMEs y emprendedores.",button("↺ Reiniciar demostración","reset"))+intro+visual+summary+panel("Probá las funciones","Hacé clic y experimentá, sin registros reales.",'<div class="panel-body">'+quick+'</div>')+'<div class="split">'+panel("Obligaciones con saldo","Ejemplo de prioridades de trabajo",alerts)+panel("Cómo recorrer la demo","Cuatro pasos para conocer la experiencia",'<div class="panel-body">'+steps+'</div>')+'</div>'+panel("Actividad simulada","Los cambios que hagas quedan visibles durante esta visita",'<div class="panel-body">'+activity()+'</div>');
+ return head("Bienvenido a NÚCLEO","Un recorrido interactivo por una herramienta administrativa pensada para negocios, PyMEs y emprendedores.",button("↺ Reiniciar demostración","reset"))+intro+visual+donationCard()+summary+panel("Probá las funciones","Hacé clic y experimentá, sin registros reales.",'<div class="panel-body">'+quick+'</div>')+'<div class="split">'+panel("Obligaciones con saldo","Ejemplo de prioridades de trabajo",alerts)+panel("Cómo recorrer la demo","Cuatro pasos para conocer la experiencia",'<div class="panel-body">'+steps+'</div>')+'</div>'+panel("Actividad simulada","Los cambios que hagas quedan visibles durante esta visita",'<div class="panel-body">'+activity()+'</div>');
 }
 function invoiceRows(rows,compact=false){return rows.map(x=>'<tr><td><strong>'+esc(nameOf(x.supplier))+'</strong><div class="note">'+esc(x.number)+'</div></td><td>'+esc(x.date)+'</td><td>'+esc(x.due)+'</td><td>'+badgeInvoice(x)+'</td><td class="numeric"><strong>'+money(balance(x))+'</strong><div class="note">Total '+money(x.amount)+'</div></td><td><div class="toolbar">'+button("Ver","invoice-detail",x.id)+(!compact&&balance(x)>0?button("Simular pago","pay",x.id,"primary"):"")+'</div></td></tr>').join("")}
 function viewInvoices(){
@@ -179,7 +212,7 @@ function viewDocuments(){
  +'<div class="alert blue"><strong>Funciones en desarrollo o futuras:</strong> vincular archivos reales de cada empresa con sus permisos, firmar recepciones, validar documentos y conciliar saldos. Nada de eso se ejecuta sobre Drive o bases reales desde esta demo.</div>';
 }
 
-const views={inicio:viewHome,facturas:viewInvoices,proveedores:viewSuppliers,cuentas:viewAccounts,tesoreria:viewTreasury,caja:viewCash,reportes:viewReports,documentos:viewDocuments,futuro:viewFuture};
+const views={inicio:viewHome,facturas:viewInvoices,proveedores:viewSuppliers,cuentas:viewAccounts,tesoreria:viewTreasury,caja:viewCash,reportes:viewReports,documentos:viewDocuments,futuro:viewFuture,apoyar:viewFunding};
 function render(){navUpdate();root.innerHTML=views[active]();}
 function openModal(title,html){modalTitle.textContent=title;modalBody.innerHTML=html;modal.classList.add("open");modal.setAttribute("aria-hidden","false");$("#modal-close").focus();}
 function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");modalBody.innerHTML="";}
@@ -231,6 +264,7 @@ document.addEventListener("click",e=>{
  const action=el.dataset.action,id=el.dataset.id;
  if(action==="goto"){go(id);return}
  if(action==="close"){closeModal();return}
+ if(action==="copy-alias"){copyDonationAlias();return}
  if(action==="invoice-detail"){invoiceDetail(id);return}
  if(action==="supplier-detail"){supplierDetail(id);return}
  if(action==="pay"){paymentForm(id);return}
