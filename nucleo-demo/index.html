@@ -14,8 +14,8 @@
 <meta property="og:url" content="https://cayelab-web.pages.dev/nucleo-demo/">
 <link rel="canonical" href="https://cayelab-web.pages.dev/nucleo-demo/">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="./styles.css">
-<script src="./app.js" defer></script>
+<link rel="stylesheet" href="./styles.css?v=mobile-bottom-20261112-2">
+<script src="./app.js?v=mobile-bottom-20261112-2" defer></script>
 <title>NÚCLEO DEMO · Plataforma administrativa interactiva</title>
 </head>
 <body>
@@ -46,7 +46,7 @@
 </aside>
 <main class="main" id="main">
  <header class="topbar">
-  <button type="button" class="mobile-open" id="menu-toggle" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false">☰</button>
+  <div class="mobile-top-brand" aria-label="NÚCLEO DEMO"><b>N.</b><strong>NÚCLEO</strong></div>
   <div class="crumb"><span>Panel /</span><span id="crumb">Inicio</span></div>
   <div class="top-actions"><span class="tiny-pill">● Modo demostración</span><div class="userchip"><span class="avatar">D</span><span>Visitante</span></div></div>
  </header>
@@ -56,6 +56,46 @@
  </div>
 </main>
 </div>
+<!-- Navegación inferior: solo teléfonos y tabletas compactas -->
+<div class="mobile-sheet-backdrop" id="mobile-sheet-backdrop" hidden></div>
+<section class="mobile-module-sheet" id="mobile-module-sheet" role="dialog" aria-modal="true" aria-labelledby="mobile-sheet-title" hidden>
+ <header class="mobile-sheet-heading">
+  <div><span class="sheet-eyebrow">EXPLORÁ TODO EL POTENCIAL</span><h2 id="mobile-sheet-title">Módulos de NÚCLEO <span>DEMO</span></h2></div>
+  <button type="button" class="sheet-close" id="mobile-sheet-close" aria-label="Cerrar menú de módulos">×</button>
+ </header>
+ <div class="mobile-sheet-content">
+  <p class="sheet-description">Recorré lo que se puede probar y conocé lo que queremos incorporar. <strong>Todo es ficticio.</strong></p>
+  <div class="sheet-section-title"><span>●</span> MÓDULOS PARA PROBAR <small>Datos de muestra</small></div>
+  <div class="sheet-modules">
+   <button type="button" data-page="inicio"><span class="sheet-icon">⌂</span><span><strong>Inicio</strong><small>Panel general</small></span><b>↗</b></button>
+   <button type="button" data-page="facturas"><span class="sheet-icon">▤</span><span><strong>Facturas y pagos</strong><small>Simulá pagos y saldos</small></span><b>↗</b></button>
+   <button type="button" data-page="documentos"><span class="sheet-icon">▧</span><span><strong>Remitos y recibí</strong><small>Abrí documentos ficticios</small></span><b>↗</b></button>
+   <button type="button" data-page="proveedores"><span class="sheet-icon">◫</span><span><strong>Proveedores</strong><small>Expedientes de ejemplo</small></span><b>↗</b></button>
+   <button type="button" data-page="cuentas"><span class="sheet-icon">≋</span><span><strong>Cuentas corrientes</strong><small>Movimientos y saldos</small></span><b>↗</b></button>
+   <button type="button" data-page="tesoreria"><span class="sheet-icon">▣</span><span><strong>Tesorería</strong><small>Vouchers y proyecciones</small></span><b>↗</b></button>
+   <button type="button" data-page="caja"><span class="sheet-icon">▢</span><span><strong>Control de caja</strong><small>Ingresos y egresos ficticios</small></span><b>↗</b></button>
+   <button type="button" data-page="reportes"><span class="sheet-icon">▥</span><span><strong>Reportes e indicadores</strong><small>Gráficos de muestra</small></span><b>↗</b></button>
+  </div>
+  <div class="sheet-section-title future-section"><span>✳</span> FUNCIONES PARA EL FUTURO <small>Proyectadas</small></div>
+  <p class="future-note">Estas funciones <strong>no están disponibles en la demo</strong>. Algunas están en investigación, otras en pruebas privadas y otras son ideas para próximas versiones.</p>
+  <div class="sheet-future-grid">
+   <button type="button" data-page="futuro"><b>◈</b><span>Stock y vencimientos</span><small>Futuro</small></button>
+   <button type="button" data-page="futuro"><b>⧉</b><span>Compras y pedidos</span><small>Futuro</small></button>
+   <button type="button" data-page="futuro"><b>≋</b><span>Conciliación bancaria</span><small>Futuro</small></button>
+   <button type="button" data-page="futuro"><b>◷</b><span>Cierres FUDO</span><small>Futuro</small></button>
+   <button type="button" data-page="futuro"><b>♙</b><span>Nómina y adelantos</span><small>Futuro</small></button>
+   <button type="button" data-page="futuro"><b>✦</b><span>Asistente con IA</span><small>Futuro</small></button>
+  </div>
+  <button type="button" class="sheet-all-future" data-page="futuro">Ver todas las funciones planeadas <span>→</span></button>
+  <div class="sheet-links"><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">♡ Apoyar NÚCLEO</a><a href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">↗ CayeLab</a></div>
+ </div>
+</section>
+<nav class="mobile-tabbar" aria-label="Navegación inferior de NÚCLEO">
+ <button type="button" data-page="inicio"><span class="tab-icon" aria-hidden="true">⌂</span><span>Inicio</span></button>
+ <button type="button" data-page="facturas"><span class="tab-icon" aria-hidden="true">▤</span><span>Pagos</span></button>
+ <button type="button" data-page="documentos"><span class="tab-icon" aria-hidden="true">▧</span><span>Remitos</span></button>
+ <button type="button" id="mobile-more" class="tab-more" aria-haspopup="dialog" aria-controls="mobile-module-sheet" aria-expanded="false"><span class="tab-plus" aria-hidden="true">+</span><span>Más</span></button>
+</nav>
 <div class="modal-bg" id="modal" role="presentation" aria-hidden="true">
  <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
   <div class="modal-head"><h2 id="modal-title">Acción de demostración</h2><button type="button" class="close" id="modal-close" aria-label="Cerrar ventana">×</button></div>
