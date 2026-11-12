@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#101010">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <meta name="description" content="CayeLab crea sitios web, automatizaciones y soluciones tecnológicas para gastronomía, comercios y profesionales. Diseño con estrategia, tecnología que resuelve.">
+  <meta name="description" content="CayeLab crea páginas web, sistemas de reservas, paneles de gestión, automatizaciones, controles administrativos y soporte IT para emprendedores, PyMEs y empresas. Conocé NÚCLEO y consultá por tu negocio.">
   <meta name="robots" content="index,follow">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
   <meta property="og:title" content="CayeLab — Diseño, tecnología y soluciones para negocios">
-  <meta property="og:description" content="Sitios web, automatizaciones y soporte IT. No es solo diseño. Es estrategia.">
+  <meta property="og:description" content="¿Qué problema tiene tu negocio? Web, reservas, proveedores, pagos, automatizaciones, soporte IT y soluciones a medida desde CayeLab.">
   <meta property="og:image" content="https://caye2404.github.io/cayelab-web/assets/compartir.svg">
   <meta name="color-scheme" content="dark">
-  <title>CayeLab — Diseño web, automatizaciones y soluciones IT</title>
+  <title>CayeLab — Soluciones digitales, administración, reservas y soporte IT</title>
   
   <style>
 :root{--bg:#101112;--surface:#1a1b1e;--surface2:#202125;--line:rgba(255,255,255,.12);--text:#f7f5f0;--soft:#adb0b5;--muted:#8d9199;--orange:#ff7c40;--light:#ebe7df;--ink:#17181a;--radius:20px;--max:1240px;scroll-behavior:smooth}
@@ -184,6 +184,35 @@ body{font-size:17px;line-height:1.65}
 .nucleo-bank-holder strong{font-size:15px;line-height:1.5;font-weight:800}
 .nucleo-bank-holder span{font-size:14px;line-height:1.5}
 
+
+/* Nueva narrativa CayeLab: retos de negocio y apoyo al proyecto */
+.hero-description{font-size:19px;line-height:1.75;color:#e2e5e9;max-width:610px}
+.hero h1{letter-spacing:-.057em}
+.sector-content>div{gap:12px}.sector-content>div span{font-size:12px}
+.pain-section{background:#f5f1e9;color:#17191a;padding:98px 0}
+.pain-section .eyebrow{color:#b65129}
+.pain-section h2{font:850 clamp(37px,4.7vw,65px)/1.1 "Manrope",sans-serif;letter-spacing:-.06em;max-width:900px;margin:18px 0}
+.pain-intro{font-size:19px;line-height:1.76;color:#414749;max-width:820px;margin:0 0 31px}
+.pain-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.pain-card{border:1px solid #d4d1ca;background:#fff;color:#202325;border-radius:15px;padding:27px;text-align:left;display:flex;flex-direction:column;align-items:start;gap:13px;min-height:242px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.pain-card:hover{transform:translateY(-3px);border-color:#ec7b40;box-shadow:0 12px 25px #17171715}
+.pain-card>span{font:850 12px "Manrope",sans-serif;letter-spacing:.13em;color:#b75129}
+.pain-card strong{font:800 20px/1.35 "Manrope",sans-serif;letter-spacing:-.04em}
+.pain-card small{font-size:16px;line-height:1.65;color:#485154}
+.pain-card b{font-size:13px;color:#ad481e;margin-top:auto;padding-top:4px}
+.pain-bottom{margin-top:20px;padding:22px 26px;border-radius:15px;background:#24272b;color:white;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.pain-bottom strong{font-size:18px}
+.campaign-strip{padding:36px 0;background:#31232a;color:white;border-block:1px solid #a65b42}
+.campaign-inner{display:flex;align-items:center;justify-content:space-between;gap:35px}
+.campaign-inner>div:first-child{max-width:720px}
+.campaign-inner span{display:block;font:850 12px "Manrope",sans-serif;letter-spacing:.13em;color:#ffb887;margin-bottom:10px}
+.campaign-inner strong{font:850 clamp(21px,2.4vw,30px)/1.3 "Manrope",sans-serif;letter-spacing:-.04em}
+.campaign-inner p{color:#e8dde1;font-size:16px;margin:9px 0 0}
+.campaign-actions{display:flex;flex-direction:column;align-items:center;gap:10px;flex-shrink:0}
+.campaign-actions>a:last-child{color:#ffc5a7;font-size:15px;font-weight:800;text-decoration:underline}
+@media(max-width:900px){.pain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.campaign-inner{flex-direction:column;align-items:start}.campaign-actions{align-items:start}}
+@media(max-width:620px){.hero h1{font-size:clamp(43px,10.5vw,65px);letter-spacing:-.045em}.hero-description{font-size:18px}.pain-section{padding:72px 0}.pain-section h2{font-size:clamp(35px,9vw,48px)}.pain-intro{font-size:17px}.pain-grid{grid-template-columns:1fr}.pain-card{min-height:0;padding:24px}.pain-card small{font-size:16px}.pain-bottom{flex-direction:column;align-items:stretch}.pain-bottom strong{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.pain-card{transition:none}}
 </style>
   
   <script type="application/ld+json">
@@ -200,7 +229,7 @@ body{font-size:17px;line-height:1.65}
         <span class="brand-type">Caye<span>Lab</span><small>ESTUDIO DIGITAL</small></span>
       </a>
       <nav id="menu" class="main-nav" aria-label="Navegación principal">
-        <a href="#servicios">Servicios</a>
+        <a href="#problemas">Tu problema</a><a href="#servicios">Servicios</a>
         <a href="#soluciones">Soluciones</a>
         <a href="#nosotros">Quiénes somos</a>
         <a href="#opiniones">Opiniones</a>
@@ -218,12 +247,12 @@ body{font-size:17px;line-height:1.65}
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow"><span class="signal" aria-hidden="true"></span> CREATIVIDAD + TECNOLOGÍA + ESTRATEGIA</p>
-          <h1 id="hero-title">Ideas que<br><em>funcionan.</em><br>Negocios que<br><span class="outline-text">avanzan.</span></h1>
-          <p class="hero-description">Creamos experiencias digitales y soluciones tecnológicas para que tu negocio se vea mejor, trabaje mejor y tenga más oportunidades de crecer.</p>
+          <h1 id="hero-title">Problemas reales.<br><em>Soluciones que</em><br><span class="outline-text">funcionan.</span></h1>
+          <p class="hero-description">Soy Caye. Desarrollo webs, reservas, sistemas administrativos, automatizaciones y soporte IT para emprendedores, PyMEs y empresas. Primero entiendo qué te está frenando; después diseño una solución que sirva en el trabajo real.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Contanos tu proyecto <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-primary" href="#diagnostico">Contame qué problema tenés <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="#servicios">Explorar servicios <span aria-hidden="true">↓</span></a>
-            <a class="btn btn-ghost" href="#apoyar-nucleo">Conocé NÚCLEO <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-ghost" href="#apoyar-nucleo">Apoyá NÚCLEO <span aria-hidden="true">↗</span></a>
           </div>
           <div class="hero-foot">
             <a href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer" class="rating-link" aria-label="Ver 3 opiniones en Google, puntuación 5 de 5">
@@ -257,7 +286,14 @@ body{font-size:17px;line-height:1.65}
       </div>
       <div class="hero-bottom container"><span>01 / CONSTRUIMOS CON PROPÓSITO</span><a href="#servicios">SCROLL PARA DESCUBRIR <span aria-hidden="true">↓</span></a></div>
     </section>
-    <div class="sectors" aria-label="Rubros a los que dirigimos nuestros servicios"><div class="container sector-content"><span>PARA NEGOCIOS QUE QUIEREN AVANZAR</span><div><span>GASTRONOMÍA</span><i>✳</i><span>COMERCIOS</span><i>✳</i><span>PROFESIONALES</span><i>✳</i><span>SERVICIOS</span></div></div></div>
+    <div class="sectors" aria-label="Rubros a los que dirigimos nuestros servicios"><div class="container sector-content"><span>PARA NEGOCIOS QUE QUIEREN AVANZAR</span><div><span>EMPRENDEDORES</span><i>✳</i><span>PyMEs</span><i>✳</i><span>GASTRONOMÍA</span><i>✳</i><span>COMERCIOS</span><i>✳</i><span>EMPRESAS</span></div></div></div>
+    <section class="section pain-section" id="problemas">
+<div class="container"><p class="eyebrow orange">EMPECEMOS POR TU REALIDAD</p><h2>¿Qué problema tiene tu negocio hoy?</h2>
+<p class="pain-intro">No necesitás saber qué software querés. Contame qué falla, qué te quita tiempo y qué resultado te gustaría conseguir. Hablemos de soluciones, no de tecnología innecesaria.</p>
+<div class="pain-grid"><button class="pain-card" type="button" data-issue="Facturas y proveedores"><span>01 / DESAFÍO</span><strong>¿Se te pierden facturas y remitos?</strong><small>Documentos dispersos y horas buscando el comprobante que necesitás.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Reservas y turnos"><span>02 / DESAFÍO</span><strong>¿Las reservas son un caos?</strong><small>Llamadas, WhatsApp, cupos y cambios difíciles de coordinar.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Pagos y cuentas corrientes"><span>03 / DESAFÍO</span><strong>¿No tenés claros los pagos y saldos?</strong><small>Vencimientos, anticipos y proveedores sin un seguimiento confiable.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Automatización"><span>04 / DESAFÍO</span><strong>¿Repetís tareas todos los días?</strong><small>Copiar datos, revisar planillas y hacer controles manuales una y otra vez.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Páginas web"><span>05 / DESAFÍO</span><strong>¿Tu negocio no se muestra bien online?</strong><small>Una web que no funciona en celular o clientes que no encuentran información.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Soporte IT"><span>06 / DESAFÍO</span><strong>¿La tecnología frena tu operación?</strong><small>Problemas de impresoras, equipos, red y sistemas que retrasan el trabajo.</small><b>Quiero resolver esto ↗</b></button></div>
+<div class="pain-bottom"><strong>¿Tu problema es otro? También podemos analizarlo.</strong><a href="#diagnostico" class="btn btn-dark">Contame tu situación ↗</a></div>
+</div></section>
+<section class="campaign-strip"><div class="container campaign-inner"><div><span>NÚCLEO / PROYECTO EN DESARROLLO</span><strong>Un software de gestión que quiero llevar a emprendedores, PyMEs y empresas.</strong><p>Conocé los avances, sumá tus ideas o apoyá una futura versión de código abierto.</p></div><div class="campaign-actions"><a class="btn btn-primary" href="#apoyar-nucleo">Apoyá NÚCLEO ↗</a><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">Conocer TODO VUELVE ↗</a></div></div></section>
     <section class="section section-services" id="servicios" aria-labelledby="services-title">
       <div class="container">
         <div class="section-heading reveal"><p class="eyebrow orange">01 / LO QUE HACEMOS</p><div class="heading-grid"><h2 id="services-title">Soluciones reales.<br><span>Sin vueltas.</span></h2><p>Unimos diseño, tecnología y experiencia operativa para resolver necesidades concretas. Cada servicio parte de entender cómo funciona tu negocio.</p></div></div>
