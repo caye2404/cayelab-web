@@ -32,3 +32,19 @@
 @media(max-width:800px){.shell{display:block}.sidebar{position:fixed;z-index:90;top:40px;bottom:0;left:0;transform:translateX(-105%);transition:transform .23s;width:min(300px,87vw);height:calc(100vh - 40px);box-shadow:0 22px 55px #0009}.sidebar.open{transform:none}.mobile-open{display:grid;place-items:center;border:1px solid #bfd2e0;border-radius:9px;background:#f4f9ff;color:#1a4b6f;width:41px;height:41px;font-size:19px}.topbar{height:70px;padding:0 18px}.content{padding:21px 16px}.userchip span:last-child{display:none}.split.equal{grid-template-columns:1fr}.quick{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr}.chart-bars{gap:7px}.chart-bar small{font-size:9px}.demo-banner{font-size:11px;gap:6px}.footer{margin-top:26px}}
 @media(max-width:500px){.stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.stat{padding:15px}.stat strong{font-size:20px}.stat small{font-size:11px}.pagehead{align-items:start}.pagehead h1{font-size:29px}.panel-header,.panel-body{padding:16px}.searchline{padding:14px}.userchip{display:none}.tiny-pill{font-size:10px}.btn{padding:10px 12px}.listrow{align-items:start;flex-direction:column}.modal-head,.modal-body{padding:18px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sidebar,.toast{transition:none}}
+
+
+/* Biblioteca de remitos y constancias — Solo documentos ficticios */
+.docs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.doc-card{border:1px solid #cbdfe9;border-radius:13px;padding:20px;background:#f8fbff}
+.doc-card h3{font-size:18px;margin:13px 0 9px;color:#213b52}
+.doc-card p{margin:8px 0;color:#465d70;font-size:13px}
+.doc-card strong{color:#173e5c}
+.doc-card .doc-link{display:inline-flex;margin-top:10px;background:#175e96;border-color:#175e96;color:#fff;font-weight:850}
+.doc-card .doc-link:hover{background:#0d4775}
+.doc-linked{border:1px solid #bed3e3;background:#f2f9fd;padding:16px;border-radius:11px;margin-top:17px}
+.doc-linked>strong{display:block;font-size:14px;color:#153e5e}
+.doc-linked>p{font-size:12px;color:#536c7d;margin:7px 0 12px}
+.doc-linked .btn{margin:3px 6px 3px 0;background:#165e95;color:#fff;border-color:#165e95;font-size:12px}
+.doc-linked .btn:hover{background:#0f4d7d}
+@media(max-width:700px){.docs-grid{grid-template-columns:1fr}}
