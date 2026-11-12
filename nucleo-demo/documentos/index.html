@@ -35,6 +35,40 @@ h2{font-size:16px;letter-spacing:-.015em;margin:24px 0 10px}
 @media(max-width:640px){.paper{padding:25px 17px;min-height:0}.paperhead{flex-direction:column;gap:10px}.paperhead .right{text-align:left}.details{grid-template-columns:1fr}h1{font-size:22px}.watermark{font-size:41px}.sign{gap:13px}.actions{justify-content:center}}
 @page{size:A4;margin:12mm}
 @media print{body{background:white}.notice,.actions{display:none}.paper{box-shadow:none;border:0;width:100%;min-height:0;margin:0;padding:0}.watermark{color:#b538381c}.details{break-inside:avoid}table{break-inside:avoid}.disclaimer{break-inside:avoid}}
+
+@media(max-width:700px){
+ html,body{max-width:100%;overflow-x:clip}
+ .actions{align-items:stretch;flex-direction:column;gap:10px}
+ .actions a,.actions button,.actions select{min-height:44px}
+ .actions a,.actions button{width:100%;text-align:center}
+ .paper{width:calc(100% - 20px);margin:12px auto 35px;padding:22px 15px;overflow:visible}
+ .paperhead{padding-bottom:14px}
+ .details{padding:12px;gap:9px}
+ .details b{font-size:14px;overflow-wrap:anywhere}
+ h1{font-size:21px}
+ .tablewrap{overflow:visible!important;max-width:100%}
+ table{display:block;min-width:0!important;width:100%}
+ table thead{display:none}
+ table tbody{display:grid;gap:10px}
+ table tbody tr{display:block;border:1px solid #cbdde8;border-radius:11px;background:#f7fbfe;padding:9px 11px;box-shadow:0 3px 9px #0f33510b}
+ table tbody td{display:block;position:relative;width:100%;max-width:100%;min-height:34px;word-break:break-word;overflow-wrap:anywhere;padding:9px 4px 9px 41%;border-bottom:1px solid #e0eaf1;font-size:13px}
+ table tbody td:last-child{border-bottom:0}
+ table tbody td:before{content:attr(data-label);position:absolute;left:4px;top:10px;max-width:37%;color:#53718a;text-transform:uppercase;font-size:10px;font-weight:900;line-height:1.3}
+ .receipt{padding:15px}
+ .sign{grid-template-columns:1fr;gap:22px}
+ .disclaimer{padding:13px;font-size:12px}
+}
+@media print{
+ .tablewrap{overflow:visible}
+ table{display:table;min-width:0;width:100%}
+ thead{display:table-header-group}
+ tbody{display:table-row-group}
+ tbody tr{display:table-row;padding:0;border:0;background:transparent}
+ tbody td{display:table-cell;position:static;padding:9px 6px;font-size:12px}
+ tbody td:before{display:none}
+ .paper{width:100%;padding:0}
+}
+
 </style>
 </head>
 <body>
@@ -79,7 +113,7 @@ const $=id=>document.getElementById(id),encode=x=>String(x).replace(/[&<>"']/g,c
 function render(key){
  const d=docs[key]||docs["rem-0001"];const selected=docs[key]?key:"rem-0001";
  $("top-label").textContent=d.type;$("doc-title").textContent=d.type+" · "+d.number;$("number").textContent=d.number;$("date").textContent=d.date;$("supplier").textContent=d.supplier;$("associated").textContent=d.associated;$("receiver").textContent=d.receiver;$("observations").textContent=d.obs;$("status").textContent=d.status;$("state").textContent=d.status;
- $("lines").innerHTML=d.lines.map(l=>"<tr>"+l.map(x=>"<td>"+encode(x)+"</td>").join("")+"</tr>").join("");
+ $("lines").innerHTML=d.lines.map(l=>"<tr>"+l.map((x,i)=>"<td data-label=\""+["Descripción","Unidad","Solicitado","Recibido"][i]+"\">"+encode(x)+"</td>").join("")+"</tr>").join("");
  $("choose").value=selected;document.title="NÚCLEO DEMO · "+d.number+" · DOCUMENTO FICTICIO";
 }
 function setDoc(id){const key=docs[id]?id:"rem-0001";history.replaceState(null,"","?doc="+encodeURIComponent(key));render(key)}
