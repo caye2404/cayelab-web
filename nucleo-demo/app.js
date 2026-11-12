@@ -182,7 +182,7 @@ document.addEventListener("submit",e=>{
  }
 });
 document.addEventListener("input",e=>{if(e.target.id==="invoice-search"){searchText=e.target.value;const parent=e.target.closest(".panel");if(parent){const tbody=parent.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=invoiceRows(filtered)}}}});
-document.addEventListener("change",e=>{if(e.target.id==="invoice-status"){filterStatus=e.target.value;const panelElement=e.target.closest(".panel"),tbody=panelElement?.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=invoiceRows(filtered)}}}});
+document.addEventListener("change",e=>{if(e.target.id==="invoice-status"){filterStatus=e.target.value;const panelElement=e.target.closest(".panel"),tbody=panelElement?.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=invoiceRows(filtered)}}});
 $("#modal-close").addEventListener("click",closeModal);
 modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeMenu()}});
