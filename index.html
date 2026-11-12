@@ -257,6 +257,16 @@ body{font-size:17px;line-height:1.65}
 .intake-form .privacy-note{font-size:13px;color:#596065;margin:5px 0 0}
 @media(max-width:860px){.intake-layout{grid-template-columns:1fr;gap:32px}}
 @media(max-width:620px){.intake-section{padding:72px 0}.intake-copy h2{font-size:clamp(36px,9vw,49px)}.intake-copy p:not(.eyebrow){font-size:17px}.intake-form{padding:25px 19px}.nucleo-quick-links>a{width:100%;text-align:center}}
+
+/* Acceso destacado a NÚCLEO DEMO en Cloudflare Pages */
+.nucleo-demo-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:24px 0 29px;padding:26px 28px;border:1px solid #73d5ee;background:linear-gradient(105deg,#16334b,#16415a);border-radius:16px;box-shadow:0 16px 32px #0003}
+.nucleo-demo-cta>div{max-width:680px}
+.nucleo-demo-cta span{display:block;color:#9cedf9;font:850 12px "Manrope",sans-serif;letter-spacing:.11em;margin-bottom:8px}
+.nucleo-demo-cta strong{font:850 clamp(19px,2.3vw,27px)/1.25 "Manrope",sans-serif;color:#fff}
+.nucleo-demo-cta p{color:#d4e9f5;font-size:15px;line-height:1.65;margin:10px 0 0}
+.nucleo-demo-button{flex-shrink:0;background:#c8f9a6!important;color:#102e24!important;font-size:14px!important;border-color:#7ddf9e!important}
+.nucleo-demo-button:hover{background:#d8ffbf!important}
+@media(max-width:810px){.nucleo-demo-cta{flex-direction:column;align-items:stretch;padding:22px}.nucleo-demo-button{width:100%}}
 </style>
   
   <script type="application/ld+json">
@@ -277,6 +287,7 @@ body{font-size:17px;line-height:1.65}
         <a href="#soluciones">Soluciones</a>
         <a href="#nosotros">Quiénes somos</a>
         <a href="#opiniones">Opiniones</a>
+        <a href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">NÚCLEO DEMO ↗</a>
         <a href="#apoyar-nucleo">Apoyar NÚCLEO</a>
         <a class="nav-cta" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
       </nav>
@@ -296,6 +307,7 @@ body{font-size:17px;line-height:1.65}
           <div class="hero-actions">
             <a class="btn btn-primary" href="#diagnostico">Contame qué problema tenés <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="#servicios">Explorar servicios <span aria-hidden="true">↓</span></a>
+            <a class="btn btn-ghost" href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">PROBAR NÚCLEO DEMO <span aria-hidden="true">↗</span></a>
             <a class="btn btn-ghost" href="#apoyar-nucleo">Apoyá NÚCLEO <span aria-hidden="true">↗</span></a>
           </div>
           <div class="hero-foot">
@@ -370,6 +382,7 @@ body{font-size:17px;line-height:1.65}
           <p>Estoy desarrollando NÚCLEO a partir de problemas administrativos reales: proveedores, facturas, remitos, cuentas corrientes, vencimientos, pagos y documentación dispersa. Ya hay un prototipo privado con pantallas y módulos en prueba. Falta completar validaciones, conciliaciones y funciones antes de lanzarlo públicamente.</p>
           <p class="nucleo-highlight"><strong>Nuestra meta a largo plazo es publicar una versión de código abierto, documentada y accesible a una comunidad.</strong> Todavía no está lista para ese lanzamiento: primero tenemos que completar el desarrollo, separar los datos privados, probar la seguridad y preparar su infraestructura.</p>
         </div>
+        <div class="nucleo-demo-cta"><div><span>DEMO PÚBLICA · SIN INICIAR SESIÓN</span><strong>Entrá y conocé cómo se vería NÚCLEO por dentro.</strong><p>Probá proveedores, facturas, pagos parciales, cuentas corrientes, caja, tesorería y pantallas de futuras funciones, con datos 100% ficticios. No toca ningún sistema real.</p></div><a class="btn nucleo-demo-button" href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">ABRIR DEMO INTERACTIVA ↗</a></div>
         <div class="nucleo-aim-grid">
           <article class="nucleo-aim reveal">
             <span class="nucleo-aim-number">01 / PRESENTE</span>
@@ -435,7 +448,7 @@ body{font-size:17px;line-height:1.65}
 <button class="btn btn-primary" type="submit">ENVIAR CONSULTA POR WHATSAPP ↗</button><p class="privacy-note">Este formulario no almacena tus datos en esta web. Solo prepara un mensaje para WhatsApp.</p></form></div></section>
     <section class="section cta-section" id="contacto" aria-labelledby="contact-title"><div class="container cta-box"><div class="cta-bg" aria-hidden="true">✳</div><p class="eyebrow">05 / PRÓXIMOS PROYECTOS</p><h2 id="contact-title">¿Y si encontramos<br><span>una solución concreta?</span></h2><p>Contame tu desafío. Puede ser tecnología, administración o una idea digital. Empezamos por entender qué necesitás y cómo hacerlo realidad.</p><div class="cta-actions"><a class="btn btn-dark" href="#diagnostico">Contame tu problema <span aria-hidden="true">↗</span></a><a class="cta-text-link" href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Encontranos en Google <span aria-hidden="true">↗</span></a></div><div class="cta-bottom"><span>CAYELAB / DISEÑAMOS OPORTUNIDADES.</span><span>ARGENTINA · SERVICIOS DIGITALES</span></div></div></section>
   </main>
-  <footer class="site-footer"><div class="container"><div class="footer-top"><a class="footer-brand" href="#top" aria-label="CayeLab, volver arriba">Caye<span>Lab</span><small>DISEÑAMOS OPORTUNIDADES.</small></a><div class="footer-links"><a href="#problemas">Problemas</a><a href="#servicios">Servicios</a><a href="#soluciones">Enfoque</a><a href="#diagnostico">Consulta</a><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">TODO VUELVE ↗</a><a href="https://paypal.me/caye2404" target="_blank" rel="noopener noreferrer">Donaciones PayPal ↗</a><a href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20quiero%20hacer%20una%20consulta%20sobre%20CayeLab." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#apoyar-nucleo">Apoyar NÚCLEO</a><a href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></div></div><div class="footer-line"><p>© <span id="year">2026</span> CayeLab. Todos los derechos reservados.</p><p>Diseño y tecnología con propósito. <a href="#top">Volver arriba ↑</a></p></div></div></footer>
+  <footer class="site-footer"><div class="container"><div class="footer-top"><a class="footer-brand" href="#top" aria-label="CayeLab, volver arriba">Caye<span>Lab</span><small>DISEÑAMOS OPORTUNIDADES.</small></a><div class="footer-links"><a href="#problemas">Problemas</a><a href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">NÚCLEO DEMO</a><a href="#servicios">Servicios</a><a href="#soluciones">Enfoque</a><a href="#diagnostico">Consulta</a><a href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">TODO VUELVE ↗</a><a href="https://paypal.me/caye2404" target="_blank" rel="noopener noreferrer">Donaciones PayPal ↗</a><a href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20quiero%20hacer%20una%20consulta%20sobre%20CayeLab." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#apoyar-nucleo">Apoyar NÚCLEO</a><a href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://share.google/yrGdZ42vmSUxGyc0i" target="_blank" rel="noopener noreferrer">Google Maps ↗</a></div></div><div class="footer-line"><p>© <span id="year">2026</span> CayeLab. Todos los derechos reservados.</p><p>Diseño y tecnología con propósito. <a href="#top">Volver arriba ↑</a></p></div></div></footer>
 <script>
 (() => {
   'use strict';
