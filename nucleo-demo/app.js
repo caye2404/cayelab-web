@@ -69,14 +69,23 @@ const button=(label,action,id,cls="")=>'<button class="btn '+cls+'" type="button
 const head=(title,description,buttons="")=>'<div class="pagehead"><div><div class="eyebrow">NÚCLEO · recorrido público</div><h1>'+title+'</h1><p>'+description+'</p></div><div class="actions">'+buttons+'</div></div>';
 const panel=(title,description,body,action="")=>'<section class="panel"><div class="panel-header"><div><div class="panel-title">'+title+'</div>'+(description?'<div class="panel-subtitle">'+description+'</div>':"")+'</div>'+action+'</div>'+body+'</section>';
 const tr=(cells)=>'<tr>'+cells.map((x,i)=>'<td '+(i===cells.length-2?'class="numeric"':"")+'>'+x+'</td>').join("")+'</tr>';
-const table=(columns,rows)=>'<div class="table-wrap"><table><thead><tr>'+columns.map(x=>'<th>'+x+'</th>').join("")+'</tr></thead><tbody>'+rows+'</tbody></table></div>';
+
+const labelRows=(rows,columns)=>rows.replace(/<tr>([\s\S]*?)<\/tr>/g,(_,inner)=>{let i=0;return '<tr>'+inner.replace(/<td\b([^>]*)>/g,(tag,attrs)=>'<td'+attrs+' data-label="'+esc(columns[i++]||"Detalle")+'">')+'</tr>'});
+const table=(columns,rows)=>'<div class="table-wrap"><table><thead><tr>'+columns.map(x=>'<th>'+x+'</th>').join("")+'</tr></thead><tbody>'+labelRows(rows,columns)+'</tbody></table></div>';
+
 const activity=()=>'<div class="list">'+log.slice(0,5).map(l=>'<div class="listrow"><div><strong>'+esc(l.detail)+'</strong><small>Hoy a las '+esc(l.time)+' · Simulación</small></div>'+badge("Demo","now")+'</div>').join("")+'</div>';
 const stamp=()=>new Date().toLocaleTimeString("es-AR",{hour:"2-digit",minute:"2-digit"});
 function record(detail){log.unshift({time:stamp(),detail});}
 function toast(msg){toastBox.textContent=msg;toastBox.classList.add("visible");clearTimeout(toastBox._timer);toastBox._timer=setTimeout(()=>toastBox.classList.remove("visible"),2900)}
 function getId(e){return e.closest("[data-id]")?.dataset.id}
 function go(page){if(!navNames[page])page="inicio";active=page;searchText="";filterStatus="todos";history.replaceState(null,"","#"+page);render();closeMenu();window.scrollTo({top:0,behavior:"instant"})}
-function navUpdate(){document.querySelectorAll("[data-page]").forEach(b=>{b.classList.toggle("active",b.dataset.page===active);b.setAttribute("aria-current",b.dataset.page===active?"page":"false")});$("#crumb").textContent=navNames[active]}
+
+function navUpdate(){
+ document.querySelectorAll("[data-page]").forEach(b=>{const selected=b.dataset.page===active;b.classList.toggle("active",selected);b.setAttribute("aria-current",selected?"page":"false")});
+ $("#crumb").textContent=navNames[active];
+ const more=$("#mobile-more");if(more)more.classList.toggle("section-active",!["inicio","facturas","documentos"].includes(active));
+}
+
 function viewHome(){
  const due=sum(invoices,balance),pending=invoices.filter(x=>balance(x)>0).length,partial=invoices.filter(x=>statusOf(x)==="partial").length;
  const intro='<div class="alert blue"><strong>Estás recorriendo una simulación pública.</strong> TODOS los proveedores, comercios, remitos, facturas, importes, fechas, pagos y movimientos son INVENTADOS. No se modifica ningún sistema real. Las funciones pendientes se identifican como futuras.</div>';
@@ -149,7 +158,23 @@ const views={inicio:viewHome,facturas:viewInvoices,proveedores:viewSuppliers,cue
 function render(){navUpdate();root.innerHTML=views[active]();}
 function openModal(title,html){modalTitle.textContent=title;modalBody.innerHTML=html;modal.classList.add("open");modal.setAttribute("aria-hidden","false");$("#modal-close").focus();}
 function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");modalBody.innerHTML="";}
-function closeMenu(){$("#sidebar").classList.remove("open");$("#menu-toggle").setAttribute("aria-expanded","false")}
+
+function closeMenu(){
+ const sheet=$("#mobile-module-sheet"),backdrop=$("#mobile-sheet-backdrop"),more=$("#mobile-more");
+ if(sheet)sheet.hidden=true;
+ if(backdrop)backdrop.hidden=true;
+ if(more){more.setAttribute("aria-expanded","false");more.classList.remove("expanded")}
+ document.body.classList.remove("sheet-open");
+ const sidebar=$("#sidebar");if(sidebar)sidebar.classList.remove("open");
+}
+function openMobileSheet(){
+ const sheet=$("#mobile-module-sheet"),backdrop=$("#mobile-sheet-backdrop"),more=$("#mobile-more");
+ if(!sheet||!backdrop||!more)return;
+ sheet.hidden=false;backdrop.hidden=false;more.setAttribute("aria-expanded","true");more.classList.add("expanded");
+ document.body.classList.add("sheet-open");
+ const title=$("#mobile-sheet-close");if(title)title.focus();
+}
+
 function invoiceDetail(id){
  const x=invoices.find(x=>x.id===Number(id));if(!x)return;
  openModal("Documento ficticio "+x.number,'<div class="alert blue"><strong>Vista ilustrativa.</strong> No existe PDF real ni se consulta ningún servidor.</div><div class="list">'+[
@@ -207,11 +232,13 @@ document.addEventListener("submit",e=>{
    cash.unshift({id:Date.now(),date:"2026-11-12",detail,kind,amount});record("Movimiento ficticio de caja: "+kind+" · "+money(amount));closeModal();render();toast("Movimiento de caja simulado");
  }
 });
-document.addEventListener("input",e=>{if(e.target.id==="invoice-search"){searchText=e.target.value;const parent=e.target.closest(".panel");if(parent){const tbody=parent.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=invoiceRows(filtered)}}}});
-document.addEventListener("change",e=>{if(e.target.id==="invoice-status"){filterStatus=e.target.value;const panelElement=e.target.closest(".panel"),tbody=panelElement?.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=invoiceRows(filtered)}}});
+document.addEventListener("input",e=>{if(e.target.id==="invoice-search"){searchText=e.target.value;const parent=e.target.closest(".panel");if(parent){const tbody=parent.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=labelRows(invoiceRows(filtered),["Proveedor / documento","Emisión","Vence","Estado","Saldo","Acciones"])}}}});
+document.addEventListener("change",e=>{if(e.target.id==="invoice-status"){filterStatus=e.target.value;const panelElement=e.target.closest(".panel"),tbody=panelElement?.querySelector("tbody");if(tbody){const filtered=invoices.filter(x=>(nameOf(x.supplier)+" "+x.number+" "+x.type).toLowerCase().includes(searchText.toLowerCase())&&(filterStatus==="todos"||statusOf(x)===filterStatus));tbody.innerHTML=labelRows(invoiceRows(filtered),["Proveedor / documento","Emisión","Vence","Estado","Saldo","Acciones"])}}});
 $("#modal-close").addEventListener("click",closeModal);
 modal.addEventListener("click",e=>{if(e.target===modal)closeModal()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"){closeModal();closeMenu()}});
-$("#menu-toggle").addEventListener("click",()=>{const o=$("#sidebar").classList.toggle("open");$("#menu-toggle").setAttribute("aria-expanded",String(o))});
+$("#mobile-more").addEventListener("click",()=>{$("#mobile-module-sheet").hidden?openMobileSheet():closeMenu()});
+$("#mobile-sheet-close").addEventListener("click",()=>{closeMenu();$("#mobile-more").focus()});
+$("#mobile-sheet-backdrop").addEventListener("click",closeMenu);
 const first=(location.hash||"#inicio").slice(1);active=navNames[first]?first:"inicio";render();
 })();
