@@ -4,7 +4,7 @@
    No se conecta a NÚCLEO productivo, Supabase, Google Drive ni sistemas de pago. */
 (function(){
 const $=s=>document.querySelector(s);
-const navNames={inicio:"Inicio",facturas:"Facturas y pagos",proveedores:"Proveedores",cuentas:"Cuentas corrientes",tesoreria:"Tesorería",caja:"Control de caja",reportes:"Indicadores",futuro:"Próximas funciones"};
+const navNames={inicio:"Inicio",facturas:"Facturas y pagos",proveedores:"Proveedores",cuentas:"Cuentas corrientes",tesoreria:"Tesorería",caja:"Control de caja",reportes:"Indicadores",documentos:"Documentos ficticios",futuro:"Próximas funciones"};
 const sampleSuppliers=[
  {id:"S01",name:"Patagonia Mayorista",category:"Almacén y secos",city:"Villa del Lago",contact:"Compras"},
  {id:"S02",name:"Frutihue Distribuciones",category:"Frutas y verduras",city:"Lago Azul",contact:"Logística"},
@@ -13,6 +13,19 @@ const sampleSuppliers=[
  {id:"S05",name:"Limpieza Austral",category:"Higiene",city:"Villa del Lago",contact:"Atención"},
  {id:"S06",name:"Lácteos del Bosque",category:"Lácteos",city:"Valle Verde",contact:"Ventas"}
 ];
+
+/* COPIAS PÚBLICAS ESTÁTICAS: NINGÚN DOCUMENTO REAL NI ACCESO A GOOGLE DRIVE */
+const publicDocs=[
+ {id:"rem-0001",supplier:"S01",associated:"A-0003-00001521",number:"DEMO-REM-0001",kind:"Remito de entrega",description:"Recepción completa · cantidades inventadas",date:"04/11/2026"},
+ {id:"rem-0002",supplier:"S02",associated:"A-0002-00008215",number:"DEMO-REM-0002",kind:"Remito de entrega",description:"Diferencia de una unidad · caso simulado",date:"05/11/2026"},
+ {id:"rem-0003",supplier:"S04",associated:"R-0004-00004211",number:"DEMO-REM-0003",kind:"Remito de mercadería",description:"Control de recepción ficticio",date:"11/11/2026"},
+ {id:"rec-0004",supplier:"S03",associated:"A-0001-00003471",number:"DEMO-REC-0004",kind:"Constancia de recepción",description:"Conformidad documental de prueba",date:"07/11/2026"}
+];
+const demoDocUrl=id=>"./documentos/?doc="+encodeURIComponent(id);
+const viewDocButton=(d,label="ABRIR DOCUMENTO FICTICIO ↗")=>'<a class="btn doc-link" href="'+demoDocUrl(d.id)+'" target="_blank" rel="noopener noreferrer">'+label+'</a>';
+const docsForSupplier=id=>publicDocs.filter(d=>d.supplier===id);
+const docsForInvoice=x=>publicDocs.filter(d=>d.associated===x.number&&d.supplier===x.supplier);
+
 const invoiceSeed=[
  {id:101,supplier:"S01",number:"A-0003-00001521",date:"2026-11-04",due:"2026-11-14",amount:680400,paid:0,type:"Factura"},
  {id:102,supplier:"S02",number:"A-0002-00008215",date:"2026-11-05",due:"2026-11-12",amount:284550,paid:284550,type:"Factura"},
@@ -120,7 +133,19 @@ function viewFuture(){
  const features='<div class="feature-grid">'+futureItems.map(x=>'<article class="feature"><div class="feature-ico">'+x[4]+'</div>'+badge(x[2],x[3])+'<h3>'+x[0]+'</h3><p>'+x[1]+'</p></article>').join("")+'</div>';
  return head("Presente y futuro de NÚCLEO","Estas son ideas, funciones en prueba y etapas que queremos construir. Las funciones proyectadas NO se anuncian como disponibles en el sistema real.",'<a class="btn primary" href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">Apoyar el proyecto ↗</a>')+'<div class="alert blue"><strong>Transparencia:</strong> la demo permite experimentar con experiencias de producto, incluso si todavía no están implementadas en la plataforma privada. Cada propuesta está identificada.</div>'+panel("Hoja de ruta","Para emprendedores, PyMEs y empresas que quieran aportar ideas",'<div class="panel-body">'+features+'</div>')+panel("¿Qué función te serviría?","Tu opinión puede orientar las prioridades",'<div class="panel-body"><p>Contame qué módulo necesitás, cuánto tiempo te hace perder hoy y qué resultado esperás. No hace falta ser programador.</p><div class="actions"><a class="btn primary" href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20prob%C3%A9%20la%20demo%20de%20N%C3%9ACLEO%20y%20quiero%20sugerir%20una%20funci%C3%B3n." target="_blank" rel="noopener noreferrer">Sugerir una mejora ↗</a><a class="btn" href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">Conocer CayeLab ↗</a></div></div>');
 }
-const views={inicio:viewHome,facturas:viewInvoices,proveedores:viewSuppliers,cuentas:viewAccounts,tesoreria:viewTreasury,caja:viewCash,reportes:viewReports,futuro:viewFuture};
+
+function viewDocuments(){
+ const rows=publicDocs.map(d=>'<tr><td><strong>'+esc(d.number)+'</strong><div class="note">100% FICTICIO · SIN VALIDEZ</div></td><td>'+esc(nameOf(d.supplier))+'</td><td>'+esc(d.kind)+'</td><td>'+esc(d.date)+'</td><td>'+badge("Muestra","now")+'</td><td>'+viewDocButton(d,"Abrir copia ↗")+'</td></tr>').join("");
+ const cards='<div class="docs-grid">'+publicDocs.map(d=>'<article class="doc-card">'+badge("DOCUMENTO FICTICIO","future")+'<h3>'+esc(d.kind)+'</h3><p><strong>'+esc(d.number)+'</strong> · '+esc(nameOf(d.supplier))+'</p><p>'+esc(d.description)+'</p>'+viewDocButton(d,"Ver documento / imprimir ↗")+'</article>').join("")+'</div>';
+ return head("Remitos y documentos ficticios","Abrí constancias de recepción y remitos inventados. Estos enlaces llevan a copias públicas de muestra en Cloudflare, no al Drive privado del proyecto.",button("Funciones futuras","goto","futuro"))
+ +'<div class="alert"><strong>DOCUMENTACIÓN 100% INVENTADA:</strong> ninguna empresa, importe, compra, entrega, firma, responsable, mercadería o control fue real. Estos documentos no sirven para pagar, facturar ni recibir mercadería.</div>'
+ +stats([{label:"Muestras públicas",value:publicDocs.length,tone:"info"},{label:"Remitos inventados",value:3,tone:"good"},{label:"Constancias inventadas",value:1,tone:"gold"},{label:"Archivos reales publicados",value:0,tone:"critical"}])
+ +panel("Abrir remitos y constancias","Se abren en otra pestaña. Podés imprimir o guardar PDF localmente.",'<div class="panel-body">'+cards+'</div>')
+ +panel("Archivo documental ficticio","Vinculaciones de ejemplo para mostrar el recorrido",table(["Número","Proveedor inventado","Documento","Fecha","Estado","Acción"],rows))
+ +'<div class="alert blue"><strong>Funciones en desarrollo o futuras:</strong> vincular archivos reales de cada empresa con sus permisos, firmar recepciones, validar documentos y conciliar saldos. Nada de eso se ejecuta sobre Drive o bases reales desde esta demo.</div>';
+}
+
+const views={inicio:viewHome,facturas:viewInvoices,proveedores:viewSuppliers,cuentas:viewAccounts,tesoreria:viewTreasury,caja:viewCash,reportes:viewReports,documentos:viewDocuments,futuro:viewFuture};
 function render(){navUpdate();root.innerHTML=views[active]();}
 function openModal(title,html){modalTitle.textContent=title;modalBody.innerHTML=html;modal.classList.add("open");modal.setAttribute("aria-hidden","false");$("#modal-close").focus();}
 function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");modalBody.innerHTML="";}
