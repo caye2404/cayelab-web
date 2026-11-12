@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102539">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Documentos ficticios de mercadería para NÚCLEO DEMO. Ejemplos 100% simulados y sin validez comercial, fiscal, bromatológica ni contable.">
+<meta property="og:title" content="NÚCLEO DEMO · Remitos y recepciones ficticias">
+<title>NÚCLEO DEMO · Documentos simulados</title>
+<style>
+:root{--bg:#edf3f8;--ink:#1c2d3b;--muted:#617587;--navy:#102539;--blue:#126399;--border:#d2dee8}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,Arial,sans-serif}a{color:inherit;text-decoration:none}button,select{font:inherit}button{cursor:pointer}
+.notice{background:#ffe1a8;color:#53350f;text-align:center;padding:14px 18px;font-weight:900;font-size:13px;border-bottom:2px solid #dea440}
+.actions{max-width:1000px;margin:20px auto;display:flex;align-items:center;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:0 16px}
+.actions a,.actions button,.actions select{border:1px solid #a9c0d3;background:#fff;color:#1b4f74;padding:10px 14px;border-radius:9px;font-weight:800;font-size:13px}
+.actions .primary{background:#145c90;color:#fff;border-color:#145c90}
+.paper{width:min(860px,calc(100% - 32px));margin:18px auto 40px;background:#fff;min-height:1020px;padding:45px 48px 56px;box-shadow:0 19px 50px #16395919;border:1px solid #d5e1eb;position:relative}
+.watermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-28deg);font-size:clamp(42px,7vw,88px);font-weight:900;letter-spacing:.06em;color:#c8232320;white-space:nowrap;pointer-events:none;z-index:0}
+.paper>*:not(.watermark){position:relative;z-index:1}
+.paperhead{display:flex;justify-content:space-between;gap:24px;padding-bottom:24px;border-bottom:4px solid #173d5b}
+.logo{display:inline-flex;align-items:center;gap:9px;color:#1b3a52;font-size:23px;font-weight:900;letter-spacing:-.07em}
+.logo b{display:grid;place-items:center;width:46px;height:46px;border-radius:11px;background:#163f63;color:white;font-size:24px}
+.paperhead small{font-size:11px;color:#496171;display:block;letter-spacing:.08em;font-weight:800}
+.paperhead .right{text-align:right}
+.paperhead .right strong{display:block;font-size:17px;max-width:310px;line-height:1.3}
+h1{font-size:26px;line-height:1.25;margin:27px 0 10px;letter-spacing:-.04em}
+.subtitle{color:#a33a2c;font-weight:900;letter-spacing:.055em;font-size:12px;margin-bottom:22px}
+.details{display:grid;grid-template-columns:1fr 1fr;gap:13px;padding:18px;background:#f2f7fb;border:1px solid #d7e5ee;border-radius:12px;margin-bottom:30px}
+.details div{font-size:14px}.details small{display:block;color:#5b7386;font-size:11px;font-weight:850;letter-spacing:.05em;text-transform:uppercase;margin-bottom:3px}.details b{font-size:15px}
+h2{font-size:16px;letter-spacing:-.015em;margin:24px 0 10px}
+.tablewrap{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:590px}th{background:#163d5d;color:#fff;padding:13px 10px;font-size:11px;letter-spacing:.035em;text-align:left}td{border-bottom:1px solid #d8e4ed;padding:12px 10px;font-size:13px}td.numeric{text-align:right}
+.receipt{padding:20px;border:1px solid #cddde9;border-radius:10px;background:#fcfdff}.receipt p{margin:0 0 8px}.receipt strong{font-weight:900}.sign{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:35px}.sign div{padding-top:13px;border-top:1px solid #94a7b5;font-size:12px;color:#637486}
+.disclaimer{margin-top:35px;padding:17px;border:2px dashed #d46d55;border-radius:10px;color:#812c21;font-weight:800;background:#fff8f3;font-size:13px}
+.footerline{margin-top:20px;color:#607487;font-size:11px;text-align:center}
+@media(max-width:640px){.paper{padding:25px 17px;min-height:0}.paperhead{flex-direction:column;gap:10px}.paperhead .right{text-align:left}.details{grid-template-columns:1fr}h1{font-size:22px}.watermark{font-size:41px}.sign{gap:13px}.actions{justify-content:center}}
+@page{size:A4;margin:12mm}
+@media print{body{background:white}.notice,.actions{display:none}.paper{box-shadow:none;border:0;width:100%;min-height:0;margin:0;padding:0}.watermark{color:#b538381c}.details{break-inside:avoid}table{break-inside:avoid}.disclaimer{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="notice">DOCUMENTACIÓN DE DEMOSTRACIÓN · TODOS LOS DATOS SON INVENTADOS · SIN VALIDEZ COMERCIAL O FISCAL</div>
+<div class="actions">
+  <a href="../#documentos">← Volver a documentos en NÚCLEO DEMO</a>
+  <label for="choose">Ver otra muestra: <select id="choose">
+    <option value="rem-0001">Remito 0001 · Patagonia Mayorista</option>
+    <option value="rem-0002">Remito 0002 · Frutihue</option>
+    <option value="rem-0003">Remito 0003 · Pescados del Sur</option>
+    <option value="rec-0004">Acta 0004 · Bebidas Cumbre Sur</option>
+  </select></label>
+  <button class="primary" type="button" id="print">Imprimir / Guardar como PDF</button>
+</div>
+<main class="paper" aria-labelledby="doc-title">
+<div class="watermark" aria-hidden="true">EJEMPLO FICTICIO</div>
+<header class="paperhead"><div><div class="logo"><b>N.</b> NÚCLEO</div><small>DEMO PÚBLICA · CAYELAB</small></div><div class="right"><small>DOCUMENTO ILUSTRATIVO</small><strong id="top-label">REMITO DE MERCADERÍA</strong><small>NO ES UNA FACTURA</small></div></header>
+<h1 id="doc-title">Remito de entrega · ejemplo</h1>
+<p class="subtitle">MUESTRA 100% FICTICIA — SIN VALIDEZ COMERCIAL, CONTABLE, FISCAL NI BROMATOLÓGICA</p>
+<section class="details" aria-label="Datos ficticios del remito">
+ <div><small>Número de muestra</small><b id="number">DEMO-REM-0001</b></div>
+ <div><small>Fecha del ejemplo</small><b id="date">04/11/2026</b></div>
+ <div><small>Proveedor (nombre inventado)</small><b id="supplier">Patagonia Mayorista</b></div>
+ <div><small>Recibe (establecimiento inventado)</small><b>Restaurante Horizonte</b></div>
+ <div><small>Documento asociado (ficticio)</small><b id="associated">A-0003-00001521</b></div>
+ <div><small>Resultado de la simulación</small><b id="status">RECIBIDO · MUESTRA</b></div>
+</section>
+<section><h2>Detalle de mercadería ficticia</h2><div class="tablewrap"><table><thead><tr><th>Descripción</th><th>Unidad</th><th>Cantidad solicitada</th><th>Cantidad recibida</th></tr></thead><tbody id="lines"></tbody></table></div></section>
+<section><h2>Control de recepción · ilustración</h2><div class="receipt"><p><strong>Responsable del ejemplo:</strong> <span id="receiver"></span></p><p><strong>Observaciones:</strong> <span id="observations"></span></p><p><strong>Estado:</strong> <span id="state"></span></p><div class="sign"><div>Firma de proveedor: NO EXISTE / FICTICIA</div><div>Firma de receptor: NO EXISTE / FICTICIA</div></div></div></section>
+<div class="disclaimer">⚠ ESTE DOCUMENTO ES UNA SIMULACIÓN PARA MOSTRAR CÓMO NÚCLEO ABRIRÍA REMITOS. NO REPRESENTA UNA ENTREGA, RECEPCIÓN, TRANSACCIÓN, COMPRA, PROVEEDOR NI PAGO REAL. NO GENERA DEUDA NI TIENE VALIDEZ LEGAL.</div>
+<div class="footerline">NÚCLEO DEMO · CayeLab · Datos exclusivamente inventados para fines demostrativos · 2026</div>
+</main>
+<script>
+"use strict";
+const docs={
+ "rem-0001":{type:"REMITO DE ENTREGA",number:"DEMO-REM-0001",date:"04/11/2026",supplier:"Patagonia Mayorista",associated:"A-0003-00001521",receiver:"M. Ejemplo (nombre inventado)",status:"Conforme · ficticio",obs:"Entrega de muestra recibida completa. Esta información no representa mercadería real.",lines:[["Arroz largo fino","Bolsa de 25 kg","2 bolsas","2 bolsas"],["Aceite mezcla","Bidón de 5 L","6 unidades","6 unidades"],["Harina 000","Bolsa de 25 kg","1 unidad","1 unidad"],["Condimento surtido","Caja","3 unidades","3 unidades"]]},
+ "rem-0002":{type:"REMITO DE ENTREGA",number:"DEMO-REM-0002",date:"05/11/2026",supplier:"Frutihue Distribuciones",associated:"A-0002-00008215",receiver:"A. Demo (nombre inventado)",status:"Diferencia de cantidad · ficticia",obs:"Falta 1 atado de rúcula (supuesto). En una operación real debería solicitarse ajuste documental.",lines:[["Lechuga mantecosa","Planta","10 plantas","10 plantas"],["Limón","Cajón","1 cajón","1 cajón"],["Rúcula","Atado","8 atados","7 atados"],["Tomates cherry","Kg","4 kg","4 kg"]]},
+ "rem-0003":{type:"REMITO DE MERCADERÍA",number:"DEMO-REM-0003",date:"11/11/2026",supplier:"Pescados del Sur",associated:"R-0004-00004211",receiver:"L. Prueba (nombre inventado)",status:"Recibido con control simulado",obs:"Temperatura inventada: 2,8 °C. Ejercicio demostrativo que no reemplaza un control bromatológico real.",lines:[["Trucha despinada","Kg","12 kg","12 kg"],["Langostinos congelados","Kg","8 kg","8 kg"],["Salmón porcionado","Kg","6 kg","6 kg"],["Hielo gel reutilizable","Unidad","8 unidades","8 unidades"]]},
+ "rec-0004":{type:"CONSTANCIA DE RECEPCIÓN",number:"DEMO-REC-0004",date:"07/11/2026",supplier:"Bebidas Cumbre Sur",associated:"A-0001-00003471",receiver:"R. Ilustración (nombre inventado)",status:"Conforme · ficticio",obs:"Recepción simulada; no valida importes, pagos, facturas ni acreditaciones.",lines:[["Agua mineral sin gas","Pack de 6","8 packs","8 packs"],["Agua mineral con gas","Pack de 6","5 packs","5 packs"],["Gaseosa de cola","Pack de 6","4 packs","4 packs"],["Tónica","Pack de 6","3 packs","3 packs"]]}
+};
+const $=id=>document.getElementById(id),encode=x=>String(x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function render(key){
+ const d=docs[key]||docs["rem-0001"];const selected=docs[key]?key:"rem-0001";
+ $("top-label").textContent=d.type;$("doc-title").textContent=d.type+" · "+d.number;$("number").textContent=d.number;$("date").textContent=d.date;$("supplier").textContent=d.supplier;$("associated").textContent=d.associated;$("receiver").textContent=d.receiver;$("observations").textContent=d.obs;$("status").textContent=d.status;$("state").textContent=d.status;
+ $("lines").innerHTML=d.lines.map(l=>"<tr>"+l.map(x=>"<td>"+encode(x)+"</td>").join("")+"</tr>").join("");
+ $("choose").value=selected;document.title="NÚCLEO DEMO · "+d.number+" · DOCUMENTO FICTICIO";
+}
+function setDoc(id){const key=docs[id]?id:"rem-0001";history.replaceState(null,"","?doc="+encodeURIComponent(key));render(key)}
+$("choose").addEventListener("change",e=>setDoc(e.target.value));
+$("print").addEventListener("click",()=>window.print());
+render(new URLSearchParams(window.location.search).get("doc"));
+</script>
+</body></html>
