@@ -87,7 +87,7 @@ function navUpdate(){
 }
 
 
-const donationLinks={paypal:"https://paypal.me/caye2404",project:"https://caye2404.github.io/todo-vuelve/"};
+const donationLinks={paypal:"https://paypal.me/caye2404",project:"https://cayelab-web.pages.dev/#apoyar-nucleo"};
 /* IMPORTANTE: sólo la donación es real; todos los movimientos del panel siguen siendo simulados. */
 function donationCard(compact=false){
  return '<section class="donation-card" id="apoyar-proyecto" aria-label="Apoyar el desarrollo de NÚCLEO">'+
@@ -195,7 +195,7 @@ function viewFuture(){
  const planned=futureItems.filter(x=>!x[2].includes("pruebas")&&!x[2].includes("desarrollo")&&!x[2].includes("evolución")).length;
  const features='<div class="feature-grid">'+futureItems.map(x=>'<article class="feature"><div class="feature-ico">'+x[4]+'</div>'+badge(x[2]+' · NO disponible en esta demo',x[3])+'<h3>'+x[0]+'</h3><p>'+x[1]+'</p></article>').join("")+'</div>';
  const intro='<div class="roadmap-intro"><div class="roadmap-step"><strong>● Lo que se puede probar</strong><p>Panel, facturas ficticias, remitos de muestra, pagos simulados, caja, proveedores y visualización de indicadores.</p></div><div class="roadmap-step"><strong>✳ Lo que se proyecta</strong><p>'+planned+' iniciativas futuras o conceptuales, además de funcionalidades en desarrollo o pruebas privadas, sin fechas prometidas.</p></div></div>';
- return head("Todo el potencial de NÚCLEO","HOJA DE RUTA · Funcionalidades proyectadas o en pruebas privadas. Ninguna tarjeta implica disponibilidad comercial ni lanzamiento confirmado.",'<a class="btn primary" href="https://caye2404.github.io/todo-vuelve/" target="_blank" rel="noopener noreferrer">♡ Apoyar NÚCLEO ↗</a>')+
+ return head("Todo el potencial de NÚCLEO","HOJA DE RUTA · Funcionalidades proyectadas o en pruebas privadas. Ninguna tarjeta implica disponibilidad comercial ni lanzamiento confirmado.",'<a class="btn primary" href="https://cayelab-web.pages.dev/#apoyar-nucleo" target="_blank" rel="noopener noreferrer">♡ Apoyar NÚCLEO ↗</a>')+
  '<div class="alert blue"><strong>Lo que ves es una visión de producto.</strong> La demo es una simulación con datos completamente inventados. Las funciones de abajo NO se pueden usar todavía aquí y su desarrollo depende de las pruebas y prioridades.</div>'+intro+
  panel("Módulos para próximas versiones",futureItems.length+' ideas, desarrollos y pruebas a explorar', '<div class="panel-body">'+features+'</div>')+
  panel("¿Qué problema debería resolver primero?","Participá en las decisiones",'<div class="panel-body"><p>Contame qué herramienta te quitaría más trabajo o qué te falta en tu negocio. La opinión de emprendedores, contadores, gastronómicos y desarrolladores ayuda a decidir prioridades.</p><div class="actions"><a class="btn primary" href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20prob%C3%A9%20la%20demo%20de%20N%C3%9ACLEO%20y%20quiero%20sugerir%20una%20funci%C3%B3n." target="_blank" rel="noopener noreferrer">Enviar mi idea ↗</a><a class="btn" href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">Conocer CayeLab ↗</a></div></div>');
