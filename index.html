@@ -179,7 +179,7 @@ body{font-size:17px;line-height:1.65}
 }
 
 
-/* Identificación visible de la cuenta Galicia */
+/* Identificación visible de la cuenta BBVA */
 .nucleo-bank-holder{padding:13px 16px;border:1px solid #c7d0d2;border-radius:10px;background:#fff;color:#1d3036;display:flex;flex-direction:column;gap:4px}
 .nucleo-bank-holder strong{font-size:15px;line-height:1.5;font-weight:800}
 .nucleo-bank-holder span{font-size:14px;line-height:1.5}
@@ -427,10 +427,10 @@ body{font-size:17px;line-height:1.65}
               <span class="nucleo-payment-arrow" aria-hidden="true">↗</span>
             </a>
             <button class="nucleo-copy-button" type="button" id="nucleo-copy-alias" aria-describedby="nucleo-alias-label">
-              <span class="nucleo-payment-label"><strong>APOYAR POR TRANSFERENCIA · GALICIA</strong><small id="nucleo-alias-label">Banco Galicia · Alias: caye2000</small></span>
+              <span class="nucleo-payment-label"><strong>APOYAR POR TRANSFERENCIA · BBVA</strong><small id="nucleo-alias-label">Banco BBVA · Alias: CAYE2404B</small></span>
               <span class="nucleo-payment-arrow" aria-hidden="true">⧉</span>
             </button>
-            <div class="nucleo-bank-holder"><strong>Titular: Cayetano Raúl Benítez</strong><span>CUIT: 20-33083610-6</span></div>
+            <div class="bbva-account-details" style="padding:16px;margin:12px 0;background:#fff;color:#072146;border:1px solid #b8cbdc;border-radius:10px;line-height:1.7;overflow-wrap:anywhere"><strong>BBVA · Caja de Ahorro en $</strong><br>Titular: Cayetano Raúl Benítez<br>Alias: <strong>CAYE2404B</strong><br>CBU: <strong>0170051040000030943942</strong><br>Cuenta: 51-309439/4<br>SWIFT: BFRPARBAXXX<br>Sucursal: AV. SANTA FE 946</div><div class="nucleo-bank-holder"><strong>Titular: Cayetano Raúl Benítez</strong><span>CUIT: 20-33083610-6</span></div>
             <span class="nucleo-copy-status" id="nucleo-copy-status" role="status" aria-live="polite"></span>
             <a class="nucleo-sponsor-link" href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">
               <span>¿Querés conversar sobre patrocinio o colaboración?</span>
@@ -500,7 +500,7 @@ body{font-size:17px;line-height:1.65}
   const nucleoCopyStatus = document.getElementById('nucleo-copy-status');
   if(nucleoCopy && nucleoCopyStatus){
     nucleoCopy.addEventListener('click', async () => {
-      const alias = 'caye2000';
+      const alias = 'CAYE2404B';
       let copied = false;
       try{
         if(navigator.clipboard?.writeText){
@@ -519,7 +519,7 @@ body{font-size:17px;line-height:1.65}
         try{ copied = document.execCommand('copy'); }catch{}
         input.remove();
       }
-      nucleoCopyStatus.textContent = copied ? 'Alias copiado: caye2000 · Banco Galicia' : 'Alias: caye2000 · Banco Galicia (copialo para transferir)';
+      nucleoCopyStatus.textContent = copied ? 'Alias copiado: CAYE2404B · Banco BBVA' : 'Alias: CAYE2404B · Banco BBVA (copialo para transferir)';
     });
   }
   const nodes = document.querySelectorAll('.reveal');
