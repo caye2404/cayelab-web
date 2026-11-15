@@ -120,23 +120,100 @@ async function copyDonationAlias(){
 }
 
 function viewHome(){
- const due=sum(invoices,balance),pending=invoices.filter(x=>balance(x)>0).length,partial=invoices.filter(x=>statusOf(x)==="partial").length;
- const intro='<div class="alert blue"><strong>Estás recorriendo una simulación pública.</strong> TODOS los proveedores, comercios, remitos, facturas, importes, fechas, pagos y movimientos son INVENTADOS. No se modifica ningún sistema real. Las funciones pendientes se identifican como futuras.</div>';
-
- const visual='<section class="hero-welcome" aria-label="Un vistazo visual a NÚCLEO DEMO">'+
-  '<div><span class="hero-eyebrow">✳ NÚCLEO · LA ADMINISTRACIÓN MÁS CLARA</span>'+
-  '<h2>Una sola vista para entender qué está pasando.</h2>'+
-  '<p>Explorá un negocio inventado, abrí remitos, revisá proveedores y simulá pagos. Sin contraseña, sin riesgos y sin usar datos reales.</p>'+
-  '<div class="hero-cta-row"><button type="button" data-goto="documentos">▧ Abrir remitos ficticios</button><button type="button" class="secondary" data-goto="futuro">✦ Ver lo que viene</button></div></div>'+
-  '<div class="hero-visual" aria-hidden="true"><div class="visual-top"><span></span> RESUMEN DE EJEMPLO</div><div class="visual-main"><div><strong>'+money(due)+'</strong><small>Saldo ficticio a revisar</small></div><div class="visual-ring"></div></div>'+
-  '<div class="visual-bars">'+[36,60,43,81,52,92,70,88,63].map(n=>'<i style="height:'+n+'%"></i>').join("")+'</div>'+
-  '<div class="visual-footer"><span>Proveedores · Documentos · Pagos</span><span>100% SIMULADO</span></div></div></section>';
-
- const summary=stats([{label:"Saldo pendiente · ejemplo",value:money(due),note:"Incluye pagos parciales",tone:"critical"},{label:"Facturas por revisar",value:number(pending),note:partial+" con pagos parciales",tone:"gold"},{label:"Proveedores de prueba",value:number(sampleSuppliers.length),note:"Fichas y cuentas corrientes",tone:"info"},{label:"Documentos simulados",value:number(invoices.length),note:"Con historial demostrativo",tone:"good"}]);
- const quick='<div class="quick">'+[['Ver facturas','Revisá saldos, registrá pagos ficticios y agregá una factura.','facturas'],['Abrir remitos de muestra','Consultá documentos inventados imprimibles, sin Drive privado.','documentos'],['Cuentas corrientes','Explorá movimientos y saldos por proveedor.','cuentas'],['Proyectar el futuro','Conocé funciones que todavía están planificadas.','futuro']].map((x,i)=>'<button type="button" data-goto="'+x[2]+'"><span class="quick-icon" aria-hidden="true">'+["▤","▧","≋","✦"][i]+'</span><b>'+x[0]+' →</b><small>'+x[1]+'</small></button>').join("")+'</div>';
- const alerts='<div class="list">'+invoices.filter(x=>balance(x)>0).slice(0,4).map(x=>'<div class="listrow"><div><strong>'+esc(nameOf(x.supplier))+'</strong><small>'+esc(x.number)+' · '+esc(x.due)+'</small></div><span class="detail">'+money(balance(x))+'</span></div>').join("")+'</div>';
- const steps='<div class="steps">'+[['1','Ingresá a Facturas','Buscá una factura y simulá un pago total o parcial.'],['2','Revisá Cuentas corrientes','Mirá cómo cambian los saldos por proveedor.'],['3','Abrí un documento ficticio','Entrá a Documentos ficticios y abrí una recepción inventada.'],['4','Probá un alta','Agregá una factura inventada y consultá el panel de Inicio.']].map(x=>'<div class="step"><span class="step-num">'+x[0]+'</span><div><strong>'+x[1]+'</strong><p>'+x[2]+'</p></div></div>').join("")+'</div>';
- return head("Bienvenido a NÚCLEO","Un recorrido interactivo por una herramienta administrativa pensada para negocios, PyMEs y emprendedores.",button("↺ Reiniciar demostración","reset"))+intro+visual+donationCard()+summary+panel("Probá las funciones","Hacé clic y experimentá, sin registros reales.",'<div class="panel-body">'+quick+'</div>')+'<div class="split">'+panel("Obligaciones con saldo","Ejemplo de prioridades de trabajo",alerts)+panel("Cómo recorrer la demo","Cuatro pasos para conocer la experiencia",'<div class="panel-body">'+steps+'</div>')+'</div>'+panel("Actividad simulada","Los cambios que hagas quedan visibles durante esta visita",'<div class="panel-body">'+activity()+'</div>');
+ const due=sum(invoices,balance);
+ const billed=sum(invoices,charge);
+ const paid=sum(invoices,"paid");
+ const pending=invoices.filter(x=>balance(x)>0).length;
+ const partial=invoices.filter(x=>x.type==="Factura"&&x.paid>0&&balance(x)>0).length;
+ const paidPct=billed>0?Math.min(100,Math.round(paid/billed*100)):0;
+ const featured=invoices.find(x=>x.id===103)||invoices.find(x=>x.type==="Factura")||invoices[0];
+ const docs=featured?docsForInvoice(featured):[];
+ const weeks=[{d:"Lun",n:24,v:245000},{d:"Mar",n:44,v:481000},{d:"Mié",n:35,v:380000},{d:"Jue",n:78,v:852000},{d:"Vie",n:49,v:537000},{d:"Sáb",n:92,v:1004000},{d:"Dom",n:66,v:719000}];
+ const modules=[
+  {label:"Facturas · PANTALLAZO",detail:"Documentos, vencimientos y pagos",page:"facturas",icon:"▤",tone:"aqua"},
+  {label:"Proveedores",detail:"Cada expediente en un solo lugar",page:"proveedores",icon:"◫",tone:"blue"},
+  {label:"Cuentas corrientes",detail:"Cargos, pagos y saldos claros",page:"cuentas",icon:"≋",tone:"mint"},
+  {label:"Tesorería",detail:"Vouchers y fechas previstas",page:"tesoreria",icon:"◈",tone:"gold"},
+  {label:"Documentos",detail:"Abrí remitos ficticios imprimibles",page:"documentos",icon:"▧",tone:"violet"},
+  {label:"Caja e indicadores",detail:"Visualizá movimientos del negocio",page:"reportes",icon:"▥",tone:"rose"}
+ ];
+ const kpis=[
+  {label:"Saldo por revisar",val:money(due),sub:"Monto pendiente · ejemplo",tone:"orange",ico:"↗"},
+  {label:"Pagos registrados",val:money(paid),sub:"Solo asientos de esta demo",tone:"mint",ico:"✓"},
+  {label:"Facturas pendientes",val:String(pending),sub:partial+" con pagos parciales",tone:"blue",ico:"▤"},
+  {label:"Proveedores",val:String(sampleSuppliers.length),sub:"Cuentas y documentos ficticios",tone:"purple",ico:"◫"}
+ ];
+ return `
+ <div class="demo-home">
+  <section class="dh-hero">
+   <div class="dh-hero-copy">
+    <span class="dh-eyebrow"><span class="dh-pulse"></span> NÚCLEO · PANEL DE ADMINISTRACIÓN</span>
+    <h1>Todo tu negocio.<br><em>Mucho más claro.</em></h1>
+    <p>Una sola vista para tus facturas, proveedores, cuentas corrientes, documentos y tesorería. Explorá cómo se trabaja con información organizada.</p>
+    <div class="dh-hero-ctas">
+     <button type="button" class="dh-btn dh-btn-bright" data-goto="facturas">Explorar PANTALLAZO <span>→</span></button>
+     <button type="button" class="dh-btn dh-btn-glass" data-goto="cuentas">Ver cuentas corrientes <span>↗</span></button>
+    </div>
+    <div class="dh-trust"><span>✓ Sin registrarte</span><span>✓ 100% datos inventados</span><span>✓ Probá operaciones</span></div>
+   </div>
+   <div class="dh-preview" aria-label="Vista ilustrativa del funcionamiento de NÚCLEO">
+    <div class="dh-preview-top"><div class="dh-preview-brand"><span>N.</span><strong>NÚCLEO</strong><small>Ejemplo de trabajo</small></div><span class="dh-demo-dot">● SIMULACIÓN</span></div>
+    <div class="dh-preview-inner">
+      <div class="dh-preview-eyebrow">RESUMEN DOCUMENTAL · RESTAURANTE HORIZONTE</div>
+      <div class="dh-preview-balance">${money(due)}</div>
+      <p>Saldo pendiente en el ejemplo</p>
+      <div class="dh-progress-head"><span>Pagos registrados</span><strong>${paidPct}%</strong></div>
+      <div class="dh-progress"><i style="width:${paidPct}%"></i></div>
+      <div class="dh-preview-row"><span class="dh-mini-icon">▤</span><div><strong>Factura recibida</strong><small>Documento de ejemplo</small></div><span class="dh-mini-tag">Registrada</span></div>
+      <div class="dh-preview-row"><span class="dh-mini-icon dh-mini-mint">≋</span><div><strong>Pago parcial</strong><small>Cuenta corriente actualizada</small></div><span class="dh-mini-tag success">En demo</span></div>
+      <div class="dh-preview-foot">PANTALLAZO <span>→</span> CUENTA CORRIENTE <span>→</span> CONTROL</div>
+    </div>
+   </div>
+  </section>
+  <div class="dh-sim-notice"><strong>Este es el mismo enfoque visual del NÚCLEO de trabajo.</strong> Los nombres, cifras, movimientos y documentos de esta demostración son inventados. No conecta con bases, bancos ni Google Drive reales.</div>
+  <section class="dh-section" aria-label="Indicadores principales">
+   <div class="dh-section-heading"><div><span class="dh-kicker">EN UN SOLO VISTAZO</span><h2>El pulso de tu administración</h2><p>Los indicadores se actualizan cuando probás un pago o agregás una factura ficticia.</p></div><button type="button" class="dh-link" data-goto="reportes">Abrir indicadores →</button></div>
+   <div class="dh-kpi-grid">${kpis.map(k=>`<div class="dh-kpi ${k.tone}"><div class="dh-kpi-top"><span>${k.label}</span><i>${k.ico}</i></div><strong>${k.val}</strong><small>${k.sub}</small></div>`).join("")}</div>
+  </section>
+  <section class="dh-section">
+   <div class="dh-section-heading"><div><span class="dh-kicker">ACCESOS RÁPIDOS</span><h2>¿Qué necesitás resolver hoy?</h2><p>Elegí un módulo. Todas estas secciones se pueden recorrer con datos de muestra.</p></div></div>
+   <div class="dh-modules">${modules.map(m=>`<button type="button" class="dh-module" data-goto="${m.page}"><span class="dh-module-icon ${m.tone}">${m.icon}</span><span class="dh-module-text"><strong>${m.label}</strong><small>${m.detail}</small></span><b>→</b></button>`).join("")}</div>
+  </section>
+  <section class="dh-duo">
+   <article class="dh-visual-panel">
+    <div class="dh-panel-heading"><div><span class="dh-kicker">TESORERÍA VISUAL</span><h2>Lo que viene, sin planillas</h2><p>Proyección semanal totalmente inventada para mostrar el formato de NÚCLEO.</p></div><button type="button" class="dh-link" data-goto="tesoreria">Ver tesorería →</button></div>
+    <div class="dh-forecast-total"><span>TOTAL PROYECTADO EN ESTE EJEMPLO</span><strong>${money(weeks.reduce((s,x)=>s+x.v,0))}</strong><small>No equivale a dinero acreditado</small></div>
+    <div class="dh-week">${weeks.map(x=>`<div class="dh-day"><span>${x.d}</span><div class="dh-day-track"><i style="height:${x.n}%"></i></div><strong>${Math.round(x.v/1000)}k</strong></div>`).join("")}</div>
+    <p class="dh-panel-foot">Las fechas y barras son ilustrativas. En el sistema real, una proyección no reemplaza la conciliación bancaria.</p>
+   </article>
+   <article class="dh-visual-panel">
+    <div class="dh-panel-heading"><div><span class="dh-kicker">CONTROL INTELIGENTE</span><h2>De la factura al pago</h2><p>Visualizá documentos y saldos sin perder el hilo administrativo.</p></div></div>
+    <div class="dh-trace">
+     <div class="dh-trace-top"><span>EXPEDIENTE DE MUESTRA</span>${badge("100% FICTICIO","now")}</div>
+     <strong class="dh-trace-supplier">${featured?esc(nameOf(featured.supplier)):"Proveedor de ejemplo"}</strong>
+     <div class="dh-trace-grid">
+      <div class="dh-trace-paper"><span>▤ FACTURA</span><strong>${featured?esc(featured.number):"DEMO-0001"}</strong><small>Total de ejemplo</small><b>${featured?money(featured.amount):money(0)}</b></div>
+      <div class="dh-trace-paper"><span>✓ PAGO REGISTRADO</span><strong>Asiento de prueba</strong><small>Sin comprobante bancario real</small><b>${featured?money(featured.paid):money(0)}</b></div>
+     </div>
+     <div class="dh-trace-balance"><span>Saldo de este ejemplo</span><strong>${featured?money(balance(featured)):money(0)}</strong></div>
+     <div class="dh-trace-actions"><button type="button" class="dh-btn dh-btn-dark" data-action="invoice-detail" data-id="${featured?featured.id:0}">Abrir expediente →</button>${docs.length?`<a href="${demoDocUrl(docs[0].id)}" target="_blank" rel="noopener noreferrer" class="dh-text-link">Ver remito ficticio ↗</a>`:`<button type="button" class="dh-text-link" data-goto="documentos">Ver documentos ficticios ↗</button>`}</div>
+    </div>
+   </article>
+  </section>
+  <section class="dh-section dh-source-block">
+   <div class="dh-section-heading"><div><span class="dh-kicker">LA IDEA DETRÁS DE NÚCLEO</span><h2>Tus fuentes, en un mismo tablero</h2><p>Así se organizan las áreas del sistema privado. En esta versión pública, cada fuente se representa con contenido de muestra.</p></div></div>
+   <div class="dh-sources">
+    ${[
+     {name:"PANTALLAZO",detail:"Facturas, estados y pagos",icon:"▤",page:"facturas"},
+     {name:"Remitos",detail:"Entregas y recepción",icon:"▧",page:"documentos"},
+     {name:"Cuentas corrientes",detail:"Cargos, abonos y saldo",icon:"≋",page:"cuentas"},
+     {name:"Fiserv / QR",detail:"Previsiones de tesorería",icon:"◈",page:"tesoreria"}
+    ].map(x=>`<button type="button" class="dh-source" data-goto="${x.page}"><span class="dh-source-icon">${x.icon}</span><div><strong>${x.name}</strong><small>${x.detail}</small></div><span class="dh-source-pill">MUESTRA</span></button>`).join("")}
+   </div>
+  </section>
+  <section class="dh-convert"><div><span class="dh-kicker">CONOCÉ LO QUE ESTAMOS CONSTRUYENDO</span><h2>¿Te imaginás administrar así tu negocio?</h2><p>NÚCLEO está en desarrollo. Si querés conocer el proyecto, probar la demo o contarnos qué necesitás, escribinos.</p></div><div class="dh-convert-actions"><a href="https://wa.me/5491126830194?text=Hola%2C%20vi%20la%20demo%20de%20N%C3%9ACLEO%20y%20quiero%20conocer%20el%20proyecto." target="_blank" rel="noopener noreferrer" class="dh-btn dh-btn-dark">Quiero conocer NÚCLEO ↗</a><button type="button" class="dh-btn dh-btn-outline" data-goto="futuro">Funciones futuras →</button></div></section>
+  ${donationCard()}
+ </div>`;
 }
 function invoiceRows(rows,compact=false){return rows.map(x=>'<tr><td><strong>'+esc(nameOf(x.supplier))+'</strong><div class="note">'+esc(x.number)+'</div></td><td>'+esc(x.date)+'</td><td>'+esc(x.due)+'</td><td>'+badgeInvoice(x)+'</td><td class="numeric"><strong>'+money(balance(x))+'</strong><div class="note">Total '+money(x.amount)+'</div></td><td><div class="toolbar">'+button("Ver","invoice-detail",x.id)+(!compact&&balance(x)>0?button("Simular pago","pay",x.id,"primary"):"")+'</div></td></tr>').join("")}
 function viewInvoices(){
