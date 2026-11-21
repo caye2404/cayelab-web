@@ -87,36 +87,38 @@ function navUpdate(){
 }
 
 
-const donationLinks={paypal:"https://paypal.me/caye2404",project:"https://cayelab-web.pages.dev/#apoyar-nucleo"};
-/* IMPORTANTE: sólo la donación es real; todos los movimientos del panel siguen siendo simulados. */
+
+/* Los datos operativos de la demo son ficticios. Los aportes aquí indicados son reales, voluntarios y separados de los pagos de la rifa. */
 function donationCard(compact=false){
  return '<section class="donation-card" id="apoyar-proyecto" aria-label="Apoyar el desarrollo de NÚCLEO">'+
  '<div class="donation-head"><span class="donation-eyebrow">♥ AYUDANOS A CREAR NÚCLEO</span><h2>Un proyecto para emprendedores, PyMEs y empresas.</h2>'+
  '<p>Estoy construyendo una herramienta para ordenar proveedores, documentos, pagos y procesos de negocios reales. Si querés impulsar su desarrollo, podés colaborar de forma voluntaria.</p></div>'+
- '<div class="donation-grid"><a class="donation-paypal" href="'+donationLinks.paypal+'" target="_blank" rel="noopener noreferrer" aria-label="Realizar una donación voluntaria por PayPal">'+
- '<span class="donation-icon">P</span><span><strong>DONAR CON PAYPAL</strong><small>Apoyá el desarrollo ↗</small></span><b aria-hidden="true">↗</b></a>'+
- '<button type="button" class="donation-bbva" data-action="copy-alias" aria-label="Copiar alias de BBVA para apoyar NÚCLEO">'+
- '<span class="donation-icon">⧉</span><span><strong>TRANSFERENCIA BBVA</strong><small>Copiar alias: CAYE2404B</small></span><b aria-hidden="true">↗</b></button></div>'+
- '<div class="bbva-account-details" style="padding:16px;margin:12px 0;background:#fff;color:#072146;border:1px solid #b8cbdc;border-radius:10px;line-height:1.7;overflow-wrap:anywhere"><strong>BBVA · Caja de Ahorro en $</strong><br>Titular: Cayetano Raúl Benítez<br>Alias: <strong>CAYE2404B</strong><br>CBU: <strong>0170051040000030943942</strong><br>Cuenta: 51-309439/4<br>SWIFT: BFRPARBAXXX<br>Sucursal: AV. SANTA FE 946</div><div class="donation-bank"><div><small>TITULAR</small><strong>Cayetano Raúl Benítez</strong></div><div><small>CUIT</small><strong>20-33083610-6</strong></div><div><small>ALIAS BBVA</small><strong>CAYE2404B</strong></div></div>'+
- '<div class="donation-bottom"><span>Las donaciones son reales, opcionales y externas a esta demo. Las facturas, pagos y demás operaciones mostradas son 100% ficticias.</span>'+
- '<a href="'+donationLinks.project+'" target="_blank" rel="noopener noreferrer">Conocer TODO VUELVE ↗</a></div></section>';
+ '<div class="donation-grid"><form action="https://www.paypal.com/donate" method="post" target="_blank">'+
+ '<input type="hidden" name="hosted_button_id" value="LC22GZCYF8AH4">'+
+ '<button class="donation-paypal" type="submit" aria-label="Donar voluntariamente con PayPal">'+
+ '<span class="donation-icon">P</span><span><strong>DONAR CON PAYPAL</strong><small>Donación voluntaria ↗</small></span><b aria-hidden="true">↗</b></button></form>'+
+ '<button type="button" class="donation-bbva" data-action="copy-alias" aria-label="Copiar alias de Banco Galicia para apoyar NÚCLEO">'+
+ '<span class="donation-icon">⧉</span><span><strong>TRANSFERENCIA GALICIA</strong><small>Copiar alias: caye2000</small></span><b aria-hidden="true">↗</b></button></div>'+
+ '<div class="bbva-account-details" style="padding:16px;margin:12px 0;background:#fff;color:#072146;border:1px solid #b8cbdc;border-radius:10px;line-height:1.7;overflow-wrap:anywhere"><strong>Banco Galicia · Transferencia</strong><br>Titular: Cayetano Raúl Benítez<br>Alias: <strong>caye2000</strong><br>Antes de enviar, comprobá el titular en tu aplicación bancaria.</div>'+
+ '<div class="donation-bank"><div><small>TITULAR</small><strong>Cayetano Raúl Benítez</strong></div><div><small>BANCO</small><strong>Galicia</strong></div><div><small>ALIAS</small><strong>caye2000</strong></div></div>'+
+ '<div class="donation-bottom"><span>Las donaciones son reales, opcionales y externas a esta demo. Las facturas, pagos y demás operaciones mostradas son 100% ficticias.</span></div></section>';
 }
 function viewFunding(){
  return head("Apoyá NÚCLEO","Si te gustaría que esta herramienta llegue a más negocios, podés colaborar con el desarrollo o enviar ideas para hacerla mejor.")+
- '<div class="alert blue"><strong>Transparencia:</strong> esta página solo muestra operaciones ficticias del software; las donaciones desde PayPal o BBVA son voluntarias y reales.</div>'+
+ '<div class="alert blue"><strong>Transparencia:</strong> esta página solo muestra operaciones ficticias del software; las donaciones desde PayPal o Galicia son voluntarias y reales.</div>'+
  donationCard()+
  panel("También podés aportar sin donar","Tu experiencia puede orientar el proyecto",'<div class="panel-body"><p>Contame qué problema administrativo necesitás resolver, cuál es tu rubro o qué función debería desarrollar primero.</p><div class="actions"><a class="btn primary" href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20prob%C3%A9%20N%C3%9ACLEO%20DEMO%20y%20quiero%20aportar%20una%20idea." target="_blank" rel="noopener noreferrer">Enviar mi idea ↗</a><a class="btn" href="https://cayelab-web.pages.dev/" target="_blank" rel="noopener noreferrer">Conocer CayeLab ↗</a></div></div>');
 }
 async function copyDonationAlias(){
- const alias="CAYE2404B";let copied=false;
+ const alias="caye2000";let copied=false;
  try{if(navigator.clipboard&&navigator.clipboard.writeText){await navigator.clipboard.writeText(alias);copied=true}}catch(e){}
  if(!copied){
   const input=document.createElement("textarea");input.value=alias;input.setAttribute("readonly","");input.style.position="fixed";input.style.left="-9999px";document.body.appendChild(input);input.select();
   try{copied=document.execCommand("copy")}catch(e){}
   input.remove();
  }
- if(copied)toast("Alias BBVA copiado: CAYE2404B");
- else toast("Copiá manualmente el alias: CAYE2404B");
+ if(copied)toast("Alias Galicia copiado: caye2000");
+ else toast("Copiá manualmente el alias: caye2000");
 }
 
 function viewHome(){
