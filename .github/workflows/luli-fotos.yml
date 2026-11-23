@@ -1,0 +1,59 @@
+name: Luli - guardar fotos originales de Instagram
+on:
+  push:
+    paths:
+      - '.github/workflows/luli-fotos.yml'
+      - 'luli-di-lorenzo/media_sources.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  guardar-fotos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Descargar fotos públicas de Luli (una sola vez)
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, pathlib, urllib.request
+          data=json.loads(pathlib.Path('luli-di-lorenzo/media_sources.json').read_text(encoding='utf8'))
+          out=pathlib.Path('luli-di-lorenzo/assets')
+          out.mkdir(exist_ok=True)
+          for item in data['sources']:
+              name=item['file']
+              dst=out/name
+              if dst.exists():
+                  print(name+': ya existe')
+                  continue
+              req=urllib.request.Request(item['url'],headers={
+                  'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/125.0 Safari/537.36',
+                  'Referer':'https://www.instagram.com/',
+                  'Accept':'image/avif,image/webp,image/apng,image/*,*/*;q=0.8'})
+              try:
+                  with urllib.request.urlopen(req,timeout=25) as r:
+                      ctype=r.headers.get('content-type','')
+                      b=r.read(5000000)
+                  if not ctype.startswith('image/') or len(b)<3500:
+                      print(name+': no se descargó una imagen válida ('+ctype+')')
+                      continue
+                  dst.write_bytes(b)
+                  print(name+': guardada ('+str(len(b))+' bytes)')
+              except Exception as e:
+                  print(name+': no disponible ('+type(e).__name__+')')
+          PY
+      - name: Guardar fotos en GitHub
+        shell: bash
+        run: |
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git add luli-di-lorenzo/assets/
+          if git diff --cached --quiet; then
+            echo 'No hay archivos nuevos'
+            exit 0
+          fi
+          git commit -m 'assets: conservar imágenes Instagram de Luli Di Lorenzo para demo'
+          git push
