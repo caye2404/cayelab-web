@@ -62,6 +62,148 @@
 .tv-note{font-size:15px!important;color:#cedde5!important;max-width:950px!important}
 .tv-copy-note{color:#ceff9d!important;font-weight:750;min-height:21px;font-size:15px!important;margin:5px 0 0}
 @media(max-width:720px){.tv-payment-grid{grid-template-columns:1fr}.tv-support h2{font-size:33px}.tv-hero-card{padding:23px}.tv-support .tv-btn{width:100%}.tv-meta{align-items:stretch}.tv-meta .tv-btn{width:100%}}
+
+/* CAYELAB 2026 · PORTFOLIO FIRST / MOBILE FIRST */
+html{scroll-padding-top:96px}
+body{overflow-x:hidden}
+.site-header.scrolled{background:#101318f2}
+.main-nav{gap:24px}
+.main-nav>a{font-size:14px}
+.studio-hero{position:relative;background:radial-gradient(circle at 88% 20%,#15445240,transparent 48%),linear-gradient(145deg,#13171b,#14171b 75%,#21282b);color:#fff;overflow:hidden;padding:176px 0 90px}
+.studio-hero-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:65px;align-items:center}
+.studio-eyebrow{display:flex;align-items:center;gap:12px;letter-spacing:.15em;font:800 12px "Manrope",sans-serif;text-transform:uppercase;color:#ff9a67}
+.studio-eyebrow.light{color:#f7a677}
+.studio-live{width:9px;height:9px;display:inline-block;border-radius:50%;background:#ff854d;box-shadow:0 0 0 5px #ff854d22}
+.studio-hero h1{font:850 clamp(47px,5.5vw,88px)/1.07 "Manrope",sans-serif;letter-spacing:-.071em;margin:28px 0 24px;max-width:790px}
+.studio-hero h1 em{font-style:normal;color:#ff9a67}
+.studio-hero-copy>p{max-width:600px;font-size:clamp(17px,1.6vw,21px);line-height:1.7;color:#d2d5d9}
+.studio-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 25px}
+.studio-button{display:inline-flex;align-items:center;justify-content:center;gap:15px;min-height:57px;padding:15px 23px;border:1px solid transparent;border-radius:14px;font-weight:800;font-size:15px;transition:transform .25s,background .25s}
+.studio-button:hover{transform:translateY(-3px)}
+.studio-button-main{color:#16191c;background:#ff965f}
+.studio-button-main:hover{background:#ffc09b}
+.studio-button-outline{border-color:#5c656b;color:white;background:#ffffff08}
+.studio-button-outline:hover{background:#ffffff1e}
+.studio-google{display:inline-flex;align-items:center;gap:10px;color:#c8d0d1;font-size:12px;font-weight:650}
+.studio-google span:first-child{color:#ffc780;letter-spacing:.04em}
+.studio-hero-work{height:515px;position:relative;min-width:0}
+.studio-hero-work>a{position:absolute;display:block;border:1px solid #ffffff24;border-radius:18px;overflow:hidden;box-shadow:0 22px 70px #0008;transition:transform .4s,box-shadow .4s;background:#18373b}
+.studio-hero-work>a:hover{transform:translateY(-8px) rotate(0);box-shadow:0 30px 70px #000a}
+.studio-hero-work img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05)}
+.studio-hero-work-main{left:0;top:22px;height:410px;width:77%;transform:rotate(-4deg)}
+.studio-hero-work-second{right:0;bottom:0;height:325px;width:55%;transform:rotate(5deg)}
+.studio-hero-work>a:after{content:"";position:absolute;inset:25% 0 0;background:linear-gradient(0deg,#09222be9,transparent);pointer-events:none}
+.studio-work-label{position:absolute;z-index:2;bottom:23px;left:24px;right:17px;display:grid;gap:7px}
+.studio-work-label small{font-size:10px;font-weight:850;letter-spacing:.13em;color:#f5c19e}
+.studio-work-label strong{font-size:clamp(17px,2vw,25px);color:white;font-weight:800;letter-spacing:-.025em;line-height:1.15}
+.studio-preview-note{position:absolute;z-index:4;right:0;top:0;padding:10px 13px;background:#f8f6f2;color:#17383d;font-weight:800;font-size:11px;border-radius:9px}
+.studio-portfolio{padding:112px 0 112px;background:#101418;color:#f6f7f8}
+.studio-section-head{display:flex;align-items:end;justify-content:space-between;gap:40px;margin-bottom:40px}
+.studio-section-head h2{font:850 clamp(39px,4.8vw,69px)/1.08 "Manrope",sans-serif;letter-spacing:-.06em;margin:19px 0 0;max-width:770px}
+.studio-section-head h2 em{color:#ff9865;font-style:normal}
+.studio-section-head>p{font-size:17px;line-height:1.7;color:#b8c0c4;max-width:350px;margin:0}
+.studio-project-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:23px}
+.studio-project-card{min-width:0;border:1px solid #353e46;background:#1b2126;border-radius:19px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 12px 36px #0002;transition:transform .28s,border-color .28s}
+.studio-project-card:hover{transform:translateY(-6px);border-color:#ff975b88}
+.studio-project-photo{height:290px;position:relative;overflow:hidden;background:#183a42}
+.studio-project-photo>img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.studio-project-card:hover img{transform:scale(1.04)}
+.studio-project-photo:after{content:"";position:absolute;inset:30% 0 0;background:linear-gradient(0deg,#15262c88,transparent);pointer-events:none}
+.studio-badge{position:absolute;top:18px;left:18px;z-index:2;display:inline-block;padding:8px 12px;border-radius:100px;font-size:11px;letter-spacing:.055em;font-weight:850}
+.badge-live{background:#d9f4d9;color:#154b35}
+.badge-preview{background:#fbe0bc;color:#56381b}
+.badge-internal{background:#dce9f3;color:#24435b}
+.studio-project-body{padding:30px 30px 31px;display:flex;flex-direction:column;flex:1}
+.studio-kicker{font:800 11px "Manrope",sans-serif;color:#f9a477;letter-spacing:.12em}
+.studio-project-body h3{font:850 clamp(25px,2.8vw,37px)/1.13 "Manrope",sans-serif;letter-spacing:-.04em;margin:15px 0}
+.studio-project-body h3 span{color:#ff9e6c}
+.studio-project-body p{font-size:17px;color:#cdd3d5;line-height:1.65;flex:1;margin:0 0 25px}
+.studio-project-action{align-self:flex-start;color:#ffae86;font-weight:800;font-size:14px}
+.studio-project-action.studio-muted{color:#aab8be}
+.studio-project-tech{display:grid;place-items:center;background:linear-gradient(155deg,#0d3341,#0c5964 65%,#17888c)}
+.studio-dashboard-preview{width:78%;height:77%;padding:24px;background:#132832e8;border-radius:17px;border:1px solid #7eb6b98c;box-shadow:0 15px 35px #001c2680;transform:rotate(-4deg);color:#e7fcfb}
+.studio-dashboard-line{display:flex;align-items:center;justify-content:space-between;padding-bottom:17px;border-bottom:1px solid #ffffff45}
+.studio-dashboard-line b{font-size:22px;letter-spacing:.15em}.studio-dashboard-line small{font-size:11px;color:#7fe7ce}
+.studio-dashboard-kpis{display:flex;gap:7px;margin:19px 0}.studio-dashboard-kpis span{flex:1;padding:10px 3px;text-align:center;border:1px solid #4c8f9380;border-radius:5px;font-size:11px}
+.studio-dashboard-chart{height:80px;display:flex;gap:12px;align-items:end;border-bottom:1px solid #78afaa}
+.studio-dashboard-chart i{background:linear-gradient(#80e6c0,#238e92);width:15%;border-radius:4px 4px 0 0}
+.studio-dashboard-chart i:nth-child(1){height:36%}.studio-dashboard-chart i:nth-child(2){height:70%}.studio-dashboard-chart i:nth-child(3){height:48%}.studio-dashboard-chart i:nth-child(4){height:92%}.studio-dashboard-chart i:nth-child(5){height:60%}.studio-dashboard-chart i:nth-child(6){height:79%}
+.studio-project-booking{display:grid;place-items:center;background:linear-gradient(125deg,#263647,#476a82)}
+.studio-booking-preview{width:78%;padding:24px;background:#f5f6f2;border-radius:17px;transform:rotate(4deg);box-shadow:0 17px 42px #1226357d;color:#234050}
+.studio-booking-head{font-size:12px;font-weight:850;letter-spacing:.07em;margin-bottom:13px}
+.studio-booking-row{display:flex;align-items:center;gap:14px;border-top:1px solid #d7dfe1;padding:14px 0;font-size:13px}
+.studio-booking-row span{color:#54707d}.studio-booking-row b{flex:1}.studio-booking-row i{width:17px;height:17px;background:#74bba1;border-radius:50%}
+.studio-portfolio-note{margin-top:28px;border-top:1px solid #39434b;padding-top:25px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+.studio-portfolio-note span{color:#afbec2;font-size:13px;line-height:1.6;max-width:520px}
+.studio-portfolio-note a{font-weight:800;color:#ffa576;font-size:15px;white-space:nowrap}
+.studio-services{background:#f7f5f0;color:#1d262b;padding:100px 0}
+.studio-section-head.is-dark h2{color:#171c20}.studio-section-head.is-dark h2 em{color:#d15e30}.studio-section-head.is-dark>p{color:#5a646b}
+.studio-services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.studio-services-grid>a{display:flex;flex-direction:column;gap:12px;min-height:220px;padding:26px;border:1px solid #dcded9;border-radius:17px;background:#fff;position:relative;transition:transform .25s,box-shadow .25s}
+.studio-services-grid>a:hover{transform:translateY(-5px);box-shadow:0 18px 35px #09161d13}
+.studio-service-icon{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:#ffede3;color:#ae512c;font-weight:800;font-size:23px}
+.studio-services-grid strong{font-size:20px;letter-spacing:-.03em}
+.studio-services-grid small{font-size:15px;color:#51616a;line-height:1.55;max-width:290px}
+.studio-services-grid .studio-arrow{position:absolute;right:22px;top:30px;font-size:22px;color:#d36836}
+.studio-more{padding:84px 0 114px;color:#1d282d;background:#f0eee8}
+.studio-more-head h2{font:850 clamp(38px,4vw,58px)/1.1 "Manrope",sans-serif;letter-spacing:-.05em;margin:20px 0 13px}.studio-more-head h2 em{color:#bd5d31;font-style:normal}
+.studio-more-head p{font-size:16px;color:#53616a}
+.studio-accordion{margin-top:30px;display:grid;gap:13px}
+.studio-accordion>details{background:#fff;border:1px solid #dedbd3;border-radius:16px;overflow:hidden}
+.studio-accordion>details>summary{list-style:none;cursor:pointer;padding:26px 30px;display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:20px;font-weight:850;letter-spacing:-.03em}
+.studio-accordion>details>summary::-webkit-details-marker{display:none}
+.studio-accordion>details[open]>summary{border-bottom:1px solid #e1e2dd}
+.studio-plus{color:#b85c33;font-size:30px;line-height:1;font-weight:400}
+.studio-accordion>details[open] .studio-plus{transform:rotate(45deg)}
+.studio-accordion-body{overflow:hidden}
+.studio-accordion-body>.section,.studio-accordion-body>.tv-support,.studio-accordion-body>.campaign-strip{scroll-margin-top:90px}
+.studio-accordion-body>.section{padding:52px 0}
+.studio-accordion-body>.section .container{width:min(1100px,calc(100% - 48px))}
+.studio-accordion-body .pain-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.studio-accordion-body .tv-support{padding:48px 18px}
+#cv-profesional{max-width:1000px!important;border:0!important;background:#f7f6f1!important;margin:20px auto!important}
+#cv-profesional details:not([open]){border:1px solid #c8d2d5;border-radius:9px;padding:12px}
+.intake-section{padding:90px 0}
+.intake-copy h2{font-size:clamp(38px,4.4vw,60px)}
+.intake-copy ul{display:none}
+.intake-copy>p:not(.eyebrow){font-size:18px;line-height:1.7}
+.section-reviews{padding:90px 0}
+@media(max-width:1150px){.studio-hero-inner{gap:32px}.studio-hero-work{height:455px}.studio-hero-work-main{height:370px}}
+@media(max-width:850px){.studio-hero{padding:145px 0 75px}.studio-hero-inner{grid-template-columns:1fr;gap:45px}.studio-hero-work{max-width:680px;width:100%;height:390px}.studio-hero-work-main{height:345px}.studio-hero-work-second{height:270px}.studio-services-grid{grid-template-columns:repeat(2,1fr)}.studio-project-photo{height:245px}.studio-portfolio-note{flex-wrap:wrap}.studio-accordion-body .pain-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){html{scroll-padding-top:80px}.container{width:calc(100% - 36px)}
+ .studio-hero{padding:134px 0 63px}.studio-hero-inner{gap:27px}.studio-eyebrow{font-size:11px;letter-spacing:.09em}
+ .studio-hero h1{font-size:clamp(43px,10.7vw,59px);line-height:1.06;letter-spacing:-.065em;margin:18px 0}
+ .studio-hero-copy>p{font-size:17px;line-height:1.62;margin:0 0 22px}
+ .studio-hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin:22px 0 18px}
+ .studio-button{width:100%;font-size:15px;min-height:54px}
+ .studio-google{font-size:11px;gap:8px;line-height:1.4}
+ .studio-hero-work{height:280px;margin-top:8px}.studio-hero-work-main{top:10px;height:247px;width:78%;transform:rotate(-3deg)}
+ .studio-hero-work-second{height:187px;width:55%;bottom:0;transform:rotate(4deg)}
+ .studio-work-label{left:13px;bottom:14px;right:9px;gap:4px}.studio-work-label small{font-size:8px;letter-spacing:.04em}.studio-work-label strong{font-size:17px}
+ .studio-preview-note{right:0;top:-12px;padding:7px;font-size:9px}
+ .studio-portfolio{padding:73px 0 75px}
+ .studio-section-head{flex-direction:column;align-items:start;gap:15px;margin-bottom:27px}
+ .studio-section-head h2{font-size:clamp(37px,10vw,49px);margin:15px 0 0}
+ .studio-section-head>p{font-size:16px;line-height:1.6}
+ .studio-project-grid{grid-template-columns:1fr;gap:18px}
+ .studio-project-photo{height:260px}.studio-badge{font-size:10px}
+ .studio-project-body{padding:23px 23px 24px}.studio-project-body h3{font-size:30px;margin:11px 0}
+ .studio-project-body p{font-size:16px;line-height:1.55;margin-bottom:18px}
+ .studio-kicker{font-size:10px}.studio-project-action{font-size:14px}
+ .studio-portfolio-note{gap:12px}.studio-portfolio-note a{white-space:normal;font-size:14px}
+ .studio-services{padding:75px 0}.studio-services-grid{grid-template-columns:1fr;gap:10px}
+ .studio-services-grid>a{min-height:125px;padding:20px 20px 18px 83px;justify-content:center}
+ .studio-service-icon{position:absolute;top:22px;left:20px;width:47px;height:47px}
+ .studio-services-grid strong{font-size:20px}.studio-services-grid small{font-size:14px}.studio-services-grid .studio-arrow{top:18px;right:17px}
+ .section-reviews{padding:74px 0}.intake-section{padding:75px 0}
+ .studio-more{padding:72px 0 90px}.studio-more-head h2{font-size:40px}
+ .studio-accordion>details>summary{padding:22px 20px;font-size:18px}
+ .studio-accordion-body .pain-grid{grid-template-columns:1fr}
+ .studio-accordion-body>.section .container{width:calc(100% - 28px)}
+ #cv-profesional{padding:20px!important}
+ .studio-dashboard-preview{padding:18px}.studio-dashboard-kpis{margin:12px 0}.studio-dashboard-kpis span{font-size:9px}.studio-dashboard-line b{font-size:17px}
+}
+
 </style>
 <style>
 
@@ -319,13 +461,12 @@ body{font-size:17px;line-height:1.65}
         <span class="brand-type">Caye<span>Lab</span><small>ESTUDIO DIGITAL</small></span>
       </a>
       <nav id="menu" class="main-nav" aria-label="Navegación principal">
-        <a href="#problemas">Tu problema</a><a href="#portfolio-cayelab">Proyectos</a><a href="#servicios">Servicios</a>
-        <a href="#soluciones">Soluciones</a>
-        <a href="#nosotros">Quiénes somos</a>
+        <a href="#portfolio-cayelab">Mis trabajos</a>
+        <a href="#servicios">Servicios</a>
         <a href="#opiniones">Opiniones</a>
-        <a href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">NÚCLEO DEMO ↗</a>
-        <a href="#apoyar-nucleo">Apoyar NÚCLEO</a>
-        <a class="nav-cta" href="#contacto">Hablemos <span aria-hidden="true">↗</span></a>
+        <a href="#mas-informacion">Sobre mí</a>
+        <a href="/nucleo-demo/" target="_blank" rel="noopener noreferrer">NÚCLEO ↗</a>
+        <a class="nav-cta" href="#diagnostico">Contacto <span aria-hidden="true">↗</span></a>
       </nav>
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu" type="button">
         <span></span><span></span><span></span>
@@ -334,86 +475,141 @@ body{font-size:17px;line-height:1.65}
   </header>
   <main id="contenido">
 
-<section class="tv-support" id="colaborar-todo-vuelve" aria-labelledby="tv-support-title">
- <div class="tv-support-wrap">
-  <span class="tv-eyebrow">PROYECTO NÚCLEO · CAYELAB</span>
-  <h2 id="tv-support-title">Estamos construyendo algo grande. Y podés ser parte.</h2>
-  <p>NÚCLEO es un proyecto de software administrativo en desarrollo, pensado para simplificar la gestión de pequeños negocios. La meta es compartir herramientas de código abierto y permitir que la comunidad acompañe su evolución con aportes voluntarios.</p>
-  <div class="tv-hero-card">
-   <strong>Primero, conocé NÚCLEO y todo lo que estamos construyendo</strong>
-   <p>Un proyecto tecnológico nacido de años de experiencia práctica. Podés conocerlo, compartirlo, ofrecer una oportunidad laboral o apoyarlo voluntariamente.</p>
-   <a class="tv-btn" href="#apoyar-nucleo">💻 CONOCER EL PROYECTO NÚCLEO ↗</a>
-   <a class="tv-btn tv-outline" href="https://caye2404.github.io/cayelab-web/nucleo-demo/" style="margin-top:10px">VER DEMOSTRACIÓN ↗</a>
+<section class="studio-hero" id="inicio" aria-labelledby="hero-title">
+  <div class="container studio-hero-inner">
+    <div class="studio-hero-copy">
+      <span class="studio-eyebrow"><span class="studio-live"></span>CAYELAB · ESTUDIO DIGITAL</span>
+      <h1 id="hero-title">Las ideas se cuentan.<br><em>Los trabajos se muestran.</em></h1>
+      <p>Diseño páginas y herramientas para negocios reales. Acá podés explorar lo que ya hice y lo que sigo construyendo.</p>
+      <div class="studio-hero-actions">
+        <a class="studio-button studio-button-main" href="#portfolio-cayelab">Mirá mis trabajos <span aria-hidden="true">↘</span></a>
+        <a class="studio-button studio-button-outline" href="#diagnostico">Hablemos de tu idea <span aria-hidden="true">↗</span></a>
+      </div>
+      <a class="studio-google" href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">★★★★★</span> Opiniones reales de soporte técnico en Google <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="studio-hero-work" aria-label="Vistas de proyectos reales de CayeLab">
+      <a class="studio-hero-work-main" href="https://la-tasca-vla.pages.dev/" target="_blank" rel="noopener noreferrer">
+        <img src="https://la-tasca-vla.pages.dev/deck-stella-real-2026.webp" alt="Imagen del deck del restaurante La Tasca en Villa La Angostura" loading="eager" onerror="this.onerror=null;this.src='https://la-tasca-vla.pages.dev/deck-verano-stella.webp'">
+        <span class="studio-work-label"><small>WEB PUBLICADA · GASTRONOMÍA</small><strong>La Tasca & Santori <span aria-hidden="true">↗</span></strong></span>
+      </a>
+      <a class="studio-hero-work-second" href="/luli-di-lorenzo/" target="_blank" rel="noopener noreferrer">
+        <img src="/luli-di-lorenzo/assets/insta-lago-01.jpg" alt="Publicación de Luli Di Lorenzo utilizada en un prototipo de página turística" loading="eager">
+        <span class="studio-work-label"><small>DEMO · TURISMO</small><strong>Luli Di Lorenzo <span aria-hidden="true">↗</span></strong></span>
+      </a>
+      <div class="studio-preview-note">Trabajo real + prototipo en desarrollo</div>
+    </div>
   </div>
-  <span class="tv-eyebrow">COLABORACIONES VOLUNTARIAS</span>
-  <h2>Elegí cómo acompañarme</h2>
-  <p>Si está dentro de tus posibilidades y querés colaborar, cualquier aporte es bienvenido. No es una compra, inversión ni participación en un sorteo. <strong>No hay premios ni contraprestaciones garantizadas.</strong> También podés ayudar compartiendo o acercándome trabajo.</p>
-  <div class="tv-payment-grid">
-   <article class="tv-payment-card">
-    <div class="tv-mark" aria-label="PayPal">Pay<span style="color:#81cfff">Pal</span></div>
-    <h3>Donar con PayPal</h3>
-    <p>Aporte voluntario, también desde el exterior cuando PayPal lo permita.</p>
-    <form action="https://www.paypal.com/donate" method="post" target="_blank">
-     <input type="hidden" name="hosted_button_id" value="LC22GZCYF8AH4">
-     <button class="tv-btn tv-paypal" type="submit"><span class="tv-paypal-brand">Pay<span>Pal</span></span> DONAR ↗</button>
-    </form>
-   </article>
-   <article class="tv-payment-card">
-    <div class="tv-mark tv-galicia" aria-label="Banco Galicia">Galicia</div>
-    <h3>Transferencia · Banco Galicia</h3>
-    <p><strong>Titular: Cayetano Raúl Benítez</strong></p>
-    <span class="tv-alias">caye2000</span>
-    <button type="button" class="tv-btn tv-copy-alias" data-alias="caye2000">⧉ COPIAR ALIAS GALICIA</button>
-    <p class="tv-copy-note" role="status" aria-live="polite"></p>
-   </article>
+</section>
+
+<section id="portfolio-cayelab" class="studio-portfolio" aria-labelledby="studio-projects-title">
+ <div class="container">
+  <div class="studio-section-head">
+    <div>
+      <span class="studio-eyebrow light">01 / PORTFOLIO</span>
+      <h2 id="studio-projects-title">Mis trabajos.<br><em>Mi mejor presentación.</em></h2>
+    </div>
+    <p>Menos promesas, más ejemplos. Proyectos publicados, herramientas reales y demos que podés recorrer.</p>
   </div>
-  <div class="tv-owner" aria-label="Titular de las cuentas"><strong>Titular: Cayetano Raúl Benítez</strong><span>CUIT: 20-33083610-6</span><small>Todos los medios informados por el titular. Verificá en tu aplicación el nombre del destinatario antes de enviar cualquier aporte.</small></div>
-  <div class="tv-meta">
-   <div><span class="tv-eyebrow">TRANSPARENCIA</span><strong>Recaudación confirmada: <span class="tv-verified-amount" aria-live="polite">pendiente de verificación</span></strong><small>El total se publicará únicamente después de conciliar los aportes. Sin cifras inventadas.</small></div>
-   
+  <div class="studio-project-grid">
+    <a class="studio-project-card" href="https://la-tasca-vla.pages.dev/" target="_blank" rel="noopener noreferrer" aria-label="Ver sitio de La Tasca y Santori">
+      <div class="studio-project-photo">
+        <img src="https://la-tasca-vla.pages.dev/deck-stella-real-2026.webp" alt="Vista del restaurante La Tasca en Villa La Angostura" loading="lazy" onerror="this.onerror=null;this.src='https://la-tasca-vla.pages.dev/deck-verano-stella.webp'">
+        <span class="studio-badge badge-live">SITIO PUBLICADO</span>
+      </div>
+      <div class="studio-project-body">
+        <span class="studio-kicker">GASTRONOMÍA · VILLA LA ANGOSTURA</span>
+        <h3>La Tasca & Santori <span aria-hidden="true">↗</span></h3>
+        <p>Diseño web, cartas y acceso a información para visitantes.</p>
+        <span class="studio-project-action">Conocer el proyecto ↗</span>
+      </div>
+    </a>
+    <a class="studio-project-card" href="/luli-di-lorenzo/" target="_blank" rel="noopener noreferrer" aria-label="Ver prototipo de Luli Di Lorenzo">
+      <div class="studio-project-photo">
+        <img src="/luli-di-lorenzo/assets/insta-lago-01.jpg" alt="Imagen publicada por Luli Di Lorenzo, paseo lacustre en el Nahuel Huapi" loading="lazy">
+        <span class="studio-badge badge-preview">PROTOTIPO · A VALIDAR</span>
+      </div>
+      <div class="studio-project-body">
+        <span class="studio-kicker">TURISMO · NAHUEL HUAPI</span>
+        <h3>Luli Di Lorenzo <span aria-hidden="true">↗</span></h3>
+        <p>Demo turística con galería, contacto directo y versión bilingüe. Pendiente de aprobación.</p>
+        <span class="studio-project-action">Explorar la demo ↗</span>
+      </div>
+    </a>
+    <a class="studio-project-card" href="/nucleo-demo/" target="_blank" rel="noopener noreferrer" aria-label="Probar demo interactiva de NÚCLEO">
+      <div class="studio-project-photo studio-project-tech">
+        <div class="studio-dashboard-preview" aria-hidden="true">
+           <div class="studio-dashboard-line"><b>NÚCLEO</b><small>DEMO</small></div>
+           <div class="studio-dashboard-kpis"><span>Facturas</span><span>Proveedores</span><span>Pagos</span></div>
+           <div class="studio-dashboard-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <span class="studio-badge badge-preview">DEMO INTERACTIVA</span>
+      </div>
+      <div class="studio-project-body">
+        <span class="studio-kicker">SOFTWARE · ADMINISTRACIÓN</span>
+        <h3>NÚCLEO <span aria-hidden="true">↗</span></h3>
+        <p>Prototipo de gestión de proveedores, cuentas corrientes y pagos con datos ficticios.</p>
+        <span class="studio-project-action">Probar ahora ↗</span>
+      </div>
+    </a>
+    <article class="studio-project-card studio-project-internal">
+      <div class="studio-project-photo studio-project-booking">
+         <div class="studio-booking-preview" aria-hidden="true"><div class="studio-booking-head">RESERVAS · CONTROL DE SALÓN</div><div class="studio-booking-row"><span>12:00</span><b>La Tasca</b><i></i></div><div class="studio-booking-row"><span>20:00</span><b>Santori</b><i></i></div><div class="studio-booking-row"><span>21:30</span><b>Agenda</b><i></i></div></div>
+         <span class="studio-badge badge-internal">HERRAMIENTA INTERNA</span>
+      </div>
+      <div class="studio-project-body">
+        <span class="studio-kicker">OPERACIÓN · GASTRONOMÍA</span>
+        <h3>Control de reservas</h3>
+        <p>Herramienta operativa para organizar horarios, mesas y reservas de dos espacios.</p>
+        <span class="studio-project-action studio-muted">Caso de uso interno · Sin acceso público</span>
+      </div>
+    </article>
   </div>
-  <p class="tv-note">Los aportes son personales y completamente voluntarios. Si colaborás, no adquirís derechos sobre NÚCLEO ni sobre premios futuros. Mi compromiso es compartir avances, el destino de los fondos y las formas en que pueda agradecer a quienes me acompañan, sin prometer beneficios específicos. Gracias por ayudar a construir el próximo capítulo.</p>
+  <div class="studio-portfolio-note">
+    <span>Los proyectos tienen distintas etapas: sitios publicados, sistemas internos y prototipos pendientes de validación.</span>
+    <a href="#diagnostico">¿Querés algo parecido para tu negocio? <span aria-hidden="true">↗</span></a>
+  </div>
  </div>
 </section>
-    <section class="hero section" aria-labelledby="hero-title">
-      <div class="hero-halo" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="signal" aria-hidden="true"></span> CREATIVIDAD + TECNOLOGÍA + ESTRATEGIA</p>
-          <h1 id="hero-title">Problemas reales.<br><em>Soluciones que</em><br><span class="outline-text">funcionan.</span></h1>
-          <p class="hero-description">Soy Caye. Desarrollo webs, reservas, sistemas administrativos, automatizaciones y soporte IT para emprendedores, PyMEs y empresas. Primero entiendo qué te está frenando; después diseño una solución que sirva en el trabajo real.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#diagnostico">Contame qué problema tenés <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-ghost" href="#servicios">Explorar servicios <span aria-hidden="true">↓</span></a>
-            <a class="btn btn-ghost" href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">PROBAR NÚCLEO DEMO <span aria-hidden="true">↗</span></a>
-            <a class="btn btn-ghost" href="#apoyar-nucleo">Apoyá NÚCLEO <span aria-hidden="true">↗</span></a>
-          </div>
-          <div class="hero-foot"><a href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer" class="rating-link" aria-label="Ver ficha de CayeLab en Google"><span class="stars" aria-hidden="true">★★★★★</span><span><strong>CayeLab en Google</strong><small>Ficha del negocio · Servicio técnico</small></span><span class="arrow-round" aria-hidden="true">↗</span></a></div>
-        </div>
-        <div class="hero-art" aria-label="Vista conceptual de soluciones web y administración digital">
-          <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
-          <div class="floating-label label-one"><span class="label-dot"></span> PRESENCIA DIGITAL</div>
-          <div class="floating-label label-two">DISEÑO <span class="mini-plus">+</span> SISTEMAS</div>
-          <div class="dashboard-mock" role="img" aria-label="Ilustración conceptual: una página web moderna conectada con información de gestión">
-            <div class="mock-top"><span class="mock-brand"><span class="mock-logo">C<span>.</span></span> CAYELAB / STUDIO</span><span class="mock-top-right">LIVE PREVIEW <span class="live-dot"></span></span></div>
-            <div class="mock-main">
-              <div class="mock-eyebrow">/ NUEVAS FORMAS DE TRABAJAR</div>
-              <div class="mock-title">Tu negocio.<br><span>En otro nivel.</span></div>
-              <div class="mock-line"></div>
-              <div class="mock-grid">
-                <div class="mock-module"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect x="5" y="7" width="22" height="18" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M5 12h22M12 25V12" stroke="currentColor" stroke-width="1.8"/></svg><span>Webs que<br>conectan</span></div>
-                <div class="mock-module"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="m7 20 8-9 6 6 4-5" stroke="currentColor" stroke-width="1.8"/><path d="M7 7v18h19" stroke="currentColor" stroke-width="1.8"/></svg><span>Procesos más<br>simples</span></div>
-                <div class="mock-module"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="1.8"/><path d="M16 10v6l4 3" stroke="currentColor" stroke-width="1.8"/></svg><span>Más tiempo<br>para vos</span></div>
-              </div>
-            </div>
-            <div class="mock-bottom"><span>© CayeLab · Diseñamos oportunidades.</span><span>01 — 03</span></div>
-          </div>
-          <div class="floating-stat"><span class="floating-stat-icon">✳</span><span><strong>Soluciones a medida</strong><small>Sin complicaciones innecesarias</small></span></div>
-          <p class="mock-disclaimer">Visualización ilustrativa · No representa un sistema de terceros.</p>
-        </div>
-      </div>
-      <div class="hero-bottom container"><span>01 / CONSTRUIMOS CON PROPÓSITO</span><a href="#servicios">SCROLL PARA DESCUBRIR <span aria-hidden="true">↓</span></a></div>
-    </section><section id="cv-profesional" aria-labelledby="cv-title" style="max-width:1100px;margin:32px auto;padding:clamp(20px,4vw,48px);background:#f5f2ea;color:#142d3b;border:2px solid #168493;border-radius:20px;box-sizing:border-box">
+
+<section class="studio-services" id="servicios" aria-labelledby="services-title">
+ <div class="container">
+  <div class="studio-section-head is-dark">
+    <div><span class="studio-eyebrow">02 / SERVICIOS</span><h2 id="services-title">Qué puedo hacer<br><em>por tu negocio.</em></h2></div>
+    <p>No hace falta empezar con algo enorme. Podemos resolver una necesidad concreta y construir desde ahí.</p>
+  </div>
+  <div class="studio-services-grid">
+    <a href="#diagnostico"><span class="studio-service-icon">↗</span><strong>Páginas web</strong><small>Webs claras, modernas y adaptadas al celular.</small><span class="studio-arrow">↗</span></a>
+    <a href="#diagnostico"><span class="studio-service-icon">▦</span><strong>Reservas y turnos</strong><small>Agendas, cupos y organización del salón.</small><span class="studio-arrow">↗</span></a>
+    <a href="#diagnostico"><span class="studio-service-icon">⌘</span><strong>Automatizaciones</strong><small>Menos tareas repetidas y más control.</small><span class="studio-arrow">↗</span></a>
+    <a href="#diagnostico"><span class="studio-service-icon">◫</span><strong>Sistemas de gestión</strong><small>Proveedores, facturas y procesos a medida.</small><span class="studio-arrow">↗</span></a>
+    <a href="#diagnostico"><span class="studio-service-icon">✳</span><strong>Soporte informático</strong><small>Equipos, impresoras, redes y configuración.</small><span class="studio-arrow">↗</span></a>
+    <a href="#diagnostico"><span class="studio-service-icon">▥</span><strong>Reportes e integraciones</strong><small>Información más clara para decidir.</small><span class="studio-arrow">↗</span></a>
+  </div>
+ </div>
+</section>
+<section class="section section-reviews" id="opiniones" aria-labelledby="reviews-title"><div class="container"><div class="section-heading review-heading reveal"><p class="eyebrow orange">03 / OPINIONES REALES</p><div class="heading-grid"><h2 id="reviews-title">Lo que dicen<br><span>de mi trabajo.</span></h2><p>Reseñas públicas de soporte informático. La mejor referencia siempre es el trabajo realizado.</p></div></div><div class="reviews-grid"><div class="review-summary reveal"><div class="review-star-line">★★★★★</div><strong>5,0<small>/ 5</small></strong><p>3 opiniones verificables<br>en Google</p><a href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer">Ver ficha y opiniones <span aria-hidden="true">↗</span></a></div><article class="review-card reveal"><span class="review-stars" aria-label="5 estrellas">★★★★★</span><p>“Excelente trabajo. Muy responsable.”</p><footer><b>Opinión pública de Google</b><small>Sobre recuperación de computadoras</small></footer></article><article class="review-card reveal"><span class="review-stars" aria-label="5 estrellas">★★★★★</span><p>“Súper profesional y altamente recomendado.”</p><footer><b>Opinión pública de Google</b><small>Sobre servicio técnico informático</small></footer></article></div><p class="reviews-disclosure">Extractos resumidos de reseñas públicas de servicio técnico. Consultá las opiniones completas desde el enlace al perfil de Google.</p></div></section>
+
+    
+<section class="section intake-section" id="diagnostico" aria-labelledby="intake-title"><div class="container intake-layout">
+<div class="intake-copy"><p class="eyebrow orange">CONVERSACIONES QUE SE CONVIERTEN EN SOLUCIONES</p><h2 id="intake-title">Contame tu proyecto.</h2>
+<p>Una web, un sistema o algo que hoy te haga perder tiempo.</p>
+<p>Explicame la situación con tus palabras. Primero evaluamos el problema y las posibilidades; después podemos definir etapas y presupuesto.</p>
+<ul><li>No necesitás saber de tecnología.</li><li>Podés consultar por un problema pequeño o un desarrollo completo.</li><li>En esta primera consulta no envíes contraseñas ni datos sensibles.</li></ul>
+<a class="intake-other" href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">También podés escribir por Instagram ↗</a></div>
+<form class="intake-form" id="intake-form"><h3>Contame qué necesitás.</h3><p>Se prepara un mensaje y se abre WhatsApp para que decidas enviarlo.</p>
+<label for="contact-name">Tu nombre *</label><input id="contact-name" autocomplete="name" maxlength="70" placeholder="¿Cómo te llamás?" required>
+<label for="contact-business">Negocio o emprendimiento</label><input id="contact-business" maxlength="90" placeholder="Opcional">
+<label for="contact-issue">¿En qué necesitás ayuda? *</label><select id="contact-issue" required>
+<option value="">Elegí una opción</option><option value="Páginas web">Páginas web y presencia digital</option><option value="Sistemas a medida">Sistemas y paneles a medida</option><option value="Reservas y turnos">Reservas y turnos</option><option value="Facturas y proveedores">Facturas y proveedores</option><option value="Pagos y cuentas corrientes">Pagos y cuentas corrientes</option><option value="Automatización">Automatización</option><option value="Informes y tableros">Informes y tableros</option><option value="Integraciones">Integraciones entre herramientas</option><option value="Soporte IT">Soporte IT</option><option value="Procesos e IA">Procesos e IA supervisada</option><option value="NÚCLEO">Conocer o aportar a NÚCLEO</option><option value="Otro">Otro problema</option></select>
+<label for="contact-detail">Contame qué pasa y qué te gustaría lograr *</label><textarea id="contact-detail" rows="5" maxlength="1800" placeholder="Por ejemplo: tenemos facturas dispersas en Drive y queremos ver lo pendiente por proveedor..." required></textarea>
+<button class="btn btn-primary" type="submit">ENVIAR CONSULTA POR WHATSAPP ↗</button><p class="privacy-note">Este formulario no almacena tus datos en esta web. Solo prepara un mensaje para WhatsApp.</p></form></div></section>
+    
+
+<section class="studio-more" id="mas-informacion" aria-labelledby="studio-more-title">
+ <div class="container">
+   <div class="studio-more-head"><span class="studio-eyebrow">04 / PARA CONOCER MÁS</span><h2 id="studio-more-title">Todo lo demás,<br><em>a tu ritmo.</em></h2><p>Si querés profundizar, abrí solamente la sección que te interese.</p></div>
+   <div class="studio-accordion">
+     <details id="trayectoria"><summary><span>Mi trayectoria y CV</span><span class="studio-plus" aria-hidden="true">+</span></summary><div class="studio-accordion-body"><section id="cv-profesional" aria-labelledby="cv-title" style="max-width:1100px;margin:32px auto;padding:clamp(20px,4vw,48px);background:#f5f2ea;color:#142d3b;border:2px solid #168493;border-radius:20px;box-sizing:border-box">
 <p style="font-size:15px;font-weight:700;letter-spacing:.1em">CAYETANO RAÚL BENÍTEZ</p>
 <h2 id="cv-title" style="font-size:clamp(28px,5vw,48px);line-height:1.15;margin:12px 0">Mi experiencia en administración y tecnología</h2>
 <p style="font-size:19px;line-height:1.6;max-width:760px">Conocé mi trayectoria, las herramientas que uso y los proyectos que estoy construyendo. Busco oportunidades en administración, soporte funcional y soluciones digitales.</p>
@@ -421,38 +617,21 @@ body{font-size:17px;line-height:1.65}
 <a href="cv-cayetano-benitez.pdf" target="_blank" rel="noopener" style="background:#126575;color:white;padding:16px 22px;border-radius:10px;font-weight:700;text-decoration:none">ABRIR MI CV EN PDF ↗</a>
 <a href="cv-cayetano-benitez.pdf" download style="background:#142d3b;color:white;padding:16px 22px;border-radius:10px;font-weight:700;text-decoration:none">DESCARGAR CV ↓</a>
 <a href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20vi%20tu%20CV%20y%20quiero%20contactarte." target="_blank" rel="noopener" style="color:#142d3b;padding:16px 22px;border:1px solid #142d3b;border-radius:10px;font-weight:700;text-decoration:none">CONTACTARME</a></div>
-<details open><summary style="cursor:pointer;font-size:18px;font-weight:700;padding:12px 0">Leer mi CV aquí · 2 páginas</summary>
+<details><summary style="cursor:pointer;font-size:18px;font-weight:700;padding:12px 0">Leer mi CV aquí · 2 páginas</summary>
 <div aria-label="Vista de las dos páginas del CV" style="display:grid;gap:20px;max-width:850px;margin:auto"><figure style="margin:0"><a href="cv-pagina-1.webp" target="_blank" rel="noopener" aria-label="Ampliar página 1 del CV" style="display:block"><img src="cv-pagina-1.webp" alt="Currículum de Cayetano Benítez, página 1 de 2. Abrir para ampliar." width="1273" height="1800" style="display:block;width:100%;height:auto;background:white;border:1px solid #bdcbd0;box-shadow:0 8px 24px #142d3b18" ></a><figcaption style="font-size:16px;text-align:center;padding:10px;color:#142d3b">Página 1 de 2 · Tocá la hoja para ampliar</figcaption></figure><figure style="margin:0"><a href="cv-pagina-2.webp" target="_blank" rel="noopener" aria-label="Ampliar página 2 del CV" style="display:block"><img src="cv-pagina-2.webp" alt="Currículum de Cayetano Benítez, página 2 de 2. Abrir para ampliar." width="1273" height="1800" style="display:block;width:100%;height:auto;background:white;border:1px solid #bdcbd0;box-shadow:0 8px 24px #142d3b18" loading="lazy"></a><figcaption style="font-size:16px;text-align:center;padding:10px;color:#142d3b">Página 2 de 2 · Tocá la hoja para ampliar</figcaption></figure></div></details></section>
     <div class="sectors" aria-label="Rubros a los que dirigimos nuestros servicios"><div class="container sector-content"><span>PARA NEGOCIOS QUE QUIEREN AVANZAR</span><div><span>EMPRENDEDORES</span><i>✳</i><span>PyMEs</span><i>✳</i><span>GASTRONOMÍA</span><i>✳</i><span>COMERCIOS</span><i>✳</i><span>EMPRESAS</span></div></div></div>
-    <section class="section pain-section" id="problemas">
+    </div></details>
+     <details id="metodo"><summary><span>Cómo trabajo y quién soy</span><span class="studio-plus" aria-hidden="true">+</span></summary><div class="studio-accordion-body"><section class="section section-solution" id="soluciones" aria-labelledby="solution-title"><div class="container solution-layout"><div class="solution-copy reveal"><p class="eyebrow orange">02 / NUESTRO ENFOQUE</p><h2 id="solution-title">No es solo<br><span>diseño.</span><br>Es estrategia.</h2><p>No alcanza con que una página sea linda. Tiene que funcionar en el mundo real, con tus horarios, con tus datos y con las personas que hacen el trabajo. Cada solución empieza entendiendo el problema.</p><ul class="checks"><li><span>✓</span> Primero comprender la operación y sus dificultades</li><li><span>✓</span> Definir alcance, prioridades y responsables</li><li><span>✓</span> Probar con casos reales, corregir y documentar</li></ul><a class="text-link" href="#diagnostico">Hablemos de tu problema <span aria-hidden="true">↗</span></a></div><div class="solution-visual reveal"><div class="solution-grid-bg"></div><div class="sol-label">DEL PROBLEMA A LA SOLUCIÓN</div><div class="flow-card flow-a"><span class="flow-icon">01</span><div><strong>Entender</strong><small>Qué te está frenando</small></div></div><span class="flow-connect"></span><div class="flow-card flow-b"><span class="flow-icon">02</span><div><strong>Diseñar</strong><small>Una solución a medida</small></div></div><span class="flow-connect"></span><div class="flow-card flow-c"><span class="flow-icon">03</span><div><strong>Implementar</strong><small>Algo útil de verdad</small></div></div><div class="solution-side">CAYELAB <span>✳</span> LABORATORIO DE IDEAS</div></div></div></section>
+    <section class="section section-about" id="nosotros" aria-labelledby="about-title"><div class="container about-grid"><div class="about-mark reveal"><div class="big-monogram" aria-hidden="true">C<span>L</span><b>↗</b></div><p>CREAR • RESOLVER • MEJORAR</p></div><div class="about-copy reveal"><p class="eyebrow orange">03 / LA IDEA DETRÁS DE CAYELAB</p><h2 id="about-title">Tecnología con<br><span>criterio humano.</span></h2><p>CayeLab es un proyecto independiente que combina experiencia en soporte informático, diseño y trabajo dentro de la operación de negocios.</p><p>Conocemos lo que pasa detrás del mostrador: las urgencias, los procesos que no funcionan y las horas que se pierden intentando resolver algo que debería ser simple.</p><p><strong>Por eso diseñamos soluciones que se entienden, se usan y aportan valor.</strong></p><div class="about-footer"><span><b>ENFOQUE</b><small>Atención directa</small></span><span><b>MODALIDAD</b><small>Proyectos digitales y soporte remoto</small></span></div></div></div></section>
+    </div></details>
+     <details id="ejemplos"><summary><span>Problemas que podemos resolver</span><span class="studio-plus" aria-hidden="true">+</span></summary><div class="studio-accordion-body"><section class="section pain-section" id="problemas">
 <div class="container"><p class="eyebrow orange">EMPECEMOS POR TU REALIDAD</p><h2>¿Qué problema tiene tu negocio hoy?</h2>
 <p class="pain-intro">No necesitás saber qué software querés. Contame qué falla, qué te quita tiempo y qué resultado te gustaría conseguir. Hablemos de soluciones, no de tecnología innecesaria.</p>
 <div class="pain-grid"><button class="pain-card" type="button" data-issue="Facturas y proveedores"><span>01 / DESAFÍO</span><strong>¿Se te pierden facturas y remitos?</strong><small>Documentos dispersos y horas buscando el comprobante que necesitás.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Reservas y turnos"><span>02 / DESAFÍO</span><strong>¿Las reservas son un caos?</strong><small>Llamadas, WhatsApp, cupos y cambios difíciles de coordinar.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Pagos y cuentas corrientes"><span>03 / DESAFÍO</span><strong>¿No tenés claros los pagos y saldos?</strong><small>Vencimientos, anticipos y proveedores sin un seguimiento confiable.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Automatización"><span>04 / DESAFÍO</span><strong>¿Repetís tareas todos los días?</strong><small>Copiar datos, revisar planillas y hacer controles manuales una y otra vez.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Páginas web"><span>05 / DESAFÍO</span><strong>¿Tu negocio no se muestra bien online?</strong><small>Una web que no funciona en celular o clientes que no encuentran información.</small><b>Quiero resolver esto ↗</b></button><button class="pain-card" type="button" data-issue="Soporte IT"><span>06 / DESAFÍO</span><strong>¿La tecnología frena tu operación?</strong><small>Problemas de impresoras, equipos, red y sistemas que retrasan el trabajo.</small><b>Quiero resolver esto ↗</b></button></div>
 <div class="pain-bottom"><strong>¿Tu problema es otro? También podemos analizarlo.</strong><a href="#diagnostico" class="btn btn-dark">Contame tu situación ↗</a></div>
 </div></section>
-<section class="campaign-strip"><div class="container campaign-inner"><div><span>NÚCLEO / PROYECTO EN DESARROLLO</span><strong>Un software de gestión que quiero llevar a emprendedores, PyMEs y empresas.</strong><p>Conocé los avances, sumá tus ideas o apoyá una futura versión de código abierto.</p></div><div class="campaign-actions"><a class="btn btn-primary" href="#apoyar-nucleo">Apoyá NÚCLEO ↗</a></div></div></section>
-    <section id="portfolio-cayelab" style="background:#151719;padding:88px 0;border-top:1px solid #343638;border-bottom:1px solid #343638"><div class="container"><p class="eyebrow orange">PROYECTOS Y POSIBILIDADES</p><h2 style="font-size:clamp(32px,5vw,62px);line-height:1.08;max-width:850px">Tu idea puede convertirse en <em style="color:#ff965f">algo extraordinario.</em></h2><p style="color:#b8bcc2;max-width:690px;font-size:18px;line-height:1.65">Desde una página para mostrar tus servicios hasta una plataforma para organizar tu negocio. Cada proyecto empieza con una conversación.</p><div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:36px"><a href="https://la-tasca-vla.pages.dev/" target="_blank" rel="noopener noreferrer" style="display:block;padding:30px;border:1px solid #424448;border-radius:20px;background:linear-gradient(145deg,#3c2b22,#1a1b1e)"><span style="font-size:12px;color:#f5b98f">PROYECTO REAL · GASTRONOMÍA</span><h3 style="font-size:27px;margin:20px 0 12px">La Tasca ↗</h3><p style="color:#d4cbc4">Experiencia web para un restaurante: identidad, carta e información para visitantes.</p></a><a href="/luli-di-lorenzo/" target="_blank" rel="noopener noreferrer" style="display:block;padding:30px;border:1px solid #316072;border-radius:20px;background:linear-gradient(145deg,#065a71,#112b3c)"><span style="font-size:12px;color:#98e2f0">PROTOTIPO REAL · TURISMO EN PATAGONIA</span><h3 style="font-size:27px;margin:20px 0 12px">Luli Di Lorenzo ↗</h3><p style="color:#d5eff1">Web para paseos lacustres y salidas de pesca: fotos del emprendimiento, galería, consultas por WhatsApp y presentación bilingüe. Demo pendiente de aprobación.</p></a><a href="/nucleo-demo/" style="display:block;padding:30px;border:1px solid #424448;border-radius:20px;background:linear-gradient(145deg,#263b40,#1a1b1e)"><span style="font-size:12px;color:#99cdd0">DEMO · SOFTWARE</span><h3 style="font-size:27px;margin:20px 0 12px">NÚCLEO ↗</h3><p style="color:#c8d4d5">Una demostración interactiva de herramientas para proveedores, pagos y gestión administrativa.</p></a><div style="padding:30px;border:1px solid #424448;border-radius:20px;background:linear-gradient(145deg,#29362d,#1a1b1e)"><span style="font-size:12px;color:#b8d4b3">IDEAS QUE PODEMOS CREAR</span><h3 style="font-size:27px;margin:20px 0 12px">Tu emprendimiento</h3><p style="color:#c8d4c9">Turismo, excursiones, pesca, comercios o profesionales: galerías, consultas, mapas y reservas a medida.</p><a href="#contacto" style="color:#ff965f;font-weight:700">Conversemos ↗</a></div></div><p style="margin-top:28px;color:#aeb2b6">NÚCLEO tiene vocación de código abierto. Si querés acompañar su desarrollo, podés hacerlo con una donación voluntaria.</p><a href="#apoyar-nucleo" style="color:#ff965f">Conocer cómo apoyar NÚCLEO ↗</a></div></section><section class="section section-services" id="servicios" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-heading reveal"><p class="eyebrow orange">01 / LO QUE HACEMOS</p><div class="heading-grid"><h2 id="services-title">Mucho más que webs.<br><span>Soluciones para negocios.</span></h2><p>Desde una página web hasta un sistema administrativo o una automatización. Trabajo con experiencia operativa real y defino el alcance antes de desarrollar, para crear herramientas que el equipo pueda usar.</p></div></div>
-        <div class="service-grid">
-<article class="service-card reveal"><span class="card-number">01</span><div class="service-icon service-icon-text" aria-hidden="true">⌘</div><h3>Desarrollo web y presencia digital</h3><p>Sitios institucionales, páginas comerciales, landing pages, cartas digitales, formularios y herramientas para que los clientes encuentren tu negocio desde el celular.</p><div class="service-tags"><span>Web responsive</span><span>Formularios</span><span>SEO básico</span></div><a href="#diagnostico" aria-label="Consultar por Desarrollo web y presencia digital">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">02</span><div class="service-icon service-icon-text" aria-hidden="true">▣</div><h3>Sistemas y paneles a medida</h3><p>Herramientas privadas para registrar operaciones, administrar roles, consultar datos, imprimir listados, mantener historial y organizar procesos internos del equipo.</p><div class="service-tags"><span>Gestión</span><span>Usuarios</span><span>Historial</span></div><a href="#diagnostico" aria-label="Consultar por Sistemas y paneles a medida">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">03</span><div class="service-icon service-icon-text" aria-hidden="true">◷</div><h3>Reservas y tecnología gastronómica</h3><p>Formularios de reserva, disponibilidad, cupos, vistas rápidas para personal, estados de mesas y herramientas diseñadas para el ritmo real del salón.</p><div class="service-tags"><span>Reservas</span><span>Gastronomía</span><span>Staff</span></div><a href="#diagnostico" aria-label="Consultar por Reservas y tecnología gastronómica">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">04</span><div class="service-icon service-icon-text" aria-hidden="true">▤</div><h3>Administración, facturas y proveedores</h3><p>Orden de facturas, remitos, cuentas corrientes, vencimientos, pagos y documentación. Controles para saber qué se debe revisar sin perder trazabilidad.</p><div class="service-tags"><span>Proveedores</span><span>Pagos</span><span>Remitos</span></div><a href="#diagnostico" aria-label="Consultar por Administración, facturas y proveedores">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">05</span><div class="service-icon service-icon-text" aria-hidden="true">↻</div><h3>Automatización y Google Workspace</h3><p>Planillas más inteligentes, Apps Script, Google Drive, alertas, respaldos y circuitos que eviten repetir cargas manuales y buscar archivos sin orden.</p><div class="service-tags"><span>Google Sheets</span><span>Drive</span><span>Apps Script</span></div><a href="#diagnostico" aria-label="Consultar por Automatización y Google Workspace">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">06</span><div class="service-icon service-icon-text" aria-hidden="true">▥</div><h3>Tableros, reportes e indicadores</h3><p>Reportes de ventas, gastos, caja y desempeño; cuadros de control, conciliaciones documentales y vistas claras para que la información ayude a decidir.</p><div class="service-tags"><span>Dashboards</span><span>Indicadores</span><span>Reportes</span></div><a href="#diagnostico" aria-label="Consultar por Tableros, reportes e indicadores">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">07</span><div class="service-icon service-icon-text" aria-hidden="true">⤳</div><h3>Integraciones y gestión de datos</h3><p>Evaluación de conexiones entre planillas, herramientas, archivos y sistemas administrativos o de cobro, según accesos autorizados y compatibilidad técnica.</p><div class="service-tags"><span>Integraciones</span><span>APIs</span><span>Datos</span></div><a href="#diagnostico" aria-label="Consultar por Integraciones y gestión de datos">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">08</span><div class="service-icon service-icon-text" aria-hidden="true">◉</div><h3>Soporte IT, redes y equipos</h3><p>Asistencia para computadoras, impresoras, redes, conectividad, software y entornos de trabajo que necesitan funcionar sin frenar la operación.</p><div class="service-tags"><span>Computadoras</span><span>Impresoras</span><span>Redes</span></div><a href="#diagnostico" aria-label="Consultar por Soporte IT, redes y equipos">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-<article class="service-card reveal"><span class="card-number">09</span><div class="service-icon service-icon-text" aria-hidden="true">✳</div><h3>Diseño de procesos e IA aplicada</h3><p>Análisis de tareas repetitivas, formularios simples, mejoras en la experiencia de uso y asistentes de IA supervisados para tareas concretas con cuidado de privacidad.</p><div class="service-tags"><span>Procesos</span><span>UX</span><span>IA supervisada</span></div><a href="#diagnostico" aria-label="Consultar por Diseño de procesos e IA aplicada">Consultar servicio <span aria-hidden="true">↗</span></a></article>
-        </div>
-        <p class="service-note reveal">No necesitás pedir algo grande: también podemos analizar una mejora puntual. <a href="#diagnostico">Contame qué querés resolver <span aria-hidden="true">↗</span></a></p>
-      </div>
-    </section>
-    <section class="section section-solution" id="soluciones" aria-labelledby="solution-title"><div class="container solution-layout"><div class="solution-copy reveal"><p class="eyebrow orange">02 / NUESTRO ENFOQUE</p><h2 id="solution-title">No es solo<br><span>diseño.</span><br>Es estrategia.</h2><p>No alcanza con que una página sea linda. Tiene que funcionar en el mundo real, con tus horarios, con tus datos y con las personas que hacen el trabajo. Cada solución empieza entendiendo el problema.</p><ul class="checks"><li><span>✓</span> Primero comprender la operación y sus dificultades</li><li><span>✓</span> Definir alcance, prioridades y responsables</li><li><span>✓</span> Probar con casos reales, corregir y documentar</li></ul><a class="text-link" href="#diagnostico">Hablemos de tu problema <span aria-hidden="true">↗</span></a></div><div class="solution-visual reveal"><div class="solution-grid-bg"></div><div class="sol-label">DEL PROBLEMA A LA SOLUCIÓN</div><div class="flow-card flow-a"><span class="flow-icon">01</span><div><strong>Entender</strong><small>Qué te está frenando</small></div></div><span class="flow-connect"></span><div class="flow-card flow-b"><span class="flow-icon">02</span><div><strong>Diseñar</strong><small>Una solución a medida</small></div></div><span class="flow-connect"></span><div class="flow-card flow-c"><span class="flow-icon">03</span><div><strong>Implementar</strong><small>Algo útil de verdad</small></div></div><div class="solution-side">CAYELAB <span>✳</span> LABORATORIO DE IDEAS</div></div></div></section>
-    <section class="section section-about" id="nosotros" aria-labelledby="about-title"><div class="container about-grid"><div class="about-mark reveal"><div class="big-monogram" aria-hidden="true">C<span>L</span><b>↗</b></div><p>CREAR • RESOLVER • MEJORAR</p></div><div class="about-copy reveal"><p class="eyebrow orange">03 / LA IDEA DETRÁS DE CAYELAB</p><h2 id="about-title">Tecnología con<br><span>criterio humano.</span></h2><p>CayeLab es un proyecto independiente que combina experiencia en soporte informático, diseño y trabajo dentro de la operación de negocios.</p><p>Conocemos lo que pasa detrás del mostrador: las urgencias, los procesos que no funcionan y las horas que se pierden intentando resolver algo que debería ser simple.</p><p><strong>Por eso diseñamos soluciones que se entienden, se usan y aportan valor.</strong></p><div class="about-footer"><span><b>ENFOQUE</b><small>Atención directa</small></span><span><b>MODALIDAD</b><small>Proyectos digitales y soporte remoto</small></span></div></div></div></section>
-    <section class="section section-reviews" id="opiniones" aria-labelledby="reviews-title"><div class="container"><div class="section-heading review-heading reveal"><p class="eyebrow orange">04 / CONFIANZA REAL</p><div class="heading-grid"><h2 id="reviews-title">El trabajo habla.<br><span>Los clientes también.</span></h2><p>La reputación de CayeLab nació en el servicio técnico. Estas opiniones públicas respaldan esa experiencia; nuestros nuevos servicios digitales están en expansión.</p></div></div><div class="reviews-grid"><div class="review-summary reveal"><div class="review-star-line">★★★★★</div><strong>5,0<small>/ 5</small></strong><p>3 opiniones verificables<br>en Google</p><a href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer">Ver ficha y opiniones <span aria-hidden="true">↗</span></a></div><article class="review-card reveal"><span class="review-stars" aria-label="5 estrellas">★★★★★</span><p>“Excelente trabajo. Muy responsable.”</p><footer><b>Opinión pública de Google</b><small>Sobre recuperación de computadoras</small></footer></article><article class="review-card reveal"><span class="review-stars" aria-label="5 estrellas">★★★★★</span><p>“Súper profesional y altamente recomendado.”</p><footer><b>Opinión pública de Google</b><small>Sobre servicio técnico informático</small></footer></article></div><p class="reviews-disclosure">Extractos resumidos de reseñas públicas de servicio técnico. Consultá las opiniones completas desde el enlace al perfil de Google.</p></div></section>
-
-    <section class="section nucleo-funding" id="apoyar-nucleo" aria-labelledby="nucleo-title">
+</div></details>
+     <details id="nucleo-proyecto"><summary><span>NÚCLEO · Software y colaboración</span><span class="studio-plus" aria-hidden="true">+</span></summary><div class="studio-accordion-body"><section class="section nucleo-funding" id="apoyar-nucleo" aria-labelledby="nucleo-title">
       <div class="container">
         <div class="nucleo-top">
           <span class="nucleo-label">PROYECTO INDEPENDIENTE · CAYELAB</span>
@@ -504,22 +683,58 @@ body{font-size:17px;line-height:1.65}
         <p class="nucleo-legal"><strong>Transparencia:</strong> los aportes son voluntarios; no son una inversión financiera, no conceden acciones, propiedad del software ni prometen ganancias o devoluciones. NÚCLEO está en desarrollo y el lanzamiento futuro como código abierto es un objetivo, no una fecha o resultado garantizado. No se publicarán documentos ni datos privados de los negocios utilizados durante las pruebas.</p>
       </div>
     </section>
-    <section class="section intake-section" id="diagnostico" aria-labelledby="intake-title"><div class="container intake-layout">
-<div class="intake-copy"><p class="eyebrow orange">CONVERSACIONES QUE SE CONVIERTEN EN SOLUCIONES</p><h2 id="intake-title">¿Qué problema querés resolver en tu negocio?</h2>
-<p>Puede ser una cuenta corriente difícil de controlar, un sistema de reservas que te complica, una web que necesita mejorar o tareas administrativas que consumen horas.</p>
-<p>Explicame la situación con tus palabras. Primero evaluamos el problema y las posibilidades; después podemos definir etapas y presupuesto.</p>
-<ul><li>No necesitás saber de tecnología.</li><li>Podés consultar por un problema pequeño o un desarrollo completo.</li><li>En esta primera consulta no envíes contraseñas ni datos sensibles.</li></ul>
-<a class="intake-other" href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">También podés escribir por Instagram ↗</a></div>
-<form class="intake-form" id="intake-form"><h3>Contame qué necesitás.</h3><p>Se prepara un mensaje y se abre WhatsApp para que decidas enviarlo.</p>
-<label for="contact-name">Tu nombre *</label><input id="contact-name" autocomplete="name" maxlength="70" placeholder="¿Cómo te llamás?" required>
-<label for="contact-business">Negocio o emprendimiento</label><input id="contact-business" maxlength="90" placeholder="Opcional">
-<label for="contact-issue">¿En qué necesitás ayuda? *</label><select id="contact-issue" required>
-<option value="">Elegí una opción</option><option value="Páginas web">Páginas web y presencia digital</option><option value="Sistemas a medida">Sistemas y paneles a medida</option><option value="Reservas y turnos">Reservas y turnos</option><option value="Facturas y proveedores">Facturas y proveedores</option><option value="Pagos y cuentas corrientes">Pagos y cuentas corrientes</option><option value="Automatización">Automatización</option><option value="Informes y tableros">Informes y tableros</option><option value="Integraciones">Integraciones entre herramientas</option><option value="Soporte IT">Soporte IT</option><option value="Procesos e IA">Procesos e IA supervisada</option><option value="NÚCLEO">Conocer o aportar a NÚCLEO</option><option value="Otro">Otro problema</option></select>
-<label for="contact-detail">Contame qué pasa y qué te gustaría lograr *</label><textarea id="contact-detail" rows="5" maxlength="1800" placeholder="Por ejemplo: tenemos facturas dispersas en Drive y queremos ver lo pendiente por proveedor..." required></textarea>
-<button class="btn btn-primary" type="submit">ENVIAR CONSULTA POR WHATSAPP ↗</button><p class="privacy-note">Este formulario no almacena tus datos en esta web. Solo prepara un mensaje para WhatsApp.</p></form></div></section>
-    <section class="section cta-section" id="contacto" aria-labelledby="contact-title"><div class="container cta-box"><div class="cta-bg" aria-hidden="true">✳</div><p class="eyebrow">05 / PRÓXIMOS PROYECTOS</p><h2 id="contact-title">¿Y si encontramos<br><span>una solución concreta?</span></h2><p>Contame tu desafío. Puede ser tecnología, administración o una idea digital. Empezamos por entender qué necesitás y cómo hacerlo realidad.</p><div class="cta-actions"><a class="btn btn-dark" href="#diagnostico">Contame tu problema <span aria-hidden="true">↗</span></a><a class="cta-text-link" href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer">Ver CayeLab en Google <span aria-hidden="true">↗</span></a></div><div class="cta-bottom"><span>CAYELAB / DISEÑAMOS OPORTUNIDADES.</span><span>ARGENTINA · SERVICIOS DIGITALES</span></div></div></section>
+    <section class="campaign-strip"><div class="container campaign-inner"><div><span>NÚCLEO / PROYECTO EN DESARROLLO</span><strong>Un software de gestión que quiero llevar a emprendedores, PyMEs y empresas.</strong><p>Conocé los avances, sumá tus ideas o apoyá una futura versión de código abierto.</p></div><div class="campaign-actions"><a class="btn btn-primary" href="#apoyar-nucleo">Apoyá NÚCLEO ↗</a></div></div></section>
+    <section class="tv-support" id="colaborar-todo-vuelve" aria-labelledby="tv-support-title">
+ <div class="tv-support-wrap">
+  <span class="tv-eyebrow">PROYECTO NÚCLEO · CAYELAB</span>
+  <h2 id="tv-support-title">Estamos construyendo algo grande. Y podés ser parte.</h2>
+  <p>NÚCLEO es un proyecto de software administrativo en desarrollo, pensado para simplificar la gestión de pequeños negocios. La meta es compartir herramientas de código abierto y permitir que la comunidad acompañe su evolución con aportes voluntarios.</p>
+  <div class="tv-hero-card">
+   <strong>Primero, conocé NÚCLEO y todo lo que estamos construyendo</strong>
+   <p>Un proyecto tecnológico nacido de años de experiencia práctica. Podés conocerlo, compartirlo, ofrecer una oportunidad laboral o apoyarlo voluntariamente.</p>
+   <a class="tv-btn" href="#apoyar-nucleo">💻 CONOCER EL PROYECTO NÚCLEO ↗</a>
+   <a class="tv-btn tv-outline" href="https://caye2404.github.io/cayelab-web/nucleo-demo/" style="margin-top:10px">VER DEMOSTRACIÓN ↗</a>
+  </div>
+  <span class="tv-eyebrow">COLABORACIONES VOLUNTARIAS</span>
+  <h2>Elegí cómo acompañarme</h2>
+  <p>Si está dentro de tus posibilidades y querés colaborar, cualquier aporte es bienvenido. No es una compra, inversión ni participación en un sorteo. <strong>No hay premios ni contraprestaciones garantizadas.</strong> También podés ayudar compartiendo o acercándome trabajo.</p>
+  <div class="tv-payment-grid">
+   <article class="tv-payment-card">
+    <div class="tv-mark" aria-label="PayPal">Pay<span style="color:#81cfff">Pal</span></div>
+    <h3>Donar con PayPal</h3>
+    <p>Aporte voluntario, también desde el exterior cuando PayPal lo permita.</p>
+    <form action="https://www.paypal.com/donate" method="post" target="_blank">
+     <input type="hidden" name="hosted_button_id" value="LC22GZCYF8AH4">
+     <button class="tv-btn tv-paypal" type="submit"><span class="tv-paypal-brand">Pay<span>Pal</span></span> DONAR ↗</button>
+    </form>
+   </article>
+   <article class="tv-payment-card">
+    <div class="tv-mark tv-galicia" aria-label="Banco Galicia">Galicia</div>
+    <h3>Transferencia · Banco Galicia</h3>
+    <p><strong>Titular: Cayetano Raúl Benítez</strong></p>
+    <span class="tv-alias">caye2000</span>
+    <button type="button" class="tv-btn tv-copy-alias" data-alias="caye2000">⧉ COPIAR ALIAS GALICIA</button>
+    <p class="tv-copy-note" role="status" aria-live="polite"></p>
+   </article>
+  </div>
+  <div class="tv-owner" aria-label="Titular de las cuentas"><strong>Titular: Cayetano Raúl Benítez</strong><span>CUIT: 20-33083610-6</span><small>Todos los medios informados por el titular. Verificá en tu aplicación el nombre del destinatario antes de enviar cualquier aporte.</small></div>
+  <div class="tv-meta">
+   <div><span class="tv-eyebrow">TRANSPARENCIA</span><strong>Recaudación confirmada: <span class="tv-verified-amount" aria-live="polite">pendiente de verificación</span></strong><small>El total se publicará únicamente después de conciliar los aportes. Sin cifras inventadas.</small></div>
+   
+  </div>
+  <p class="tv-note">Los aportes son personales y completamente voluntarios. Si colaborás, no adquirís derechos sobre NÚCLEO ni sobre premios futuros. Mi compromiso es compartir avances, el destino de los fondos y las formas en que pueda agradecer a quienes me acompañan, sin prometer beneficios específicos. Gracias por ayudar a construir el próximo capítulo.</p>
+ </div>
+</section>
+    </div></details>
+   </div>
+ </div>
+</section>
   </main>
-  <footer class="site-footer"><div class="container"><div class="footer-top"><a class="footer-brand" href="#top" aria-label="CayeLab, volver arriba">Caye<span>Lab</span><small>DISEÑAMOS OPORTUNIDADES.</small></a><div class="footer-links"><a href="#problemas">Problemas</a><a href="https://cayelab-web.pages.dev/nucleo-demo/" target="_blank" rel="noopener noreferrer">NÚCLEO DEMO</a><a href="#servicios">Servicios</a><a href="#soluciones">Enfoque</a><a href="#diagnostico">Consulta</a><a href="#colaborar-todo-vuelve">Cómo colaborar</a><a href="https://wa.me/5491126830194?text=Hola%20Caye%2C%20quiero%20hacer%20una%20consulta%20sobre%20CayeLab." target="_blank" rel="noopener noreferrer">WhatsApp ↗</a><a href="#apoyar-nucleo">Apoyar NÚCLEO</a><a href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer">Perfil de Google ↗</a></div></div><div class="footer-line"><p>© <span id="year">2026</span> CayeLab. Todos los derechos reservados.</p><p>Diseño y tecnología con propósito. <a href="#top">Volver arriba ↑</a></p></div></div></footer>
+  <footer class="site-footer"><div class="container"><div class="footer-top"><a class="footer-brand" href="#top" aria-label="CayeLab, volver arriba">Caye<span>Lab</span><small>DISEÑAMOS OPORTUNIDADES.</small></a><div class="footer-links">
+<a href="#portfolio-cayelab">Mis trabajos</a><a href="#servicios">Servicios</a><a href="#opiniones">Opiniones</a><a href="#mas-informacion">Más sobre mí</a><a href="#diagnostico">Contactame</a>
+<a href="/nucleo-demo/" target="_blank" rel="noopener noreferrer">NÚCLEO Demo ↗</a>
+<a href="https://www.instagram.com/cayelab.ar/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+<a href="https://share.google/8e7nB3o5RjyFquyhs" target="_blank" rel="noopener noreferrer">Google ↗</a></div></div><div class="footer-line"><p>© <span id="year">2026</span> CayeLab. Todos los derechos reservados.</p><p>Diseño y tecnología con propósito. <a href="#top">Volver arriba ↑</a></p></div></div></footer>
 <script>
 (() => {
   'use strict';
@@ -607,6 +822,23 @@ body{font-size:17px;line-height:1.65}
     });
   });
 
+})();
+</script>
+
+<script>
+(function(){
+  function revealDeepLink(){
+    var hash=location.hash;
+    if(!hash || hash==="#")return;
+    var target=document.getElementById(decodeURIComponent(hash.slice(1)));
+    if(!target)return;
+    var accordion=target.closest('.studio-accordion>details');
+    if(accordion && !accordion.open)accordion.open=true;
+    var nested=target.closest('details');
+    if(nested && nested!==accordion && !nested.open)nested.open=true;
+  }
+  window.addEventListener('hashchange',revealDeepLink);
+  document.addEventListener('DOMContentLoaded',revealDeepLink);
 })();
 </script>
 </body>
